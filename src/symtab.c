@@ -7,6 +7,10 @@
 
 // root sym_table
 
+/*
+ * @brief: get symbol table
+ * return: symbol_tab* 
+ */
 symbol_tab* get_stable()
 {
     static symbol_tab* tab = 0;
@@ -28,6 +32,12 @@ symbol_tab* get_stable()
     return tab;
 }
 
+/*
+ * @brief: free node
+ * @param: symbol_tab* stab
+ * @param: node* n
+ * return: void
+ */
 void free_node(symbol_tab* stab, node* n)
 {
     free(n->sym);
@@ -36,6 +46,14 @@ void free_node(symbol_tab* stab, node* n)
     n = 0;
 }
 
+/*
+ * @brief: intitialize symbol
+ * @param: symbol** s
+ * @param: const char* id
+ * @param: const char* type_modifiers
+ * @param: const char* type)
+ * return: void
+ */
 void init_symbol(symbol** s, const char* id, const char* type_modifiers, const char* type)
 {
     *s =  (symbol*)malloc( sizeof(symbol) );
@@ -47,6 +65,11 @@ void init_symbol(symbol** s, const char* id, const char* type_modifiers, const c
     strcpy((*s)->type, type);
 }
 
+/*
+ * @brief: intitialize sub-tbale
+ * @param: symbol_tab* parent
+ * @return: void
+ */
 void init_sub_table(symbol_tab* parent)
 {
     symbol_tab* symtab = (symbol_tab*)malloc( sizeof(symbol_tab) );
@@ -55,6 +78,13 @@ void init_sub_table(symbol_tab* parent)
     //symtab->parent = parent->head;
 }
 
+/*
+ * @brief: add symbol
+ * @param: symbol_tab* stab
+ * @param: const char* id
+ * @param: const char* val
+ * return: void
+ */
 void add_symbol(symbol_tab* stab, const char* id, const char* val)
 {
     // create symbol
@@ -69,6 +99,14 @@ void add_symbol(symbol_tab* stab, const char* id, const char* val)
     tail->next = new_node;
 }
 
+/*
+ * @brief: insert symbol
+ * @param: symbol_tab* stab
+ * @param: const char* dst_id
+ * @param: const char* src_id
+ * @param: const char* src_val
+ * return: void
+ */
 void insert_symbol(symbol_tab* stab, const char* dst_id, const char* src_id, const char* src_val)
 {
     // create symbol

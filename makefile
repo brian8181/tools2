@@ -21,7 +21,7 @@ SRC = src
 
 # NEW
 # lib settings
-INCLUDES=-I/usr/local/include/cppunit/ -I"/home/brian/src/boost_1_91_0" -I./$(SRC) -I./$(BLD) -I./$(TST)
+INCLUDES=-I/usr/local/include/cppunit -I"/home/brian/src/boost_1_91_0" -I./$(SRC) -I./$(BLD) -I./$(TST)
 LIBS=-fPIC -L/usr/lib -L/usr/lib64 -L/usr/local/lib -L/usr/local/lib64 -lfmt -lcppunit
 LDFLAGS=$(INCLUDES) $(LIBS) $(INC)
 
@@ -38,9 +38,9 @@ $(OBJ)/symtab.o
 #$(OBJ2)/selectfd.o
 
 
-all: $(BLD)/libtools.a
-	@echo "$(FMT)$(RELEASE)-building prequisite -> $^ ... \nbuilding -> $@ ...$(FMT_RESET)"
-	#$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
+all: $(BLD)/libtools.a $(BLD)/TEST_tools2
+	@echo -e "building prequisite -> $^ ... \nbuilding -> $@ ...$(FMT_RESET)"
+#$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
 
 rebuild: clean all
 
@@ -63,6 +63,9 @@ $(OBJ)/%.o: $(SRC1)/%.c
 
 $(OBJ)/%.o: $(SRC)/%.cpp
 	$(CXX) $(CXXFLAGS) -c $^ -o $@
+
+$(BLD)/TEST_tools2: $(OBJ)/TEST_tools2.o
+	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
 
 # %.o: %.c:
 # 	$(COMPILE.c) $(OUTPUT_OPTION) $<
