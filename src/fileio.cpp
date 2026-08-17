@@ -19,7 +19,9 @@ using std::pair;
 using std::stringstream;
 
 /**
- *
+ * @brief  get file size
+ * @param  const path& : path to file
+ * @return long: file size
  */
 long file_size(const string &path)
 {
