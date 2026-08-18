@@ -1,0 +1,2 @@
+/usr/bin/ar qc libtools2_a.a CMakeFiles/tools2_a.dir/src/utility.cpp.o CMakeFiles/tools2_a.dir/src/fileio.cpp.o CMakeFiles/tools2_a.dir/src/utest.cpp.o CMakeFiles/tools2_a.dir/src/singleton.cpp.o CMakeFiles/tools2_a.dir/src/variant.cpp.o CMakeFiles/tools2_a.dir/src/logger.cpp.o CMakeFiles/tools2_a.dir/src/loop.cpp.o
+/usr/bin/ranlib libtools2_a.a

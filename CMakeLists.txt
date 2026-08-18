@@ -17,29 +17,13 @@ if(CMAKE_SYSTEM_NAME STREQUAL "CYGWIN")
     add_definitions(-DCYGWIN)
 endif()
 
-add_executable(tools2
-    src/tools2.cpp
-    src/main.cpp
-)
-
 
 add_library(tools2_a STATIC
-    src/tools2.cpp
-
+    src/utility.cpp 
+    src/fileio.cpp 
+    src/utest.cpp 
+    src/singleton.cpp 
+    src/variant.cpp 
+    src/logger.cpp
+    src/loop.cpp
 )
-
-#[=[
-    # Add Library
-    add_library(targetName [STATIC | SHARED | MODULE]
-    [EXCLUDE_FROM_ALL]
-    source1 [source2 ...]
-)
-]=]`
-
-#[=[
-install(TARGETS MyApp AlgoRuntime AlgoSDK
-    RUNTIME DESTINATION bin
-    LIBRARY DESTINATION lib
-    ARCHIVE DESTINATION lib
-)
-]=]
