@@ -18,7 +18,6 @@ APPNAME = tools
 BLD = ../build
 OBJ = ../build
 SRC = .
-OBJ2 = ../build
 
 # NEW
 # lib settings
@@ -27,15 +26,15 @@ LIBS=-fPIC -L/usr/lib -L/usr/lib64 -L/usr/local/lib -L/usr/local/lib64 -lfmt
 LDFLAGS=$(INCLUDES) $(LIBS) $(INC)
 
 OBJS= \
-$(OBJ2)/utility.o \
-$(OBJ2)/fileio.o \
-$(OBJ2)/utest.o \
-$(OBJ2)/singleton.o \
-$(OBJ2)/symtab.o \
-$(OBJ2)/variant.o \
-$(OBJ2)/logger.o \
-$(OBJ2)/loop.o \
-#$(OBJ2)/selectfd.o
+$(OBJ)/utility.o \
+$(OBJ)/fileio.o \
+$(OBJ)/utest.o \
+$(OBJ)/singleton.o \
+$(OBJ)/symtab.o \
+$(OBJ)/variant.o \
+$(OBJ)/logger.o \
+$(OBJ)/loop.o \
+#$(OBJ)/selectfd.o
 
 
 tools: $(OBJS) 

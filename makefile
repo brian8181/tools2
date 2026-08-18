@@ -1,25 +1,19 @@
 # FILE: makefile
 # VERSION: 0.0.3
-# FILE_DATE: Sat Sep 21 05:55:14 AM CDT 2024
+# FILE_DATE: Tue Aug 18 05:08:41 PM CDT 2026
 # INFO: basic makefile
 
-CXX = g++
-CC = gcc
-CXXFLAGS = -std=c++17 -Wall -DDEBUG -ggdb # -fanalyzer
-#CXXFLAGS = -std=c++17 -Wall -DDEBUG -ggdb
+CXX=g++
+CC=gcc
+CXXFLAGS=-std=c++17 -Wall -DDEBUG -ggdb
 CFLAGS=
-CXXEXTRA = #-Wall -Wextra -Wno-interference-size
-#LDFLAGS = -fPIC -L/usr/local/lib/libfmtd.so
-#LDFLAGS = -fPIC -L/usr/local/lib64/libfmt.a
-#LDFLAGS = -static -lcppunit -L/usr/local/lib/
-#INCLUDES = -I/usr/local/include/cppunit/
+CXXEXTRA=#-Wall -Wextra -Wno-interference-size
 PREFIX=/usr/local
-APPNAME = tools
-BLD = build
-OBJ = build
-SRC = src
+APPNAME=tools
+BLD=build
+OBJ=build
+SRC=src
 
-# NEW
 # lib settings
 INCLUDES=-I/usr/local/include/cppunit -I"/home/brian/src/boost_1_91_0" -I./$(SRC) -I./$(BLD) -I./$(TST)
 LIBS=-fPIC -L/usr/lib -L/usr/lib64 -L/usr/local/lib -L/usr/local/lib64 -lfmt -lcppunit
@@ -35,7 +29,7 @@ $(OBJ)/logger.o \
 $(OBJ)/loop.o \
 $(OBJ)/SmartPtr.o \
 $(OBJ)/symtab.o 
-#$(OBJ2)/selectfd.o
+#$(OBJ)/selectfd.o
 
 
 all: $(BLD)/libtools.a $(BLD)/TEST_tools2
@@ -66,12 +60,6 @@ $(OBJ)/%.o: $(SRC)/%.cpp
 
 $(BLD)/TEST_tools2: $(OBJ)/TEST_tools2.o
 	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
-
-# %.o: %.c:
-# 	$(COMPILE.c) $(OUTPUT_OPTION) $<
-
-# $(BLD)/test1: $(SRC)/test1.cpp $(OBJ)/colorize.o
-# 	$(CXX) $(CXXFLAGS) $(SRC)/test1.cpp $(OBJ)/colorize.o -o $(BLD)/test1
 
 # $(OBJ)/float_bytes: $(SRC)/float_bytes.cpp
 # 	$(CXX) $(CXXFLAGS) $(SRC)/float_bytes.cpp -o $(OBJ)/float_bytes
@@ -116,7 +104,6 @@ $(BLD)/TEST_tools2: $(OBJ)/TEST_tools2.o
 
 $(OBJ)/float_bytes: $(SRC)/float_bytes.cpp
 	$(CXX) $(CXXFLAGS) $(SRC)/float_bytes.cpp -o $(OBJ)/float_bytes
-
 
 # observer / observable pattern
 $(OBJ)/observable.o: $(SRC)/observable.cpp
