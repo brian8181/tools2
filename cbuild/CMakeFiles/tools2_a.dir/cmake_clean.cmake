@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/tools2_a.dir/src/loop.cpp.o.d"
   "CMakeFiles/tools2_a.dir/src/singleton.cpp.o"
   "CMakeFiles/tools2_a.dir/src/singleton.cpp.o.d"
+  "CMakeFiles/tools2_a.dir/src/symtab.c.o"
+  "CMakeFiles/tools2_a.dir/src/symtab.c.o.d"
   "CMakeFiles/tools2_a.dir/src/utest.cpp.o"
   "CMakeFiles/tools2_a.dir/src/utest.cpp.o.d"
   "CMakeFiles/tools2_a.dir/src/utility.cpp.o"
@@ -18,6 +20,6 @@ file(REMOVE_RECURSE
 )
 
 # Per-language clean rules from dependency scanning.
-foreach(lang CXX)
+foreach(lang C CXX)
   include(CMakeFiles/tools2_a.dir/cmake_clean_${lang}.cmake OPTIONAL)
 endforeach()

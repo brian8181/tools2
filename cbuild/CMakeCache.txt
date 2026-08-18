@@ -151,7 +151,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=scanner
+CMAKE_PROJECT_NAME:STATIC=tools2
 
 //Value Computed by CMake
 CMAKE_PROJECT_SPDX_LICENSE:STATIC=
@@ -229,6 +229,15 @@ scanner_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 scanner_SOURCE_DIR:STATIC=/home/brian/src/tools2
+
+//Value Computed by CMake
+tools2_BINARY_DIR:STATIC=/home/brian/src/tools2/cbuild
+
+//Value Computed by CMake
+tools2_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+tools2_SOURCE_DIR:STATIC=/home/brian/src/tools2
 
 
 ########################

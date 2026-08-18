@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/brian/src/tools2/src/symtab.c" "CMakeFiles/tools2_a.dir/src/symtab.c.o" "gcc" "CMakeFiles/tools2_a.dir/src/symtab.c.o.d"
   "/home/brian/src/tools2/src/fileio.cpp" "CMakeFiles/tools2_a.dir/src/fileio.cpp.o" "gcc" "CMakeFiles/tools2_a.dir/src/fileio.cpp.o.d"
   "/home/brian/src/tools2/src/logger.cpp" "CMakeFiles/tools2_a.dir/src/logger.cpp.o" "gcc" "CMakeFiles/tools2_a.dir/src/logger.cpp.o.d"
   "/home/brian/src/tools2/src/loop.cpp" "CMakeFiles/tools2_a.dir/src/loop.cpp.o" "gcc" "CMakeFiles/tools2_a.dir/src/loop.cpp.o.d"

@@ -5,7 +5,7 @@
 # @version: 0.0.1
 
 cmake_minimum_required(VERSION 3.28.3)
-project(scanner)
+project(tools2)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
@@ -26,4 +26,5 @@ add_library(tools2_a STATIC
     src/variant.cpp 
     src/logger.cpp
     src/loop.cpp
+    src/symtab.c
 )

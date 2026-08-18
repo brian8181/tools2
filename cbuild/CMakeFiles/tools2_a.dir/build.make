@@ -170,6 +170,20 @@ CMakeFiles/tools2_a.dir/src/loop.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tools2_a.dir/src/loop.cpp.s"
 	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/brian/src/tools2/src/loop.cpp -o CMakeFiles/tools2_a.dir/src/loop.cpp.s
 
+CMakeFiles/tools2_a.dir/src/symtab.c.o: CMakeFiles/tools2_a.dir/flags.make
+CMakeFiles/tools2_a.dir/src/symtab.c.o: /home/brian/src/tools2/src/symtab.c
+CMakeFiles/tools2_a.dir/src/symtab.c.o: CMakeFiles/tools2_a.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/brian/src/tools2/cbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/tools2_a.dir/src/symtab.c.o"
+	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/tools2_a.dir/src/symtab.c.o -MF CMakeFiles/tools2_a.dir/src/symtab.c.o.d -o CMakeFiles/tools2_a.dir/src/symtab.c.o -c /home/brian/src/tools2/src/symtab.c
+
+CMakeFiles/tools2_a.dir/src/symtab.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/tools2_a.dir/src/symtab.c.i"
+	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/brian/src/tools2/src/symtab.c > CMakeFiles/tools2_a.dir/src/symtab.c.i
+
+CMakeFiles/tools2_a.dir/src/symtab.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/tools2_a.dir/src/symtab.c.s"
+	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/brian/src/tools2/src/symtab.c -o CMakeFiles/tools2_a.dir/src/symtab.c.s
+
 # Object files for target tools2_a
 tools2_a_OBJECTS = \
 "CMakeFiles/tools2_a.dir/src/utility.cpp.o" \
@@ -178,7 +192,8 @@ tools2_a_OBJECTS = \
 "CMakeFiles/tools2_a.dir/src/singleton.cpp.o" \
 "CMakeFiles/tools2_a.dir/src/variant.cpp.o" \
 "CMakeFiles/tools2_a.dir/src/logger.cpp.o" \
-"CMakeFiles/tools2_a.dir/src/loop.cpp.o"
+"CMakeFiles/tools2_a.dir/src/loop.cpp.o" \
+"CMakeFiles/tools2_a.dir/src/symtab.c.o"
 
 # External object files for target tools2_a
 tools2_a_EXTERNAL_OBJECTS =
@@ -190,9 +205,10 @@ libtools2_a.a: CMakeFiles/tools2_a.dir/src/singleton.cpp.o
 libtools2_a.a: CMakeFiles/tools2_a.dir/src/variant.cpp.o
 libtools2_a.a: CMakeFiles/tools2_a.dir/src/logger.cpp.o
 libtools2_a.a: CMakeFiles/tools2_a.dir/src/loop.cpp.o
+libtools2_a.a: CMakeFiles/tools2_a.dir/src/symtab.c.o
 libtools2_a.a: CMakeFiles/tools2_a.dir/build.make
 libtools2_a.a: CMakeFiles/tools2_a.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/brian/src/tools2/cbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX static library libtools2_a.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/brian/src/tools2/cbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX static library libtools2_a.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/tools2_a.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/tools2_a.dir/link.txt --verbose=$(VERBOSE)
 

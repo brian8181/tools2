@@ -225,6 +225,30 @@ src/singleton.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tools2_a.dir/build.make CMakeFiles/tools2_a.dir/src/singleton.cpp.s
 .PHONY : src/singleton.cpp.s
 
+src/symtab.o: src/symtab.c.o
+.PHONY : src/symtab.o
+
+# target to build an object file
+src/symtab.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tools2_a.dir/build.make CMakeFiles/tools2_a.dir/src/symtab.c.o
+.PHONY : src/symtab.c.o
+
+src/symtab.i: src/symtab.c.i
+.PHONY : src/symtab.i
+
+# target to preprocess a source file
+src/symtab.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tools2_a.dir/build.make CMakeFiles/tools2_a.dir/src/symtab.c.i
+.PHONY : src/symtab.c.i
+
+src/symtab.s: src/symtab.c.s
+.PHONY : src/symtab.s
+
+# target to generate assembly for a file
+src/symtab.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tools2_a.dir/build.make CMakeFiles/tools2_a.dir/src/symtab.c.s
+.PHONY : src/symtab.c.s
+
 src/utest.o: src/utest.cpp.o
 .PHONY : src/utest.o
 
@@ -318,6 +342,9 @@ help:
 	@echo "... src/singleton.o"
 	@echo "... src/singleton.i"
 	@echo "... src/singleton.s"
+	@echo "... src/symtab.o"
+	@echo "... src/symtab.i"
+	@echo "... src/symtab.s"
 	@echo "... src/utest.o"
 	@echo "... src/utest.i"
 	@echo "... src/utest.s"
