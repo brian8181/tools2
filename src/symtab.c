@@ -5,8 +5,6 @@
 
 #include "symtab.h"
 
-// root sym_table
-
 /*
  * @brief: get symbol table
  * return: symbol_tab* 
@@ -121,6 +119,12 @@ void insert_symbol(symbol_tab* stab, const char* dst_id, const char* src_id, con
     dst_node->next = src_node;
 }
 
+/*
+ * @brief: remove symbol
+ * @param: symbol_tab* stab
+ * @param: const char* id
+ * return: void
+ */
 void remove_symbol(symbol_tab* stab, const char* id)
 {
     node* cur = get_stable()->head;
@@ -138,6 +142,12 @@ void remove_symbol(symbol_tab* stab, const char* id)
     }
 }
 
+/*
+ * @brief: remove all symbols
+ * @param: symbol_tab* stab
+ * return: void
+ */
+
 void clear_symbols(symbol_tab* stab)
 {
     node* cur = get_stable()->head;
@@ -151,6 +161,12 @@ void clear_symbols(symbol_tab* stab)
     }
 }
 
+/*
+ * @brief: find symbol by address
+ * @param: symbol_tab* stab
+ * @param: symbol* sym
+ * return: symbol*
+ */
 symbol* find_symbol_by_addr(symbol_tab* stab, symbol* sym)
 {
     node* cur = get_stable()->head;
@@ -166,6 +182,12 @@ symbol* find_symbol_by_addr(symbol_tab* stab, symbol* sym)
     return 0;
 }
 
+/*
+ * @brief: find symbol by id
+ * @param: symbol_tab* stab
+ * @param: const char* id
+ * return: symbol*
+ */
 symbol* find_symbol_by_id(symbol_tab* stab, const char* id)
 {
     node* cur = get_stable()->head;
@@ -181,6 +203,12 @@ symbol* find_symbol_by_id(symbol_tab* stab, const char* id)
     return 0;
 }
 
+/*
+ * @brief: find symbol by id
+ * @param: symbol_tab* stab
+ * @param: const char* id
+ * return: symbol*
+ */
 symbol* find_symbol(symbol_tab* stab, const char* id)
 {
     node* cur = get_stable()->head;
@@ -196,6 +224,12 @@ symbol* find_symbol(symbol_tab* stab, const char* id)
     return 0;
 }
 
+/*
+ * @brief: find node by id
+ * @param: symbol_tab* stab
+ * @param: const char* id
+ * return: node*
+ */
 node* find_node(symbol_tab* stab, const char* id)
 {
     node* cur = get_stable()->head;
@@ -211,6 +245,11 @@ node* find_node(symbol_tab* stab, const char* id)
     return 0;
 }
 
+/*
+ * @brief: find tail node
+ * @param: symbol_tab* stab
+ * return: node*
+ */
 node* find_tail(symbol_tab* stab)
 {
     node* cur = get_stable()->head;
@@ -223,6 +262,11 @@ node* find_tail(symbol_tab* stab)
     return cur;
 }
 
+/*
+ * @brief: get size
+ * @param: symbol_tab* stab
+ * return: in
+ */
 int size(symbol_tab* stab)
 {
     int k = 0;
