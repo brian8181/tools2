@@ -31,8 +31,8 @@ $(OBJ)/SmartPtr.o \
 $(OBJ)/symtab.o \
 $(OBJ)/tools2.o \
 $(OBJ)/TEST_tools2.o \
-$(OBJ)/tools2_test.o
-#$(OBJ)/TEST_variant.o
+$(OBJ)/tools2_test.o \
+$(OBJ)/TEST_variant.o
 #$(OBJ)/selectfd.o
 
 
@@ -62,10 +62,10 @@ $(OBJ)/%.o: $(SRC1)/%.c
 $(OBJ)/%.o: $(SRC)/%.cpp
 	$(CXX) $(CXXFLAGS) -c $^ -o $@
 
-$(BLD)/TEST_tools2: $(OBJ)/TEST_tools2.o 
+$(BLD)/TEST_tools2: $(OBJ)/TEST_variant.o $(OBJ)/TEST_tools2.o 
 	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
 
-$(BLD)/tools2_test: $(OBJ)/tools2_variant.o $(OBJ)/tools2_test.o
+$(BLD)/tools2_test: $(OBJ)/tools2_test.o
 	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
 
 # $(OBJ)/float_bytes: $(SRC)/float_bytes.cpp

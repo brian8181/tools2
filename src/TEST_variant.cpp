@@ -26,34 +26,34 @@ using namespace std;
 //HACK!
 //int parse_options(int argc, char* argv[]);
 
-void TEST_variant::setUp()
-{
-}
+// void TEST_variant::setUp()
+// {
+// }
 
-void TEST_variant::tearDown()
-{
-}
+// void TEST_variant::tearDown()
+// {
+//}
 
-void TEST_variant::execute()
-{
-    // on head
-    char** pstr = new char*;
-    *pstr = (char*)"test";    // on the heap
+// void TEST_variant::execute()
+// {
+//     // on head
+//     char** pstr = new char*;
+//     *pstr = (char*)"test";    // on the heap
 
-    char** argv = new char*[1] {*pstr};
-    //argv[0] = *pstr;
+//     char** argv = new char*[1] {*pstr};
+//     //argv[0] = *pstr;
 
-    execute(1, argv);
+//     execute(1, argv);
 
-    delete pstr;
-    delete [] argv;
+//     delete pstr;
+//     delete [] argv;
 
-    // on stack
-    //char* argv_[3] {(char*)"./App", (char*)"abc", (char*)"abc"};
-}
+//     // on stack
+//     //char* argv_[3] {(char*)"./App", (char*)"abc", (char*)"abc"};
+// }
 
-void TEST_variant::execute(int argc, char* argv[])
-{
+// void TEST_variant::execute(int argc, char* argv[])
+// {
 
-}
+// }
 
