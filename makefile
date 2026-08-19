@@ -65,7 +65,7 @@ $(OBJ)/%.o: $(SRC)/%.cpp
 $(BLD)/TEST_tools2: $(OBJ)/TEST_tools2.o 
 	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
 
-$(BLD)/tools2_test: $(OBJ)/tools2_test.o
+$(BLD)/tools2_test: $(OBJ)/tools2_variant.o $(OBJ)/tools2_test.o
 	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
 
 # $(OBJ)/float_bytes: $(SRC)/float_bytes.cpp
