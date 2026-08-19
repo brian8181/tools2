@@ -26,15 +26,15 @@ using namespace std;
 //HACK!
 //int parse_options(int argc, char* argv[]);
 
-void TEST_tools2::setUp()
+void TEST_variant::setUp()
 {
 }
 
-void TEST_tools2::tearDown()
+void TEST_variant::tearDown()
 {
 }
 
-void TEST_tools2::execute()
+void TEST_variant::execute()
 {
     // on head
     char** pstr = new char*;
@@ -52,7 +52,7 @@ void TEST_tools2::execute()
     //char* argv_[3] {(char*)"./App", (char*)"abc", (char*)"abc"};
 }
 
-void TEST_tools2::execute(int argc, char* argv[])
+void TEST_variant::execute(int argc, char* argv[])
 {
 
 }
