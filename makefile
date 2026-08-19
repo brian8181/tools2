@@ -30,8 +30,8 @@ $(OBJ)/loop.o \
 $(OBJ)/SmartPtr.o \
 $(OBJ)/symtab.o \
 $(OBJ)/tools2.o \
-$(OBJ)/TEST_tools2.o \
 $(OBJ)/tools2_test.o \
+$(OBJ)/TEST_tools2.o \
 $(OBJ)/TEST_variant.o
 #$(OBJ)/selectfd.o
 
