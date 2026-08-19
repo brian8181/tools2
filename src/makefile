@@ -21,7 +21,7 @@ SRC = .
 
 # NEW
 # lib settings
-INCLUDES=-I/usr/local/include/cppunit/ -I"/home/brian/src/boost_1_91_0" -I./$(SRC) -I./$(BLD) -I./$(TST)
+INCLUDES=-I/usr/local/include/cppunit/ -I"/home/brian/src/boost_1_91_0" -I"/home/brian/src/cppunit-1.15.1/include/" -I./$(SRC) -I./$(BLD) -I./$(TST)
 LIBS=-fPIC -L/usr/lib -L/usr/lib64 -L/usr/local/lib -L/usr/local/lib64 -lfmt
 LDFLAGS=$(INCLUDES) $(LIBS) $(INC)
 

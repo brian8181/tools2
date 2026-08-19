@@ -15,7 +15,7 @@ OBJ=build
 SRC=src
 
 # lib settings
-INCLUDES=-I/usr/local/include/cppunit -I"/home/brian/src/boost_1_91_0" -I./$(SRC) -I./$(BLD) -I./$(TST)
+INCLUDES=-I/usr/local/include/cppunit -I"/home/brian/src/boost_1_91_0" -I"/home/brian/src/cppunit-1.15.1/include/" -I./$(SRC) -I./$(BLD) -I./$(TST)
 LIBS=-fPIC -L/usr/lib -L/usr/lib64 -L/usr/local/lib -L/usr/local/lib64 -lfmt -lcppunit
 LDFLAGS=$(INCLUDES) $(LIBS) $(INC)
 
@@ -28,7 +28,9 @@ $(OBJ)/variant.o \
 $(OBJ)/logger.o \
 $(OBJ)/loop.o \
 $(OBJ)/SmartPtr.o \
-$(OBJ)/symtab.o 
+$(OBJ)/symtab.o \
+$(OBJ)/TEST_tools2.o \
+$(OBJ)/TEST_variant.o
 #$(OBJ)/selectfd.o
 
 
@@ -58,7 +60,7 @@ $(OBJ)/%.o: $(SRC1)/%.c
 $(OBJ)/%.o: $(SRC)/%.cpp
 	$(CXX) $(CXXFLAGS) -c $^ -o $@
 
-$(BLD)/TEST_tools2: $(OBJ)/TEST_tools2.o
+$(BLD)/TEST_tools2: $(OBJ)/TEST_tools2.o $(OBJ)/TEST_variant.o
 	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
 
 # $(OBJ)/float_bytes: $(SRC)/float_bytes.cpp

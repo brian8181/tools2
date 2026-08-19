@@ -1,3 +1,7 @@
+/* @file    symtab.h
+ * @version 0.0.1
+ * @date    Wed Aug 19 01:47:09 PM CDT 2026
+ */
 #ifndef _SYMTAB_H_
 #define _SYMTAB_H_
 

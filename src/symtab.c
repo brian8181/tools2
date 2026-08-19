@@ -1,4 +1,7 @@
-
+/* @file    symtab.c
+ * @version 0.0.1
+ * @date    Wed Aug 19 01:47:09 PM CDT 2026
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -147,7 +150,6 @@ void remove_symbol(symbol_tab* stab, const char* id)
  * @param: symbol_tab* stab
  * return: void
  */
-
 void clear_symbols(symbol_tab* stab)
 {
     node* cur = get_stable()->head;
