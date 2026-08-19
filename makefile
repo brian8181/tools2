@@ -36,7 +36,7 @@ $(OBJ)/tools2_test.o
 #$(OBJ)/selectfd.o
 
 
-all: $(BLD)/libtools.a #$(BLD)/tools2_test #$(BLD)/TEST_tools2
+all: $(BLD)/libtools.a $(BLD)/TEST_tools2
 	@echo -e "building prequisite -> $^ ... \nbuilding -> $@ ...$(FMT_RESET)"
 #$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
 
@@ -62,10 +62,10 @@ $(OBJ)/%.o: $(SRC1)/%.c
 $(OBJ)/%.o: $(SRC)/%.cpp
 	$(CXX) $(CXXFLAGS) -c $^ -o $@
 
-$(BLD)/TEST_tools2: $(OBJ)/TEST_tools2.o $(OBJ)/TEST_variant.o
+$(BLD)/TEST_tools2: $(OBJ)/TEST_tools2.o 
 	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
 
-$(BLD)/tools2_test: $(OBJ)/tools2.o $(OBJ)/tools2_test.o
+$(BLD)/tools2_test: $(OBJ)/tools2_test.o
 	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
 
 # $(OBJ)/float_bytes: $(SRC)/float_bytes.cpp
