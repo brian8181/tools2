@@ -5,6 +5,9 @@
 #ifndef _SYMTAB_H_
 #define _SYMTAB_H_
 
+/*
+ * @struct: symbol
+ */
 typedef struct symbol
 {
     char* id;
@@ -12,50 +15,23 @@ typedef struct symbol
     char* type;
     void* pval;
 } symbol;
-
+/*
+ * @struct: node
+ */
 typedef struct node
 {
     symbol* sym;
     struct node* next;
     struct node* prev;
 } node;
-
-typedef struct binary_node
-{
-    void* data;
-    struct node* left;
-    struct node* right;
-} binary_node;
-
-typedef struct tree_node
-{
-    void* data;
-    int count;
-    struct tree_node* nodes;
-} tree_node;
-
-
-typedef struct map_node
-{
-    int key;
-    char*name;
-    symbol* sym;
-} map_node;
-
-typedef struct object
-{
-    char* fields[255];
-    symbol symbols[255];
-    node* next;
-} object;
-
+/*
+ * @struct: symbol_tab
+ */
 typedef struct symbol_tab
 {
    node* head;
    struct symbol_tab* parent;
 } symbol_tab;
-
-// get root symbol table
 
 /*
  * @brief: get symbol table
@@ -133,7 +109,8 @@ symbol* find_symbol_by_id(symbol_tab* stab, const char* id);
  * @param: symbol_tab* stab
  * @param: const char* id
  * return: symbol*
- */symbol* find_symbol(symbol_tab* stab, const char* id);
+ */
+symbol* find_symbol(symbol_tab* stab, const char* id);
 /*
  * @brief: find node by id
  * @param: symbol_tab* stab

@@ -71,7 +71,7 @@ public:
 	void operator=(const variant& src)
 	{
 		clear();
-		etype type = src.m_type;
+		//etype type = src.m_type;
 		switch(m_type)
 		{
 			case etype::VAR_I4:

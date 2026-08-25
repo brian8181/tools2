@@ -28,6 +28,12 @@ void print_assert(bool assert, string name)
     //fmt::print(fg(assert ? fmt::color::green : fmt::color::red) | fmt::emphasis::bold, s + '\n');
 }
 
+/**
+ * @brief assert
+ * @param T& actual
+ * @param T& expected
+ * @return bool
+ */
 template<typename T>
 bool ASSERT_IS(T& actual, T& expected)
 {
@@ -36,6 +42,12 @@ bool ASSERT_IS(T& actual, T& expected)
     return assert;
 }
 
+/**
+ * @brief assert
+ * @param T& actual
+ * @param T& expected
+ * @return bool
+ */
 template<typename T>
 bool ASSERT_EQUAL (T actual, T expected)
 {
@@ -44,6 +56,12 @@ bool ASSERT_EQUAL (T actual, T expected)
     return assert;
 }
 
+/**
+ * @brief assert
+ * @param T& actual
+ * @param T& expected
+ * @return bool
+ */
 template<typename T>
 bool ASSERT_NOT_EQUAL (T actual, T expected)
 {
@@ -52,6 +70,12 @@ bool ASSERT_NOT_EQUAL (T actual, T expected)
     return assert;
 }
 
+/**
+ * @brief assert
+ * @param T& actual
+ * @param T& expected
+ * @return bool
+ */
 template<typename T>
 bool ASSERT_GREATER_THAN (T actual, T expected)
 {
@@ -60,6 +84,12 @@ bool ASSERT_GREATER_THAN (T actual, T expected)
     return assert;
 }
 
+/**
+ * @brief assert
+ * @param T& actual
+ * @param T& expected
+ * @return bool
+ */
 template<typename T>
 bool ASSERT_LESS_THAN (T actual, T expected)
 {
@@ -68,6 +98,12 @@ bool ASSERT_LESS_THAN (T actual, T expected)
     return assert;
 }
 
+/**
+ * @brief assert
+ * @param T& actual
+ * @param T& expected
+ * @return bool
+ */
 template<typename T>
 bool ASSERT_NOT_LESS_THAN (T actual, T expected)
 {
@@ -76,6 +112,12 @@ bool ASSERT_NOT_LESS_THAN (T actual, T expected)
     return assert;
 }
 
+/**
+ * @brief assert
+ * @param T& actual
+ * @param T& expected
+ * @return bool
+ */
 template<typename T>
 bool ASSERT_NOT_GREATER_THAN (T actual, T expected)
 {
@@ -84,27 +126,50 @@ bool ASSERT_NOT_GREATER_THAN (T actual, T expected)
     return assert;
 }
 
+/**
+ * @brief assert
+ * @param T& actual
+ * @param T& expected
+ * @return bool
+ */
 void ASSERT_INCONCLUSIVE ()
 {
     print_assert(false, "ASSERT_INCONCLUSIVE");
 }
 
+/**
+ * @brief assert
+ * @return bool
+ */
 void ASSERT_FAIL()
 {
     print_assert(false, "ASSERT_FAIL");
 }
 
+/**
+ * @brief assert
+ * @return bool
+ */
 void ASSERT_PASS ()
 {
     print_assert(true, "ASSERT_PASS");
 }
 
+/**
+ * @brief assert
+ * @return bool
+ */
 void ASSERT_IGNORE ()
 {
     print_assert(true, "ASSERT_INGONED");
 
 }
 
+/**
+ * @brief assert
+ * @param const string& path
+ * @return bool
+ */
 bool ASSERT_FILE (const string& path)
 {
     bool assert = std::filesystem::exists(path);
@@ -112,6 +177,11 @@ bool ASSERT_FILE (const string& path)
     return assert;
 }
 
+/**
+ * @brief assert
+ * @param const string& path
+ * @return bool
+ */
 bool ASSERT_DIRECTORY (const string& path)
 {
     std::filesystem::directory_entry dir_entry(path);

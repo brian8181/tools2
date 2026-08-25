@@ -5,7 +5,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
 #include "symtab.h"
 
 /*
@@ -21,9 +20,12 @@ symbol_tab* get_stable()
 
     symbol* streamy_init_object = (symbol*)malloc(sizeof(symbol));
     // bkp todo! allocate strings ...
-    streamy_init_object->id = "$streamy";
-    streamy_init_object->type = "object";
-    streamy_init_object->type_modifiers = "static";
+    char id[] = "$streamy";
+    char type[] = "object";
+    char type_mods[] = "static";
+    streamy_init_object->id = id;
+    streamy_init_object->type = type;
+    streamy_init_object->type_modifiers = type_mods;
     streamy_init_object->pval = 0;
     tab = (symbol_tab*)malloc(sizeof(symbol_tab));
     tab->head = (node*)malloc(sizeof(node));
