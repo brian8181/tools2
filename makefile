@@ -48,7 +48,7 @@ $(OBJ)/TEST_variant.o
 #$(OBJ)/selectfd.o
 
 
-all: $(BLD)/libtools.a $(BLD)/TEST_tools2
+all: $(BLD)/libtools.a $(BLD)/TEST_tools2 $(BLD)/iomanip_ex $(BLD)/logger_test
 	@echo -e "building prequisite -> $^ ... \nbuilding -> $@ ...$(FMT_RESET)"
 
 $(OBJ)/%.o: $(SRC)/%.c
@@ -100,6 +100,12 @@ $(OBJ)/observable_test.o: $(SRC)/observable_test.cpp
 
 $(BLD)/observable_test: $(OBJ)/observable_test.o $(SRC)/observable.o $(OBJ)/observer.o
 	$(CXX) $(CXXFLAGS) $(OBJ)/observable_test.o $(SRC)/observable.o $(OBJ)/observer.o -o $(BLD)/observable_test
+
+$(BLD)/iomanip_ex: $(OBJ)/iomanip_ex.o
+	$(CXX) $(CXXFLAGS) $^ -o $@
+
+$(BLD)/logger_test: $(OBJ)/logger.o $(OBJ)/logger_test.o
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
 .PHONY: all clean install unintsall rebuild help
 rebuild: clean all

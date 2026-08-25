@@ -9,7 +9,7 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "make -f ${workspaceFolder}/build/${fileWorkspaceFolderBasename}",
+            "program": "${workspaceFolder}/build/${fileWorkspaceFolderBasename}",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
