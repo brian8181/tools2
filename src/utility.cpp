@@ -144,6 +144,18 @@ string& to_lower(string& s) // in place
     return s;
 }
 
+const char* to_lower(const char* s)
+{
+    int len = strlen(s);
+    char* r = new char[len+1];
+    for(int i = 0; i < len; ++i)
+    {
+        r[i] = tolower(s[i]);
+    }
+
+    return r;
+}
+
 string& to_upper(const string& s, /* out */ string& r)
 {
     int len = s.length();
