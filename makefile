@@ -51,12 +51,6 @@ $(OBJ)/TEST_variant.o
 all: $(BLD)/libtools.a $(BLD)/TEST_tools2 $(BLD)/iomanip_ex $(BLD)/logger_test
 	@echo -e "building prequisite -> $^ ... \nbuilding -> $@ ...$(FMT_RESET)"
 
-$(OBJ)/%.o: $(SRC)/%.c
-	$(CXX) $(CXXFLAGS) -c $^ -o $@
-
-$(OBJ)/%.o: $(SRC)/%.cpp
-	$(CXX) $(CXXFLAGS) -c $^ -o $@
-
 $(BLD)/TEST_tools2: $(OBJ)/TEST_variant.o $(OBJ)/TEST_tools2.o 
 	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
 
@@ -72,21 +66,6 @@ $(BLD)/libtools2.so: $(BLD)/tools2.o
 	$(CXX) $(CXXFLAGS) --shared $(OBJ)/tools2.o $(LDFLAGS) -o $(BLD)/libtools2.so
 	chmod 755 $(BLD)/libtools2.so
 	cp $(BLD)/libtools2.so ~/src/lib
-
-# $(BLD)/libutility.a: $(BLD)/utility.o
-# 	ar rvs $(BLD)/libutility.a $(OBJ)/utility.o
-# 	chmod 755 $(BLD)/libutility.a
-# 	cp $(BLD)/libutility.a ~/src/lib
-
-# $(BLD)/libfileio.so: $(BLD)/fileio.o
-# 	$(CXX) $(CXXFLAGS) --shared $(OBJ)/fileio.o -o $(BLD)/libfileio.so
-# 	chmod 755 $(BLD)/libfileio.so
-# 	cp $(BLD)/libfileio.so ~/src/lib
-
-# $(BLD)/libfileio.a: $(BLD)/fileio.o
-# 	ar rvs $(BLD)/libfileio.a $(OBJ)/fileio.o
-# 	chmod 755 $(BLD)/libfileio.a
-# 	cp $(BLD)/libfileio.a ~/src/lib
 
 # observer / observable pattern
 $(OBJ)/observable.o: $(SRC)/observable.cpp
@@ -107,12 +86,22 @@ $(BLD)/iomanip_ex: $(OBJ)/iomanip_ex.o
 $(BLD)/logger_test: $(OBJ)/logger.o $(OBJ)/logger_test.o
 	$(CXX) $(CXXFLAGS) $^ -o $@
 
+# build object files
+$(OBJ)/%.o: $(SRC)/%.c
+	$(CXX) $(CXXFLAGS) -c $^ -o $@
+
+$(OBJ)/%.o: $(SRC)/%.cpp
+	$(CXX) $(CXXFLAGS) -c $^ -o $@
+
 .PHONY: all clean install unintsall rebuild help
 rebuild: clean all
+
 install:
 	cp ./$(BLD)/tools2 ./$(prefix)/bin/tools2
+
 uninstall:
 	-rm ./$(prefix)/bin/tools2
+
 clean:
 	@echo "removing files ..."
 	-rm -f $(OBJ)/*

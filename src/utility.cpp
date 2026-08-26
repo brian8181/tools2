@@ -72,11 +72,12 @@ int atoi(const char* s)
     return num;
 }
 
-/// name: itoa
-/// info: int to ascii
-/// n, number to eval
-/// s, out parma
-/// return: void
+/* name: itoa
+* info: int to ascii
+* n, number to eval
+* s, out parma
+* return: void
+*/
 void itoa(int& n, char* s)
 {
     int len = digits10(n);
