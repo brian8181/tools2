@@ -9,7 +9,7 @@
 
 /*
  * @brief: get symbol table
- * return: symbol_tab* 
+ * @return: symbol_tab* 
  */
 symbol_tab* get_stable()
 {
@@ -39,7 +39,7 @@ symbol_tab* get_stable()
  * @brief: free node
  * @param: symbol_tab* stab
  * @param: node* n
- * return: void
+ * @return: void
  */
 void free_node(symbol_tab* stab, node* n)
 {
@@ -55,7 +55,7 @@ void free_node(symbol_tab* stab, node* n)
  * @param: const char* id
  * @param: const char* type_modifiers
  * @param: const char* type)
- * return: void
+ * @return: void
  */
 void init_symbol(symbol** s, const char* id, const char* type_modifiers, const char* type)
 {
@@ -86,7 +86,7 @@ void init_sub_table(symbol_tab* parent)
  * @param: symbol_tab* stab
  * @param: const char* id
  * @param: const char* val
- * return: void
+ * @return: void
  */
 void add_symbol(symbol_tab* stab, const char* id, const char* val)
 {
@@ -108,7 +108,7 @@ void add_symbol(symbol_tab* stab, const char* id, const char* val)
  * @param: const char* dst_id
  * @param: const char* src_id
  * @param: const char* src_val
- * return: void
+ * @return: void
  */
 void insert_symbol(symbol_tab* stab, const char* dst_id, const char* src_id, const char* src_val)
 {
@@ -128,7 +128,7 @@ void insert_symbol(symbol_tab* stab, const char* dst_id, const char* src_id, con
  * @brief: remove symbol
  * @param: symbol_tab* stab
  * @param: const char* id
- * return: void
+ * @return: void
  */
 void remove_symbol(symbol_tab* stab, const char* id)
 {
@@ -150,7 +150,7 @@ void remove_symbol(symbol_tab* stab, const char* id)
 /*
  * @brief: remove all symbols
  * @param: symbol_tab* stab
- * return: void
+ * @return: void
  */
 void clear_symbols(symbol_tab* stab)
 {
@@ -169,7 +169,7 @@ void clear_symbols(symbol_tab* stab)
  * @brief: find symbol by address
  * @param: symbol_tab* stab
  * @param: symbol* sym
- * return: symbol*
+ * @return: symbol*
  */
 symbol* find_symbol_by_addr(symbol_tab* stab, symbol* sym)
 {
@@ -180,7 +180,7 @@ symbol* find_symbol_by_addr(symbol_tab* stab, symbol* sym)
     {
         symbol* s = cur->sym;
         if(s == sym)
-            return s;
+            @return s;
         cur = cur->next;
     }
     return 0;
@@ -190,7 +190,7 @@ symbol* find_symbol_by_addr(symbol_tab* stab, symbol* sym)
  * @brief: find symbol by id
  * @param: symbol_tab* stab
  * @param: const char* id
- * return: symbol*
+ * @return: symbol*
  */
 symbol* find_symbol_by_id(symbol_tab* stab, const char* id)
 {
@@ -211,7 +211,7 @@ symbol* find_symbol_by_id(symbol_tab* stab, const char* id)
  * @brief: find symbol by id
  * @param: symbol_tab* stab
  * @param: const char* id
- * return: symbol*
+ * @return: symbol*
  */
 symbol* find_symbol(symbol_tab* stab, const char* id)
 {

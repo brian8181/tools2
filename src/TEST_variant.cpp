@@ -1,6 +1,7 @@
-/* @file    tools2.hpp
+/**
+ * @file    variant.hpp
  * @version 0.0.1
- * @date    Wed Aug 19 01:47:09 PM CDT 2026
+ * @date    Mon, 17 Aug 2026 14:38:40 +0000
  */
 #include <iostream>
 #include <string>
@@ -23,37 +24,63 @@
 using namespace CppUnit;
 using namespace std;
 
-//HACK!
-//int parse_options(int argc, char* argv[]);
 
-// void TEST_variant::setUp()
-// {
-// }
+CPPUNIT_TEST_SUITE_REGISTRATION( TEST_variant );
 
-// void TEST_variant::tearDown()
-// {
-//}
+void TEST_variant::setUp()
+{
+}
 
-// void TEST_variant::execute()
-// {
-//     // on head
-//     char** pstr = new char*;
-//     *pstr = (char*)"test";    // on the heap
+void TEST_variant::tearDown()
+{
+}
 
-//     char** argv = new char*[1] {*pstr};
-//     //argv[0] = *pstr;
+void TEST_variant::testNoOptions()
+{
+    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
+}
 
-//     execute(1, argv);
+void TEST_variant::testOptionHelp()
+{
+    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
+}
 
-//     delete pstr;
-//     delete [] argv;
+void TEST_variant::testOptionHelpLong()
+{
+    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
+}
 
-//     // on stack
-//     //char* argv_[3] {(char*)"./App", (char*)"abc", (char*)"abc"};
-// }
+void TEST_variant::testOptionVerbose()
+{
+    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
+}
 
-// void TEST_variant::execute(int argc, char* argv[])
-// {
+void TEST_variant::testOptionVerboseLong()
+{
+   //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
+}
 
-// }
+void TEST_variant::execute()
+{
+    // on head
+    char** pstr = new char*;
+    *pstr = (char*)"test";    // on the heap
+
+    char** argv = new char*[1] {*pstr};
+    //argv[0] = *pstr;
+
+    execute(1, argv);
+
+    delete pstr;
+    delete [] argv;
+
+    // on stack
+    //char* argv_[3] {(char*)"./App", (char*)"abc", (char*)"abc"};
+}
+
+void TEST_variant::execute(int argc, char* argv[])
+{
+
+}
+
 
