@@ -1,3 +1,0 @@
-/home/brian/src/tools2/cbuild/CMakeFiles/tools2_a.dir
-/home/brian/src/tools2/cbuild/CMakeFiles/edit_cache.dir
-/home/brian/src/tools2/cbuild/CMakeFiles/rebuild_cache.dir

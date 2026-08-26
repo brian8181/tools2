@@ -1,7 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"/home/brian/src/tools2/cbuild/cmake_install.cmake"
-	],
-	"Parallel" : false
-}
