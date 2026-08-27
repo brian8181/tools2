@@ -151,7 +151,7 @@ const char* to_lower(const char* s)
     char* r = new char[len+1];
     for(int i = 0; i < len; ++i)
     {
-        r[i] = std::tolower(s[i]);
+            r[i] = std::tolower(s[i]);
     }
     return r;
 }
@@ -185,7 +185,7 @@ const char* to_upper(const char* s)
     char* r = new char[len+1];
     for(int i = 0; i < len; ++i)
     {
-        r[i] = std::toupper(s[i]);
+            r[i] = std::toupper(s[i]);
     }
     return r;
 }

@@ -180,7 +180,7 @@ symbol* find_symbol_by_addr(symbol_tab* stab, symbol* sym)
     {
         symbol* s = cur->sym;
         if(s == sym)
-            @return s;
+            return s;
         cur = cur->next;
     }
     return 0;

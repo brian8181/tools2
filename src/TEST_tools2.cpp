@@ -24,6 +24,7 @@
 using namespace CppUnit;
 using namespace std;
 
+CPPUNIT_TEST_SUITE_REGISTRATION( TEST_tools2 );
 //int parse_options(int argc, char* argv[]);
 
 void TEST_tools2::setUp()
@@ -80,37 +81,4 @@ void TEST_tools2::execute()
 void TEST_tools2::execute(int argc, char* argv[])
 {
 
-}
-
-CPPUNIT_TEST_SUITE_REGISTRATION( TEST_tools2 );
-
-int main(int argc, char* argv[])
-{
-    // informs test-listener about testresults
-    CPPUNIT_NS::TestResult testresult;
-
-    // register listener for collecting the test-results
-    CPPUNIT_NS::TestResultCollector collectedresults;
-    testresult.addListener (&collectedresults);
-
-    // register listener for per-test progress output
-    CPPUNIT_NS::BriefTestProgressListener progress;
-    testresult.addListener (&progress);
-
-    // insert test-suite at test-runner by registry
-    CPPUNIT_NS::TestRunner testrunner;
-    testrunner.addTest (CPPUNIT_NS::TestFactoryRegistry::getRegistry().makeTest ());
-    testrunner.run(testresult);
-
-    // output resint* pn = new int;ults in compiler-format
-    CPPUNIT_NS::CompilerOutputter compileroutputter(&collectedresults, std::cerr);
-    compileroutputter.write ();
-
-    // Output XML for Jenkins CPPunit plugin
-    ofstream xmlFileOut("cppTEST_tools2Results.xml");
-    XmlOutputter xmlOut(&collectedresults, xmlFileOut);
-    xmlOut.write();
-
-    // return 0 if tests were successful
-    return collectedresults.wasSuccessful() ? 0 : 1;
 }

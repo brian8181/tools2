@@ -27,7 +27,7 @@ OBJ=build
 TST=build
 
 # lib settings
-INCLUDES=-I/usr/local/include/cppunit -I"/home/brian/src/boost_1_91_0" -I"/home/brian/src/cppunit-1.15.1/include/" -I./$(SRC) -I./$(BLD) -I./$(TST)
+INCLUDES=-I"/home/brian/src/boost_1_91_0" -I./$(SRC) -I./$(BLD) -I./$(TST)
 LIBS=-fPIC -L/usr/lib -L/usr/lib64 -L/usr/local/lib -L/usr/local/lib64 -lfmt -lcppunit
 LDFLAGS=$(INCLUDES) $(LIBS)
 
@@ -47,11 +47,19 @@ $(OBJ)/TEST_tools2.o \
 $(OBJ)/TEST_variant.o
 #$(OBJ)/selectfd.o
 
+OBJ_TST= \
+$(OBJ)/TEST.o \
+$(OBJ)/TEST_variant.o \
+$(OBJ)/TEST_utility.o \
+$(OBJ)/TEST_tools2.o \
+$(OBJ)/TEST_symtab.o \
+$(OBJ)/TEST_logger.o \
+$(OBJ)/TEST_fileio.o
 
-all: $(BLD)/libtools.a $(BLD)/TEST_tools2 $(BLD)/iomanip_ex $(BLD)/logger_test
+all: $(BLD)/TEST # $(BLD)/iomanip_ex $(BLD)/logger_test
 	@echo -e "building prequisite -> $^ ... \nbuilding -> $@ ...$(FMT_RESET)"
 
-$(BLD)/TEST_tools2: $(OBJ)/TEST_variant.o $(OBJ)/TEST_tools2.o 
+$(BLD)/TEST: $(OBJ_TST)
 	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
 
 $(BLD)/tools2_test: $(OBJ)/tools2_test.o

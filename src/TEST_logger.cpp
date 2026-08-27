@@ -1,5 +1,5 @@
 /**
- * @file    fileio.hpp
+ * @file    logger.hpp
  * @version 0.0.1
  * @date    Mon, 17 Aug 2026 14:38:40 +0000
  */
@@ -18,49 +18,49 @@
 #include <cppunit/CompilerOutputter.h>
 #include <cppunit/XmlOutputter.h>
 #include <netinet/in.h>
-#include "TEST_fileio.hpp"
+#include "TEST_logger.hpp"
 #include <string.h>
 
 using namespace CppUnit;
 using namespace std;
 
 
-CPPUNIT_TEST_SUITE_REGISTRATION( TEST_fileio );
+CPPUNIT_TEST_SUITE_REGISTRATION( TEST_logger );
 
-void TEST_fileio::setUp()
+void TEST_logger::setUp()
 {
 }
 
-void TEST_fileio::tearDown()
+void TEST_logger::tearDown()
 {
 }
 
-void TEST_fileio::testNoOptions()
-{
-    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
-}
-
-void TEST_fileio::testOptionHelp()
+void TEST_logger::testNoOptions()
 {
     //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
 }
 
-void TEST_fileio::testOptionHelpLong()
+void TEST_logger::testOptionHelp()
 {
     //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
 }
 
-void TEST_fileio::testOptionVerbose()
+void TEST_logger::testOptionHelpLong()
 {
     //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
 }
 
-void TEST_fileio::testOptionVerboseLong()
+void TEST_logger::testOptionVerbose()
+{
+    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
+}
+
+void TEST_logger::testOptionVerboseLong()
 {
    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
 }
 
-void TEST_fileio::execute()
+void TEST_logger::execute()
 {
     // on head
     char** pstr = new char*;
@@ -78,7 +78,7 @@ void TEST_fileio::execute()
     //char* argv_[3] {(char*)"./App", (char*)"abc", (char*)"abc"};
 }
 
-void TEST_fileio::execute(int argc, char* argv[])
+void TEST_logger::execute(int argc, char* argv[])
 {
 
 }

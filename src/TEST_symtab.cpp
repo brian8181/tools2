@@ -1,5 +1,5 @@
 /**
- * @file    fileio.hpp
+ * @file    symtab.hpp
  * @version 0.0.1
  * @date    Mon, 17 Aug 2026 14:38:40 +0000
  */
@@ -18,49 +18,49 @@
 #include <cppunit/CompilerOutputter.h>
 #include <cppunit/XmlOutputter.h>
 #include <netinet/in.h>
-#include "TEST_fileio.hpp"
+#include "TEST_symtab.hpp"
 #include <string.h>
 
 using namespace CppUnit;
 using namespace std;
 
 
-CPPUNIT_TEST_SUITE_REGISTRATION( TEST_fileio );
+CPPUNIT_TEST_SUITE_REGISTRATION( TEST_symtab );
 
-void TEST_fileio::setUp()
+void TEST_symtab::setUp()
 {
 }
 
-void TEST_fileio::tearDown()
+void TEST_symtab::tearDown()
 {
 }
 
-void TEST_fileio::testNoOptions()
-{
-    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
-}
-
-void TEST_fileio::testOptionHelp()
+void TEST_symtab::testNoOptions()
 {
     //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
 }
 
-void TEST_fileio::testOptionHelpLong()
+void TEST_symtab::testOptionHelp()
 {
     //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
 }
 
-void TEST_fileio::testOptionVerbose()
+void TEST_symtab::testOptionHelpLong()
 {
     //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
 }
 
-void TEST_fileio::testOptionVerboseLong()
+void TEST_symtab::testOptionVerbose()
+{
+    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
+}
+
+void TEST_symtab::testOptionVerboseLong()
 {
    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
 }
 
-void TEST_fileio::execute()
+void TEST_symtab::execute()
 {
     // on head
     char** pstr = new char*;
@@ -78,7 +78,7 @@ void TEST_fileio::execute()
     //char* argv_[3] {(char*)"./App", (char*)"abc", (char*)"abc"};
 }
 
-void TEST_fileio::execute(int argc, char* argv[])
+void TEST_symtab::execute(int argc, char* argv[])
 {
 
 }

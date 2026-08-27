@@ -10,7 +10,8 @@
 using std::cout;
 using std::endl;
 
-int main() {
+int main() 
+{
 
     #ifdef __CYGWIN__
         std::cout << "Running on Cygwin." << std::endl;
