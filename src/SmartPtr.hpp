@@ -5,8 +5,9 @@
  * @brief Smart pointer implementation with reference counting.
  */
 
-#pragma once
-#include "debug.hpp"
+#ifndef _SmartPtr_HPP
+#define _SmartPtr_HPP
+
 #include <iostream>
 #include <string>
 #include <utility>
@@ -235,3 +236,5 @@ class SmartPtr
      */
     T *data_ptr = 0;
 };
+
+#endif

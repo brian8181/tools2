@@ -61,7 +61,6 @@ public:
 		return 0;
 	}
 
-
 	operator char*()
 	{
 		int len = std::strlen(m_str_val); 
@@ -80,12 +79,9 @@ public:
 				break;
 		}
 	}
-
 	
 private:
-	
 	etype m_type;
-
 	union
 	{
 		char* m_str_val;
