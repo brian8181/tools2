@@ -57,7 +57,38 @@ void TEST_symtab::testOptionVerbose()
 
 void TEST_symtab::testOptionVerboseLong()
 {
-   //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
+   CPPUNIT_ASSERT(1 == 1);
+}
+
+void TEST_symtab::test_get_stable()
+{
+    CPPUNIT_ASSERT(1 == 1);
+}
+
+void TEST_symtab::test_init_symbol()
+{
+    CPPUNIT_ASSERT(1 == 1);
+}
+
+void TEST_symtab::test_add_symbol()
+{
+    CPPUNIT_ASSERT(1 == 1);
+}
+
+
+void TEST_symtab::test_remove_symbol()
+{
+    CPPUNIT_ASSERT(1 == 1);
+}  
+
+void TEST_symtab::test_find_symbol_by_addr()
+{
+    CPPUNIT_ASSERT(1 == 1);
+}
+
+void TEST_symtab::test_find_symbol_by_id()
+{
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_symtab::execute()

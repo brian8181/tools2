@@ -121,11 +121,11 @@ help:
 	@echo
 	@echo  '    make [-f] [target]'
 	@echo
-	@echo  '   -Make Targets ...'
+	@echo  '    -Make Targets ...'
 	@echo
 	@echo  '        * all                              - build all'
-	@echo  '        * $(BLD)/tools2:          - re/build tools2'
-	@echo  '        * $(BLD)/tools2_utest:    - re/build tools2_utest, unit testing'
+	@echo  '        * $(BLD)/tools2:                   - re/build tools2'
+	@echo  '        * $(BLD)/tools2_utest:             - re/build tools2_utest, unit testing'
 	@echo  '        * clean                            - remove most generated files but keep the config'
 	@echo
 
