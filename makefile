@@ -56,43 +56,43 @@ $(OBJ)/TEST_symtab.o \
 $(OBJ)/TEST_logger.o \
 $(OBJ)/TEST_fileio.o
 
-all: $(BLD)/TEST # $(BLD)/iomanip_ex $(BLD)/logger_test
+all: $(BLD)/libtools.a $(BLD)/libtools.so $(BLD)/TEST # $(BLD)/iomanip_ex $(BLD)/logger_test
 	@echo -e "building prequisite -> $^ ... \nbuilding -> $@ ...$(FMT_RESET)"
-
-$(BLD)/TEST: $(OBJ_TST)
-	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
-
-$(BLD)/tools2_test: $(OBJ)/tools2_test.o
-	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
 
 $(BLD)/libtools.a: $(OBJS) 
 	ar rvs $@ $^
 	chmod 755 $@
 	cp $@ ~/src/lib
 
-$(BLD)/libtools2.so: $(BLD)/tools2.o
-	$(CXX) $(CXXFLAGS) --shared $(OBJ)/tools2.o $(LDFLAGS) -o $(BLD)/libtools2.so
-	chmod 755 $(BLD)/libtools2.so
-	cp $(BLD)/libtools2.so ~/src/lib
+$(BLD)/libtools.so: $(BLD)/tools2.o
+	$(CXX) $(CXXFLAGS) --shared $(OBJ)/tools2.o $(LDFLAGS) -o $(BLD)/libtools.so
+	chmod 755 $(BLD)/libtools.so
+	cp $(BLD)/libtools.so ~/src/lib
 
-# observer / observable pattern
-$(OBJ)/observable.o: $(SRC)/observable.cpp
-		$(CXX) $(CXXFLAGS) -c $(SRC)/observable.cpp -o $(OBJ)/observable.o
+$(BLD)/TEST: $(OBJ_TST)
+	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
 
-$(OBJ)/observer.o: $(SRC)/observer.cpp
-		$(CXX) $(CXXFLAGS) -c $(SRC)/observer.cpp -o $(OBJ)/observer.o
+# $(OBJ)/observable.o: $(SRC)/observable.cpp
+# 		$(CXX) $(CXXFLAGS) -c $(SRC)/observable.cpp -o $(OBJ)/observable.o
 
-$(OBJ)/observable_test.o: $(SRC)/observable_test.cpp
-	$(CXX) $(CXXFLAGS) -c $(SRC)/observable_test.cpp -o $(OBJ)/observable_test.o
+# $(OBJ)/observer.o: $(SRC)/observer.cpp
+# 		$(CXX) $(CXXFLAGS) -c $(SRC)/observer.cpp -o $(OBJ)/observer.o
 
-$(BLD)/observable_test: $(OBJ)/observable_test.o $(SRC)/observable.o $(OBJ)/observer.o
-	$(CXX) $(CXXFLAGS) $(OBJ)/observable_test.o $(SRC)/observable.o $(OBJ)/observer.o -o $(BLD)/observable_test
+# $(OBJ)/observable_test.o: $(SRC)/observable_test.cpp
+# 	$(CXX) $(CXXFLAGS) -c $(SRC)/observable_test.cpp -o $(OBJ)/observable_test.o
+
+# $(BLD)/observable_test: $(OBJ)/observable_test.o $(SRC)/observable.o $(OBJ)/observer.o
+# 	$(CXX) $(CXXFLAGS) $(OBJ)/observable_test.o $(SRC)/observable.o $(OBJ)/observer.o -o $(BLD)/observable_test
 
 $(BLD)/iomanip_ex: $(OBJ)/iomanip_ex.o
 	$(CXX) $(CXXFLAGS) $^ -o $@
 
 $(BLD)/logger_test: $(OBJ)/logger.o $(OBJ)/logger_test.o
 	$(CXX) $(CXXFLAGS) $^ -o $@
+
+$(BLD)/tools2_test: $(OBJ)/tools2_test.o
+	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
+
 
 # build object files
 $(OBJ)/%.o: $(SRC)/%.c
