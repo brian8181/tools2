@@ -69,7 +69,7 @@ int main()
 //     compileroutputter.write ();
 
 //     // Output XML for Jenkins CPPunit plugin
-//     ofstream xmlFileOut("cppTEST_tools2Results.xml");
+//     ofstream xmlFileOut("cppTEST_toolsResults.xml");
 //     XmlOutputter xmlOut(&collectedresults, xmlFileOut);
 //     xmlOut.write();
 

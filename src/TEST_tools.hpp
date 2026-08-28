@@ -1,17 +1,17 @@
 /**
- * @file    tools2.hpp
+ * @file    tools.hpp
  * @version 0.0.1
  * @date    Mon, 17 Aug 2026 14:38:40 +0000
  */
-#ifndef _TEST_tools2_H
-#define _TEST_tools2_H
+#ifndef _TEST_tools_H
+#define _TEST_tools_H
 
 #include <cppunit/Test.h>
 
-class TEST_tools2 : public CppUnit::TestFixture
+class TEST_tools : public CppUnit::TestFixture
 {
 private:
-    CPPUNIT_TEST_SUITE(TEST_tools2);
+    CPPUNIT_TEST_SUITE(TEST_tools);
     CPPUNIT_TEST(testNoOptions);
     CPPUNIT_TEST(testOptionHelp);
     CPPUNIT_TEST(testOptionHelpLong);

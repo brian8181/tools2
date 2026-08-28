@@ -11,15 +11,12 @@
 #-Wmissing-format-attribute -Wmissing-include-dirs -Wmissing-noreturn
 #-Wnested-externs -Wpacked -Wpointer-arith -Wredundant-decls
 #-Wstack-protector -Wstrict-null-sentinel -Wswitch-enum -Wwrite-strings
-
 SHELL:=bash
 
-APP=tools2
+APP=tools
 CXX=g++
 CC=gcc
 CXXFLAGS=-std=c++17 -Wall -DDEBUG -ggdb -fPIC
-CFLAGS=
-PREFIX=/usr/local
 
 SRC=src
 BLD=build
@@ -31,6 +28,9 @@ INCLUDES=-I"/home/brian/src/boost_1_91_0" -I./$(SRC) -I./$(BLD) -I./$(TST)
 LIBS=-fPIC -L/usr/lib -L/usr/lib64 -L/usr/local/lib -L/usr/local/lib64 -lfmt -lcppunit
 LDFLAGS=$(INCLUDES) $(LIBS)
 
+all: $(BLD)/libtools.a $(BLD)/libtools.so $(BLD)/TEST # $(BLD)/iomanip_ex $(BLD)/logger_test
+	@echo -e "building prequisite -> $^ ... \nbuilding -> $@ ...$(FMT_RESET)"
+
 OBJS= \
 $(OBJ)/utility.o \
 $(OBJ)/fileio.o \
@@ -41,33 +41,28 @@ $(OBJ)/logger.o \
 $(OBJ)/loop.o \
 $(OBJ)/SmartPtr.o \
 $(OBJ)/symtab.o \
-$(OBJ)/tools2.o \
-$(OBJ)/tools2_test.o \
-$(OBJ)/TEST_tools2.o \
-$(OBJ)/TEST_variant.o
-#$(OBJ)/selectfd.o
-
-OBJ_TST= \
-$(OBJ)/TEST.o \
-$(OBJ)/TEST_variant.o \
-$(OBJ)/TEST_utility.o \
-$(OBJ)/TEST_tools2.o \
-$(OBJ)/TEST_symtab.o \
-$(OBJ)/TEST_logger.o \
-$(OBJ)/TEST_fileio.o
-
-all: $(BLD)/libtools.a $(BLD)/libtools.so $(BLD)/TEST # $(BLD)/iomanip_ex $(BLD)/logger_test
-	@echo -e "building prequisite -> $^ ... \nbuilding -> $@ ...$(FMT_RESET)"
+$(OBJ)/tools.o \
+$(OBJ)/tools_test.o
 
 $(BLD)/libtools.a: $(OBJS) 
 	ar rvs $@ $^
 	chmod 755 $@
 	cp $@ ~/src/lib
 
-$(BLD)/libtools.so: $(BLD)/tools2.o
-	$(CXX) $(CXXFLAGS) --shared $(OBJ)/tools2.o $(LDFLAGS) -o $(BLD)/libtools.so
+$(BLD)/libtools.so: $(BLD)/tools.o
+	$(CXX) $(CXXFLAGS) --shared $(OBJ)/tools.o $(LDFLAGS) -o $(BLD)/libtools.so
 	chmod 755 $(BLD)/libtools.so
 	cp $(BLD)/libtools.so ~/src/lib
+
+
+OBJ_TST= \
+$(OBJ)/TEST.o \
+$(OBJ)/TEST_variant.o \
+$(OBJ)/TEST_utility.o \
+$(OBJ)/TEST_tools.o \
+$(OBJ)/TEST_symtab.o \
+$(OBJ)/TEST_logger.o \
+$(OBJ)/TEST_fileio.o
 
 $(BLD)/TEST: $(OBJ_TST)
 	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
@@ -90,7 +85,7 @@ $(BLD)/iomanip_ex: $(OBJ)/iomanip_ex.o
 $(BLD)/logger_test: $(OBJ)/logger.o $(OBJ)/logger_test.o
 	$(CXX) $(CXXFLAGS) $^ -o $@
 
-$(BLD)/tools2_test: $(OBJ)/tools2_test.o
+$(BLD)/tools_test: $(OBJ)/tools_test.o
 	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
 
 
@@ -105,10 +100,10 @@ $(OBJ)/%.o: $(SRC)/%.cpp
 rebuild: clean all
 
 install:
-	cp ./$(BLD)/tools2 ./$(prefix)/bin/tools2
+	cp ./$(BLD)/tools ./$(prefix)/bin/tools
 
 uninstall:
-	-rm ./$(prefix)/bin/tools2
+	-rm ./$(prefix)/bin/tools
 
 clean:
 	@echo "removing files ..."
@@ -117,15 +112,15 @@ clean:
 
 help:
 	@echo
-	@echo  'Project: tools2 : version 0.0.1 : Mon Aug 17 09:38:40 AM CDT 2026 simple "tools2" framework.'
+	@echo  'Project: tools : version 0.0.1 : Mon Aug 17 09:38:40 AM CDT 2026 simple "tools" framework.'
 	@echo
 	@echo  '    make [-f] [target]'
 	@echo
 	@echo  '    -Make Targets ...'
 	@echo
 	@echo  '        * all                              - build all'
-	@echo  '        * $(BLD)/tools2:                   - re/build tools2'
-	@echo  '        * $(BLD)/tools2_utest:             - re/build tools2_utest, unit testing'
+	@echo  '        * $(BLD)/tools:                   - re/build tools'
+	@echo  '        * $(BLD)/tools_utest:             - re/build tools_utest, unit testing'
 	@echo  '        * clean                            - remove most generated files but keep the config'
 	@echo
 
