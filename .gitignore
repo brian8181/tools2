@@ -5,3 +5,4 @@
 # @brief:   git ignore file
 
 build/*
+test.log
