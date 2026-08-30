@@ -20,6 +20,9 @@
 #include <netinet/in.h>
 #include "TEST_logger.hpp"
 #include <string.h>
+#include <iostream>
+#include <string>
+#include "logger.hpp"
 
 using namespace CppUnit;
 using namespace std;
@@ -55,8 +58,18 @@ void TEST_logger::testOptionVerbose()
     //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
 }
 
-void TEST_logger::testOptionVerboseLong()
+void TEST_logger::test_logger_open()
 {
+    logger* log = logger::instance();
+    log->open("test.log");
+    log->log("This is a test message.");
+    log->log("This is a test message with source.", "TEST_logger.cpp");
+    log->log("This is a test message with line number.", 42);
+    log->log("This is a test message with source and line number.", "TEST_logger.cpp", 42);
+    // *log << "This is a test message using operator<<." << std::endl;
+    // *log << 123 << std::endl;
+    // *log << 45.67 << std::endl;
+    // *log << 890L << std::endl;
    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
 }
 

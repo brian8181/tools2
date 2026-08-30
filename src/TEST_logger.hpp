@@ -7,6 +7,9 @@
 #define _TEST_logger_H
 
 #include <cppunit/Test.h>
+#include <cppunit/TestFixture.h>
+#include <cppunit/extensions/HelperMacros.h>
+#include "logger.hpp"
 
 class TEST_logger : public CppUnit::TestFixture
 {
@@ -16,7 +19,7 @@ private:
     CPPUNIT_TEST(testOptionHelp);
     CPPUNIT_TEST(testOptionHelpLong);
     CPPUNIT_TEST(testOptionVerbose);
-    CPPUNIT_TEST(testOptionVerboseLong);
+    CPPUNIT_TEST(test_logger_open);
     CPPUNIT_TEST_SUITE_END();
 
 public:
@@ -32,11 +35,12 @@ protected:
     void testOptionHelp();
     void testOptionHelpLong();
     void testOptionVerbose();
-    void testOptionVerboseLong();
+    void test_logger_open();
 
 private:
     int m_argc;
     char* m_argv[10];
+    logger* m_logger;
 
 };
 

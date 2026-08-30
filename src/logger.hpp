@@ -14,7 +14,7 @@ using std::string;
 using std::fstream;
 using std::ostream;
 
-class logger //: private singleton
+class logger : private singleton_base<logger>
 {
 private:
     logger();

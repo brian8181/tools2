@@ -55,10 +55,10 @@ void TEST_singleton::testOptionVerbose()
     //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
 }
 
-void TEST_singleton::testOptionVerboseLong()
-{
-   //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
-}
+// void TEST_singleton::testOptionVerboseLong()
+// {
+//    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
+// }
 
 void TEST_singleton::execute()
 {

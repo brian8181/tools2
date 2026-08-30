@@ -56,31 +56,19 @@ $(BLD)/libtools.so: $(BLD)/tools.o
 	chmod 755 $(BLD)/libtools.so
 	cp $(BLD)/libtools.so ~/src/lib
 
-
 OBJ_TST= \
 $(OBJ)/TEST.o \
 $(OBJ)/TEST_variant.o \
 $(OBJ)/TEST_utility.o \
 $(OBJ)/TEST_tools.o \
 $(OBJ)/TEST_symtab.o \
+$(OBJ)/logger.o \
 $(OBJ)/TEST_logger.o \
 $(OBJ)/TEST_fileio.o \
 $(OBJ)/TEST_singleton.o
 
 $(BLD)/TEST: $(OBJ_TST)
 	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
-
-# $(OBJ)/observable.o: $(SRC)/observable.cpp
-# 		$(CXX) $(CXXFLAGS) -c $(SRC)/observable.cpp -o $(OBJ)/observable.o
-
-# $(OBJ)/observer.o: $(SRC)/observer.cpp
-# 		$(CXX) $(CXXFLAGS) -c $(SRC)/observer.cpp -o $(OBJ)/observer.o
-
-# $(OBJ)/observable_test.o: $(SRC)/observable_test.cpp
-# 	$(CXX) $(CXXFLAGS) -c $(SRC)/observable_test.cpp -o $(OBJ)/observable_test.o
-
-# $(BLD)/observable_test: $(OBJ)/observable_test.o $(SRC)/observable.o $(OBJ)/observer.o
-# 	$(CXX) $(CXXFLAGS) $(OBJ)/observable_test.o $(SRC)/observable.o $(OBJ)/observer.o -o $(BLD)/observable_test
 
 $(BLD)/iomanip_ex: $(OBJ)/iomanip_ex.o
 	$(CXX) $(CXXFLAGS) $^ -o $@
