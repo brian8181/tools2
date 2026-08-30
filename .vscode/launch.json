@@ -9,7 +9,7 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/${fileWorkspaceFolderBasename}",
+            "program": "${workspaceFolder}/build/logger_test",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",

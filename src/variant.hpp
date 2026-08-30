@@ -16,7 +16,8 @@ using namespace std;
   */
 class variant
 {
-public:
+	// signed unsigned
+	// short, int, long, float, double, char, string
 	enum etype
 	{
 		VAR_I4,

@@ -28,7 +28,7 @@ INCLUDES=-I"/home/brian/src/boost_1_91_0" -I./$(SRC) -I./$(BLD) -I./$(TST)
 LIBS=-fPIC -L/usr/lib -L/usr/lib64 -L/usr/local/lib -L/usr/local/lib64 -lfmt -lcppunit
 LDFLAGS=$(INCLUDES) $(LIBS)
 
-all: $(BLD)/libtools.a $(BLD)/libtools.so $(BLD)/TEST # $(BLD)/iomanip_ex $(BLD)/logger_test
+all: $(BLD)/libtools.a $(BLD)/libtools.so $(BLD)/TEST $(BLD)/logger_test # $(BLD)/iomanip_ex $(BLD)/logger_test
 	@echo -e "building prequisite -> $^ ... \nbuilding -> $@ ...$(FMT_RESET)"
 
 OBJS= \
@@ -42,7 +42,9 @@ $(OBJ)/loop.o \
 $(OBJ)/SmartPtr.o \
 $(OBJ)/symtab.o \
 $(OBJ)/tools.o \
-$(OBJ)/tools_test.o
+$(OBJ)/tools_test.o \
+$(OBJ)/singleton.o \
+$(OBJ)/tools_test.o 
 
 $(BLD)/libtools.a: $(OBJS) 
 	ar rvs $@ $^
@@ -62,7 +64,8 @@ $(OBJ)/TEST_utility.o \
 $(OBJ)/TEST_tools.o \
 $(OBJ)/TEST_symtab.o \
 $(OBJ)/TEST_logger.o \
-$(OBJ)/TEST_fileio.o
+$(OBJ)/TEST_fileio.o \
+$(OBJ)/TEST_singleton.o
 
 $(BLD)/TEST: $(OBJ_TST)
 	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@

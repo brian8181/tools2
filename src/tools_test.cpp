@@ -10,7 +10,7 @@
 #include <sys/select.h>     /* for pselect   */
 #include <string>
 #include <getopt.h>
-//#include "tools.hpp"
+#include "tools.hpp"
 
 
 /**
