@@ -58,12 +58,18 @@ $(BLD)/libtools.so: $(BLD)/tools.o
 
 OBJ_TST= \
 $(OBJ)/TEST.o \
+$(OBJ)/variant.o \
+$(OBJ)/utility.o \
+$(OBJ)/tools.o \
+$(OBJ)/symtab.o \
+$(OBJ)/singleton.o \
 $(OBJ)/TEST_variant.o \
 $(OBJ)/TEST_utility.o \
 $(OBJ)/TEST_tools.o \
 $(OBJ)/TEST_symtab.o \
 $(OBJ)/logger.o \
 $(OBJ)/TEST_logger.o \
+$(OBJ)/fileio.o \
 $(OBJ)/TEST_fileio.o \
 $(OBJ)/TEST_singleton.o
 
