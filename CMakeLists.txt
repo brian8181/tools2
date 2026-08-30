@@ -31,6 +31,7 @@ add_library(tools2_a STATIC
     src/logger.cpp
     src/loop.cpp
     src/symtab.c
+    src/singleton_base.hpp
 )
 
 # Create test executable

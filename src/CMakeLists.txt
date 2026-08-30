@@ -5,7 +5,15 @@ pkg_check_modules(CPPUNIT REQUIRED cppunit)
 # Test sources
 set(TEST_SOURCES
     TEST_tools2.cpp
-)
+    TEST_utility.cpp
+    TEST_fileio.cpp
+    TEST_utest.cpp
+    TEST_singleton.cpp
+    TEST_variant.cpp
+    TEST_logger.cpp
+    TEST_loop.cpp
+    TEST_symtab.cpp
+    TEST_singleton_base.cpp
 
 # Create test executable
 add_executable(ast_utest ${TEST_SOURCES})
