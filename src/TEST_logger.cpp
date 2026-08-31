@@ -27,7 +27,6 @@
 using namespace CppUnit;
 using namespace std;
 
-
 CPPUNIT_TEST_SUITE_REGISTRATION( TEST_logger );
 
 void TEST_logger::setUp()
@@ -60,20 +59,27 @@ void TEST_logger::testOptionVerbose()
 
 void TEST_logger::test_logger_open()
 {
-    logger* log = logger::instance();
-    log->open("test.log");
-    log->log("This is a test message.");
-    log->log("This is a test message with source.", "TEST_logger.cpp");
-    log->log("This is a test message with line number.", 42);
-    log->log("This is a test message with source and line number.", "TEST_logger.cpp", 42);
-    //*log << "This is a test message using operator<<." << std::endl;
+    logger& log = logger::getInstance();
+    log.open("test.log");
+    log.log("This is a test message.");
+    log.log("This is a test message with source.", "TEST_logger.cpp");
+    log.log("This is a test message with line number.", 42);
+    log.log("This is a test message with source and line number.", "TEST_logger.cpp", 42);
+    // //*log << "This is a test message using operator<<." << std::endl;
     // *log << 123 << std::endl;
     // *log << 45.67 << std::endl;
     // *log << 890L << std::endl;
    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
 }
 
-void TEST_logger::execute()
+void TEST_logger::test_logger_log()
+{
+    logger& log = logger::getInstance();
+    log.log("This is a test message.");
+    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
+}
+
+void TEST_logger::execute()     
 {
     // on head
     char** pstr = new char*;

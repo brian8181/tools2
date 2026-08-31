@@ -11,33 +11,28 @@ using std::string;
 using std::fstream;
 using std::endl;
 
-logger* logger::_instance = 0;
+//logger* logger::_instance = 0;
 
 const static string BEGIN = "************ Begin Log **************";
 const static string END   = "************ End Log ****************";
 
 
-logger::logger()
-{
-
-}
-
 logger::~logger()
 {
     strm.close();
-    delete _instance;
+    //delete _instance;
 }
 
-logger* logger::instance()
-{
-    if(logger::_instance != 0)
-    {
-        return logger::_instance;
-    }
+// logger* logger::instance()
+// {
+//     if(logger::_instance != 0)
+//     {
+//         return logger::_instance;
+//     }
 
-    logger::_instance = new logger();
-    return logger::_instance;
-}
+//     logger::_instance = new logger();
+//     return logger::_instance;
+// }
 
 void logger::open(const string& log_file)
 {
@@ -46,17 +41,23 @@ void logger::open(const string& log_file)
 
 void logger::log(const string& msg)
 {
-    strm << msg << endl;
+    log(msg, "src", __LINE__);
 }
 
 void logger::log(const string& msg, const string& src)
 {
-    log(msg);
+    log(msg, src, __LINE__ );
 }
 
 void logger::log(const string& msg, long line_n)
 {
-    log(msg);
+    log(msg, "src", line_n);
+}
+
+void logger::log(const string& msg, const string& src, long line_n)
+{
+    strm << "LINE: " << __LINE__ << " OF FILE: " << __FILE__ << " " << __TIME__ << " " << __DATE__ << std::endl;
+    strm << msg << " line: " << line_n << " src: " << " \"" + src + "\" " << std::endl;
 }
 
 logger& logger::operator<<(const string& msg)
@@ -71,16 +72,9 @@ logger& logger::operator<<(int n)
     return *this;
 }
 
-void logger::log(const string& msg, const string& src, long line_n)
-{
-    log(msg);
-    // strm << "LINE: " << __LINE__ << " OF FILE: " << __FILE__ << " " << __TIME__ << " " << __DATE__ << std::endl;
-    // strm << msg << " line: " << line_n << " src: " << " \"" + src + "\" " << std::endl;
-}
-
-fstream& operator<<(fstream& os, const logger& log)
-{
-    os << "testing";
-    return os;
-}
+// fstream& operator<<(fstream& os, const logger& log)
+// {
+//     os << "testing";
+//     return os;
+// }
 

@@ -20,6 +20,7 @@ private:
     CPPUNIT_TEST(testOptionHelpLong);
     CPPUNIT_TEST(testOptionVerbose);
     CPPUNIT_TEST(test_logger_open);
+    CPPUNIT_TEST(test_logger_log);
     CPPUNIT_TEST_SUITE_END();
 
 public:
@@ -36,7 +37,7 @@ protected:
     void testOptionHelpLong();
     void testOptionVerbose();
     void test_logger_open();
-
+    void test_logger_log();
 private:
     int m_argc;
     char* m_argv[10];

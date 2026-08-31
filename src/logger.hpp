@@ -14,15 +14,18 @@ using std::string;
 using std::fstream;
 using std::ostream;
 
-class logger : private singleton_base<logger>
+class logger : public singleton_base<logger>
 {
+    friend class singleton_base<logger>; // allow singleton_base to access private constructor  
 private:
-    logger();
+    logger() = default;
 public:
+    logger(const logger&) = delete;
+    logger& operator=(const logger&) = delete;
     ~logger();
 
 public:
-    static logger* instance();
+    //static logger* instance();
     void open(const string& log_file);
     void log(const string& msg);
     void log(const string& msg, const string& src);
@@ -34,7 +37,7 @@ public:
     logger& operator<<(long n);
 
 private:
-    static logger* _instance;
+    //static logger* _instance;
     std::fstream strm;
     const static string BEGIN;
     const static string END;

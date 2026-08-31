@@ -11,8 +11,8 @@ class singleton_base {
 public:
     static T& getInstance() {
         // singleton pattern applied here
-        static T instance;
-        return instance;
+        static T instance_;
+        return instance_;
     }
 
     // delete copy operations
