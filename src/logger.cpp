@@ -59,7 +59,7 @@ void logger::log(const string& msg, long line_n)
     log(msg);
 }
 
-logger& logger::operator<<(string msg)
+logger& logger::operator<<(const string& msg)
 {
     strm << msg;
     return *this;

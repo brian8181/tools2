@@ -28,7 +28,7 @@ public:
     void log(const string& msg, const string& src);
     void log(const string& msg, long line_n);
     void log(const string& msg, const string& src, long line_n);
-    logger& operator<<(string msg);
+    logger& operator<<(const string& msg);
     logger& operator<<(int n);
     logger& operator<<(double n);
     logger& operator<<(long n);

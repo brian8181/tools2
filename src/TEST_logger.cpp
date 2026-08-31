@@ -66,7 +66,7 @@ void TEST_logger::test_logger_open()
     log->log("This is a test message with source.", "TEST_logger.cpp");
     log->log("This is a test message with line number.", 42);
     log->log("This is a test message with source and line number.", "TEST_logger.cpp", 42);
-    // *log << "This is a test message using operator<<." << std::endl;
+    //*log << "This is a test message using operator<<." << std::endl;
     // *log << 123 << std::endl;
     // *log << 45.67 << std::endl;
     // *log << 890L << std::endl;
