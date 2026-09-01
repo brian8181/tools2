@@ -83,4 +83,54 @@ void TEST_utility::execute(int argc, char* argv[])
 
 }
 
+void TEST_utility::test_to_lower()
+{
+
+}
+
+void TEST_utility::test_to_upper()
+{
+    
+}
+
+void TEST_utility::test_ltrim()
+{
+    
+}
+
+void TEST_utility::test_rtrim()
+{
+    
+}
+
+void TEST_utility::test_trim()
+{
+    
+}
+
+void TEST_utility::test_atoi()
+{
+    
+}
+
+void TEST_utility::test_itoa()
+{
+    
+}
+
+void TEST_utility::test_get_config()
+{
+    
+}
+
+void TEST_utility::test_rebase()
+{
+    
+}
+
+void TEST_utility::test_split()
+{
+    
+}
+
 
