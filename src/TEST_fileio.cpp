@@ -83,4 +83,54 @@ void TEST_fileio::execute(int argc, char* argv[])
 
 }
 
+void TEST_fileio::test_file_size() 
+{
+
+}
+
+void TEST_fileio::test_file_exist() 
+{
+
+}
+
+void TEST_fileio::test_get_ofstream() 
+{ 
+
+}
+
+void TEST_fileio::test_get_ifstream() 
+{ 
+
+}
+
+void TEST_fileio::test_getc() 
+{ 
+
+}
+
+void TEST_fileio::test_read_char() 
+{ 
+
+}
+
+void TEST_fileio::test_write_char() 
+{ 
+
+}
+
+void TEST_fileio::test_read_buf() 
+{
+    
+}
+
+void TEST_fileio::test_write_buf() { }
+void TEST_fileio::test_read_str() { }
+void TEST_fileio::test_write_str() { }
+void TEST_fileio::test_read_sstream() { }
+void TEST_fileio::test_write_sstream() { }
+void TEST_fileio::test_read_line() { }
+void TEST_fileio::test_write_line() { }
+void TEST_fileio::test_read_lines() { }
+void TEST_fileio::test_write_lines() { }
+
 

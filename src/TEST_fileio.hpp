@@ -17,6 +17,25 @@ private:
     CPPUNIT_TEST(testOptionHelpLong);
     CPPUNIT_TEST(testOptionVerbose);
     CPPUNIT_TEST(testOptionVerboseLong);
+    CPPUNIT_TEST(test_file_size);
+    CPPUNIT_TEST(test_file_exist);
+    CPPUNIT_TEST(test_get_ofstream);
+    CPPUNIT_TEST(test_get_ifstream);
+    CPPUNIT_TEST(test_getc);
+    CPPUNIT_TEST(test_read_char);
+    CPPUNIT_TEST(test_write_char);
+    CPPUNIT_TEST(test_read_buf);
+    CPPUNIT_TEST(test_write_buf);
+    CPPUNIT_TEST(test_read_str);
+    CPPUNIT_TEST(test_write_str);
+    CPPUNIT_TEST(test_read_sstream);
+    CPPUNIT_TEST(test_write_sstream);
+    CPPUNIT_TEST(test_read_buf);
+    CPPUNIT_TEST(test_write_buf);
+    CPPUNIT_TEST(test_read_line);
+    CPPUNIT_TEST(test_write_line);
+    CPPUNIT_TEST(test_read_lines);
+    CPPUNIT_TEST(test_write_lines);
     CPPUNIT_TEST_SUITE_END();
 
 public:
@@ -33,6 +52,23 @@ protected:
     void testOptionHelpLong();
     void testOptionVerbose();
     void testOptionVerboseLong();
+    void test_file_size();
+    void test_file_exist();
+    void test_get_ofstream();
+    void test_get_ifstream();
+    void test_getc();
+    void test_read_char();
+    void test_write_char();
+    void test_read_buf();
+    void test_write_buf();
+    void test_read_str();
+    void test_write_str();
+    void test_read_sstream();
+    void test_write_sstream();
+    void test_read_line();
+    void test_write_line();
+    void test_read_lines();
+    void test_write_lines();
 
 private:
     int m_argc;
