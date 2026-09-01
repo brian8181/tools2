@@ -40,11 +40,13 @@ typedef vector<field_t> record_t;
 typedef vector<record_t> table_t;
 
 std::vector<std::string> split(const std::string& s, char c);
-vector<long>& psieve(const int& end, vector<long>& ret);
 
-template <typename T> bool equal(const T& a, const T& b);
 
-void redim(int from, int to);
+//vector<long>& psieve(const int& end, vector<long>& ret);
+
+//template <typename T> bool equal(const T& a, const T& b);
+
+//void redim(int from, int to);
 string rebase(const unsigned int n, const unsigned int base);
 
 #endif

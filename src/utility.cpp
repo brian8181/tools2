@@ -106,14 +106,15 @@ void split(InputIt first, InputIt last, const T& delim, FunT output)
 
 std::vector<std::string> split(const std::string& s, char c)
 {
-  std::vector<std::string> result;
-  size_t begin = 0;
-  while (true)
-  {
-    size_t end = s.find_first_of(c, begin);
-    result.push_back(s.substr(begin, end - begin));
+    std::vector<std::string> result;
+    size_t begin = 0;
+    while (true)
+    {
+        size_t end = s.find_first_of(c, begin);
+        result.push_back(s.substr(begin, end - begin));
 
-    if (end == std::string::npos) {
+    if (end == std::string::npos) 
+    {
       break;
     }
 

@@ -18,8 +18,8 @@
 #include <cppunit/CompilerOutputter.h>
 #include <cppunit/XmlOutputter.h>
 #include <netinet/in.h>
-#include "TEST_variant.hpp"
 #include <string.h>
+#include "TEST_variant.hpp"
 
 using namespace CppUnit;
 using namespace std;
