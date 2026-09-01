@@ -62,6 +62,7 @@ $(OBJ)/tools.o \
 $(OBJ)/symtab.o \
 $(OBJ)/logger.o \
 $(OBJ)/fileio.o \
+$(OBJ)/base64.o \
 $(OBJ)/TEST_variant.o \
 $(OBJ)/TEST_utility.o \
 $(OBJ)/TEST_tools.o \
@@ -69,6 +70,16 @@ $(OBJ)/TEST_symtab.o \
 $(OBJ)/TEST_logger.o \
 $(OBJ)/TEST_fileio.o \
 $(OBJ)/TEST_singleton.o
+
+OBJS_C= \
+$(OBJ)/util.o \
+$(OBJ)/dns.o \
+$(OBJ)/json.o \
+$(OBJ)/url.o \
+$(OBJ)/md5.o \
+$(OBJ)/sha1.o \
+$(OBJ)/sha256.o \
+$(OBJ)/net.o 
 
 $(BLD)/TEST: $(OBJ_TST)
 	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@

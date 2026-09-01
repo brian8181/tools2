@@ -14,20 +14,6 @@
         "label": "echo",
         "type": "shell",
         "command": "echo ${workspaceFolder}"
-    },
-    {
-        "type": "cmake",
-        "label": "CMake: build",
-        "command": "build",
-        "targets": [
-            "[N/A - Select Kit]"
-        ],
-        "group": {
-            "kind": "build",
-            "isDefault": true
-        },
-        "problemMatcher": [],
-        "detail": "CMake template build task"
     }
 ]
 }
