@@ -24,9 +24,10 @@ OBJ=build
 TST=build
 
 # lib settings
-INCLUDES=-I"/home/brian/src/boost_1_91_0" -I./$(SRC) -I./$(BLD) -I./$(TST)
-LIBS=-fPIC -L/usr/lib -L/usr/lib64 -L/usr/local/lib -L/usr/local/lib64 -lfmt -lcppunit
-LDFLAGS=$(INCLUDES) $(LIBS)
+# -I./$(SRC) -I./$(BLD) -I./$(TST)
+INCLUDES=-I"/home/brian/src/boost_1_91_0" 
+#LIBS=-L/usr/lib -L/usr/lib64 -L/usr/local/lib -L/usr/local/lib64 -lfmt -lcppunit
+LDFLAGS=-fPIC $(INCLUDES) $(LIBS)
 
 all: $(BLD)/libtools.a $(BLD)/libtools.so $(BLD)/TEST $(BLD)/logger_test
 	@echo -e "building prequisite -> $^ ... \nbuilding -> $@ ...$(FMT_RESET)"
@@ -50,9 +51,9 @@ $(BLD)/libtools.a: $(OBJS)
 	cp $@ ~/src/lib
 
 $(BLD)/libtools.so: $(BLD)/tools.o
-	$(CXX) $(CXXFLAGS) --shared $(OBJ)/tools.o $(LDFLAGS) -o $(BLD)/libtools.so
-	chmod 755 $(BLD)/libtools.so
-	cp $(BLD)/libtools.so ~/src/lib
+# 	$(CXX) $(CXXFLAGS) --shared $(OBJ)/tools.o $(LDFLAGS) -o $(BLD)/libtools.so
+# 	chmod 755 $(BLD)/libtools.so
+# 	cp $(BLD)/libtools.so ~/src/lib
 
 OBJ_TST= \
 $(OBJ)/TEST.o \
@@ -80,6 +81,11 @@ $(OBJ)/md5.o \
 $(OBJ)/sha1.o \
 $(OBJ)/sha256.o \
 $(OBJ)/net.o 
+
+# /usr/lib64/libfmt.so.11
+# /usr/lib64/libfmt.so.11.2.0
+LIBS=/usr/local/lib/libcppunit.a /usr/local/lib64/libfmtd.a
+LDFLAGS=-fPIC $(INCLUDES) $(LIBS)
 
 $(BLD)/TEST: $(OBJ_TST)
 	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
