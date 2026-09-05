@@ -16,7 +16,7 @@ using std::ostream;
 
 class logger : public singleton_base<logger>
 {
-    friend class singleton_base<logger>; // allow singleton_base to access private constructor  
+    friend class singleton_base<logger>; // access private constructor  
 private:
     logger() = default;
 public:
@@ -25,20 +25,15 @@ public:
     ~logger();
 
 public:
-    //static logger* instance();
     void open(const string& log_file);
     void log(const string& msg);
-    void log(const string& msg, const string& src);
-    void log(const string& msg, long line_n);
-    void log(const string& msg, const string& src, long line_n);
     logger& operator<<(const string& msg);
     logger& operator<<(int n);
     logger& operator<<(double n);
     logger& operator<<(long n);
 
 private:
-    //static logger* _instance;
-    std::fstream strm;
+    std::ofstream* strm;
     const static string BEGIN;
     const static string END;
 };

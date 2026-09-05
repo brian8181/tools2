@@ -64,12 +64,12 @@ void TEST_singleton::testOptionVerbose()
 void TEST_singleton::test_singleton_instance()
 {
     //logger* p_logger  = logger::instance();
-    logger& log = logger::getInstance();
+    logger& log = logger::instance();
     log.open("test.log");
     log.log("This is a test message.");
-    log.log("This is a test message with source.", "TEST_singleton.cpp");
-    log.log("This is a test message with line number.", 42);
-    log.log("This is a test message with source and line number.", "TEST_singleton.cpp", 42);
+    log.log("This is a test message with source.");
+    log.log("This is a test message with line number.");
+    log.log("This is a test message with source and line number.");
     // *log << "This is a test message using operator<<." << std::endl;
     // *log << 123 << std::endl;
     // *log << 45.67 << std::endl;

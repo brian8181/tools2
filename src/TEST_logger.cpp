@@ -59,12 +59,12 @@ void TEST_logger::testOptionVerbose()
 
 void TEST_logger::test_logger_open()
 {
-    logger& log = logger::getInstance();
+    logger& log = logger::instance();
     log.open("test.log");
     log.log("This is a test message.");
-    log.log("This is a test message with source.", "TEST_logger.cpp");
-    log.log("This is a test message with line number.", 42);
-    log.log("This is a test message with source and line number.", "TEST_logger.cpp", 42);
+    log.log("This is a test message with source.");
+    log.log("This is a test message with line number.");
+    log.log("This is a test message with source and line number.");
     // //*log << "This is a test message using operator<<." << std::endl;
     // *log << 123 << std::endl;
     // *log << 45.67 << std::endl;
@@ -74,7 +74,7 @@ void TEST_logger::test_logger_open()
 
 void TEST_logger::test_logger_log()
 {
-    logger& log = logger::getInstance();
+    logger& log = logger::instance();
     log.log("This is a test message.");
     //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
 }

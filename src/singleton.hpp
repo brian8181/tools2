@@ -9,7 +9,7 @@
 template <typename T>
 class singleton_base {
 public:
-    static T& getInstance() {
+    static T& instance() {
         // singleton pattern applied here
         static T instance_;
         return instance_;

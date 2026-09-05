@@ -8,67 +8,39 @@
 #include "logger.hpp"
 
 using std::string;
-using std::fstream;
+using std::ofstream;
 using std::endl;
 
-//logger* logger::_instance = 0;
-
-const static string BEGIN = "************ Begin Log **************";
-const static string END   = "************ End Log ****************";
-
+const static string BEGIN = "************ Begin Log : __TIME__ **************";
+const static string END   = "************ End Log : __TIME__ ****************";
 
 logger::~logger()
 {
-    strm.close();
-    //delete _instance;
+    log("END __TIME__");
+    strm->close();
+    delete strm;    
 }
-
-// logger* logger::instance()
-// {
-//     if(logger::_instance != 0)
-//     {
-//         return logger::_instance;
-//     }
-
-//     logger::_instance = new logger();
-//     return logger::_instance;
-// }
 
 void logger::open(const string& log_file)
 {
-    strm.open (log_file, std::fstream::in | std::fstream::out | std::fstream::app);
+    strm = new ofstream(log_file, std::ofstream::out);
+    log("BEGIN __TIME__");
 }
 
 void logger::log(const string& msg)
 {
-    log(msg, "src", __LINE__);
-}
-
-void logger::log(const string& msg, const string& src)
-{
-    log(msg, src, __LINE__ );
-}
-
-void logger::log(const string& msg, long line_n)
-{
-    log(msg, "src", line_n);
-}
-
-void logger::log(const string& msg, const string& src, long line_n)
-{
-    strm << "LINE: " << __LINE__ << " OF FILE: " << __FILE__ << " " << __TIME__ << " " << __DATE__ << std::endl;
-    strm << msg << " line: " << line_n << " src: " << " \"" + src + "\" " << std::endl;
+    *strm << msg << " -> LINE: " << __LINE__ << " OF FILE: " << __FILE__ << " " << __TIME__ << " " << __DATE__ << std::endl;
 }
 
 logger& logger::operator<<(const string& msg)
 {
-    strm << msg;
+    *strm << msg;
     return *this;
 }
 
 logger& logger::operator<<(int n)
 {
-    strm << n;
+    *strm << n;
     return *this;
 }
 
