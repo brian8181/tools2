@@ -63,11 +63,10 @@ void init_sub_table(symbol_tab* parent);
 /*
  * @brief: add symbol
  * @param: symbol_tab* stab
- * @param: const char* id
- * @param: const char* val
+ * @param: symbol* sym
  * return: void
  */
-void add_symbol(symbol_tab* stab, const char* id, const char* val);
+void add_symbol(symbol_tab* stab, symbol* sym);
 /*
  * @brief: insert symbol
  * @param: symbol_tab* stab

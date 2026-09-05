@@ -20,6 +20,7 @@
 #include <netinet/in.h>
 #include "TEST_symtab.hpp"
 #include <string.h>
+#include "symtab.h"
 
 using namespace CppUnit;
 using namespace std;
@@ -62,23 +63,33 @@ void TEST_symtab::testOptionVerboseLong()
 
 void TEST_symtab::test_get_stable()
 {
-    CPPUNIT_ASSERT(1 == 1);
+    symbol_tab* stab = get_stable();
+    CPPUNIT_ASSERT(stab != nullptr);
 }
 
 void TEST_symtab::test_init_symbol()
 {
-    CPPUNIT_ASSERT(1 == 1);
+    symbol_tab* stab = get_stable();
+    symbol* s = nullptr;
+    init_symbol(&s, "id", "type_modifiers", "type");
+    CPPUNIT_ASSERT(stab != nullptr);
 }
 
 void TEST_symtab::test_add_symbol()
 {
-    CPPUNIT_ASSERT(1 == 1);
+    symbol_tab* stab = get_stable();
+    symbol* s = nullptr;
+    init_symbol(&s, "id", "type_modifiers", "type");
+    add_symbol(stab, s);
+    CPPUNIT_ASSERT(stab != nullptr);
+    CPPUNIT_ASSERT(s != nullptr);
 }
 
 
 void TEST_symtab::test_remove_symbol()
 {
-    CPPUNIT_ASSERT(1 == 1);
+    symbol_tab* stab = get_stable();
+    CPPUNIT_ASSERT(stab != nullptr);
 }  
 
 void TEST_symtab::test_find_symbol_by_addr()
