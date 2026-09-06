@@ -78,9 +78,11 @@
 // // Avoid name clashing; (macro expansion producing 'defined' has undefined
 // // behaviour). See config.h for user options
 // #ifndef MG_ENABLE_WINSOCK
-// #if (!defined(MG_ENABLE_TCPIP) || !MG_ENABLE_TCPIP) && \
-//     (!defined(MG_ENABLE_LWIP) || !MG_ENABLE_LWIP) &&   \
-//     (!defined(MG_ENABLE_FREERTOS_TCP) || !MG_ENABLE_FREERTOS_TCP)
+/*
+#if (!defined(MG_ENABLE_TCPIP) || !MG_ENABLE_TCPIP) && \
+     (!defined(MG_ENABLE_LWIP) || !MG_ENABLE_LWIP) &&   \
+     (!defined(MG_ENABLE_FREERTOS_TCP) || !MG_ENABLE_FREERTOS_TCP)
+*/
 // #define MG_ENABLE_WINSOCK 1
 // #else
 // #define MG_ENABLE_WINSOCK 0
@@ -212,14 +214,15 @@
 //
 // #define MG_SOCK_ERR(errcode) ((errcode) < 0 ? WSAGetLastError() : 0)
 //
-// #define MG_SOCK_PENDING(errcode)                                            \
-//   (((errcode) < 0) &&                                                       \
-//    (WSAGetLastError() == WSAEINTR || WSAGetLastError() == WSAEINPROGRESS || \
-//     WSAGetLastError() == WSAEWOULDBLOCK))
-//
-// #define MG_SOCK_RESET(errcode) \
-//   (((errcode) < 0) && (WSAGetLastError() == WSAECONNRESET))
-//
+/* 
+#define MG_SOCK_PENDING(errcode)                                            \
+  (((errcode) < 0) &&                                                       \
+   (WSAGetLastError() == WSAEINTR || WSAGetLastError() == WSAEINPROGRESS || \
+    WSAGetLastError() == WSAEWOULDBLOCK))
+
+#define MG_SOCK_RESET(errcode) \
+   (((errcode) < 0) && (WSAGetLastError() == WSAECONNRESET))
+*/
 // #endif  // MG_ENABLE_WINSOCK
 //
 // #define realpath(a, b) _fullpath((b), (a), MG_PATH_MAX)

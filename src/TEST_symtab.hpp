@@ -20,9 +20,15 @@ private:
     CPPUNIT_TEST(test_get_stable);
     CPPUNIT_TEST(test_init_symbol);
     CPPUNIT_TEST(test_add_symbol);
+    CPPUNIT_TEST(test_insert_symbol);
     CPPUNIT_TEST(test_remove_symbol);
+    CPPUNIT_TEST(test_clear_symbols);
     CPPUNIT_TEST(test_find_symbol_by_addr);
     CPPUNIT_TEST(test_find_symbol_by_id);
+    CPPUNIT_TEST(test_find_symbol);
+    CPPUNIT_TEST(test_find_node);
+    CPPUNIT_TEST(test_find_tail);
+    CPPUNIT_TEST(test_size);
     CPPUNIT_TEST_SUITE_END();
 
 public:
@@ -42,9 +48,15 @@ protected:
     void test_get_stable();
     void test_init_symbol();
     void test_add_symbol();
+    void test_insert_symbol();
+    void test_clear_symbols();
     void test_remove_symbol();
     void test_find_symbol_by_addr();
     void test_find_symbol_by_id();
+    void test_find_symbol();
+    void test_find_node();
+    void test_find_tail();
+    void test_size();
     
 private:
     int m_argc;
