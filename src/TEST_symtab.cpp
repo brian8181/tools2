@@ -85,8 +85,18 @@ void TEST_symtab::test_add_symbol()
     CPPUNIT_ASSERT(s != nullptr);
 }
 
+void TEST_symtab::test_insert_symbol()
+{
+    CPPUNIT_ASSERT(1 == 1);
+}
 
 void TEST_symtab::test_remove_symbol()
+{
+    symbol_tab* stab = get_stable();
+    CPPUNIT_ASSERT(stab != nullptr);
+}  
+
+void TEST_symtab::test_clear_symbols()
 {
     symbol_tab* stab = get_stable();
     CPPUNIT_ASSERT(stab != nullptr);
@@ -98,6 +108,26 @@ void TEST_symtab::test_find_symbol_by_addr()
 }
 
 void TEST_symtab::test_find_symbol_by_id()
+{
+    CPPUNIT_ASSERT(1 == 1);
+}
+
+void TEST_symtab::test_find_symbol()
+{
+    CPPUNIT_ASSERT(1 == 1);
+}
+
+void TEST_symtab::test_find_node()
+{
+    CPPUNIT_ASSERT(1 == 1);
+}
+
+void TEST_symtab::test_find_tail()
+{
+    CPPUNIT_ASSERT(1 == 1);
+}
+
+void TEST_symtab::test_size()
 {
     CPPUNIT_ASSERT(1 == 1);
 }

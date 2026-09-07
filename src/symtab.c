@@ -80,8 +80,7 @@ void init_sub_table(symbol_tab* parent)
 {
     symbol_tab* symtab = (symbol_tab*)malloc( sizeof(symbol_tab) );
     symtab->head = 0;
-    // bkp todo!
-    //symtab->parent = parent->head;
+    symtab->parent = parent;
 }
 
 /*

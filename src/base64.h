@@ -80,8 +80,13 @@
 // #ifndef MG_ENABLE_WINSOCK
 /*
 #if (!defined(MG_ENABLE_TCPIP) || !MG_ENABLE_TCPIP) && \
+<<<<<<< HEAD
     (!defined(MG_ENABLE_LWIP) || !MG_ENABLE_LWIP) &&   \
     (!defined(MG_ENABLE_FREERTOS_TCP) || !MG_ENABLE_FREERTOS_TCP)
+=======
+     (!defined(MG_ENABLE_LWIP) || !MG_ENABLE_LWIP) &&   \
+     (!defined(MG_ENABLE_FREERTOS_TCP) || !MG_ENABLE_FREERTOS_TCP)
+>>>>>>> 05a8e318522be95ad8476e8a6afd63906a15ad55
 */
 // #define MG_ENABLE_WINSOCK 1
 // #else
