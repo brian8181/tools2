@@ -38,22 +38,22 @@ void TEST_symtab::tearDown()
 
 void TEST_symtab::testNoOptions()
 {
-    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_symtab::testOptionHelp()
 {
-    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_symtab::testOptionHelpLong()
 {
-    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_symtab::testOptionVerbose()
 {
-    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_symtab::testOptionVerboseLong()

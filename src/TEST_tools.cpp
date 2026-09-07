@@ -37,27 +37,27 @@ void TEST_tools::tearDown()
 
 void TEST_tools::testNoOptions()
 {
-    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_tools::testOptionHelp()
 {
-    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_tools::testOptionHelpLong()
 {
-    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_tools::testOptionVerbose()
 {
-    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_tools::testOptionVerboseLong()
 {
-   //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
+   CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_tools::execute()

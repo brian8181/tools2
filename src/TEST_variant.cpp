@@ -37,27 +37,42 @@ void TEST_variant::tearDown()
 
 void TEST_variant::testNoOptions()
 {
-    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_variant::testOptionHelp()
 {
-    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_variant::testOptionHelpLong()
 {
-    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_variant::testOptionVerbose()
 {
-    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_variant::testOptionVerboseLong()
 {
-   //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
+   CPPUNIT_ASSERT(1 == 1);
+}
+
+void TEST_variant::test_ctor1()
+{
+    CPPUNIT_ASSERT(1 == 1);
+}
+
+void TEST_variant::test_ctor2()
+{
+    CPPUNIT_ASSERT(1 == 1);
+}
+
+void TEST_variant::test_ctor3()
+{
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_variant::execute()

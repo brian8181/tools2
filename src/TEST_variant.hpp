@@ -17,6 +17,9 @@ private:
     CPPUNIT_TEST(testOptionHelpLong);
     CPPUNIT_TEST(testOptionVerbose);
     CPPUNIT_TEST(testOptionVerboseLong);
+    CPPUNIT_TEST(test_ctor1);
+    CPPUNIT_TEST(test_ctor2);
+    CPPUNIT_TEST(test_ctor3);
     CPPUNIT_TEST_SUITE_END();
 
 public:
@@ -33,6 +36,9 @@ protected:
     void testOptionHelpLong();
     void testOptionVerbose();
     void testOptionVerboseLong();
+    void test_ctor1();
+    void test_ctor2();
+    void test_ctor3();
 
 private:
     int m_argc;

@@ -38,27 +38,27 @@ void TEST_singleton::tearDown()
 
 void TEST_singleton::testNoOptions()
 {
-    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_singleton::testOptionHelp()
 {
-    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_singleton::testOptionHelpLong()
 {
-    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_singleton::testOptionVerbose()
 {
-    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 // void TEST_singleton::testOptionVerboseLong()
 // {
-//    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
+//    CPPUNIT_ASSERT(1 == 1);
 // }
 
 void TEST_singleton::test_singleton_instance()

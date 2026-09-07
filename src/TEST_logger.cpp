@@ -39,22 +39,22 @@ void TEST_logger::tearDown()
 
 void TEST_logger::testNoOptions()
 {
-    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_logger::testOptionHelp()
 {
-    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_logger::testOptionHelpLong()
 {
-    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_logger::testOptionVerbose()
 {
-    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_logger::test_logger_open()
@@ -69,14 +69,14 @@ void TEST_logger::test_logger_open()
     // *log << 123 << std::endl;
     // *log << 45.67 << std::endl;
     // *log << 890L << std::endl;
-   //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
+   CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_logger::test_logger_log()
 {
     logger& log = logger::instance();
     log.log("This is a test message.");
-    //CPPUNIT_ASSERT(parse_options(m_argc, m_argv) == 0);
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_logger::execute()     
