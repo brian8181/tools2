@@ -27,7 +27,7 @@ TST=build
 
 # lib settings
 INCLUDES=-I"/home/brian/src/boost_1_91_0" -I./$(SRC) -I./$(BLD) -I./$(TST)
-LIBS=-fPIC -L/usr/lib -L/usr/lib64 -L/usr/local/lib -L/usr/local/lib64 -lfmt -lcppunit
+LIBS=-fPIC /usr/local/lib/libcppunit.a -L/usr/lib -L/usr/lib64 -L/usr/local/lib -L/usr/local/lib64
 LDFLAGS=$(INCLUDES) $(LIBS)
 
 all: $(BLD)/libtools.a $(BLD)/libtools.so $(BLD)/TEST $(BLD)/logger_test

@@ -20,6 +20,7 @@
 #include <netinet/in.h>
 #include <string.h>
 #include "TEST_variant.hpp"
+#include "variant.hpp"
 
 using namespace CppUnit;
 using namespace std;
@@ -62,7 +63,9 @@ void TEST_variant::testOptionVerboseLong()
 
 void TEST_variant::test_ctor1()
 {
-    CPPUNIT_ASSERT(1 == 1);
+    long val = 42;
+    variant v(val);
+    CPPUNIT_ASSERT(static_cast<long>(v) == val);
 }
 
 void TEST_variant::test_ctor2()
