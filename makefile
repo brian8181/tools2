@@ -67,7 +67,6 @@ $(OBJ)/tools.o \
 $(OBJ)/symtab.o \
 $(OBJ)/logger.o \
 $(OBJ)/fileio.o \
-$(OBJ)/base64.o \
 $(OBJ)/TEST_variant.o \
 $(OBJ)/TEST_utility.o \
 $(OBJ)/TEST_tools.o \

@@ -1,3 +1,6 @@
+//
+// Created by brian on 2/7/2026.
+//
 #include "base64.h"
 
 static int mg_base64_encode_single(int c) {
@@ -91,3 +94,21 @@ fail:
   if (dl > 0) dst[0] = '\0';
   return 0;
 }
+
+#ifdef TEST
+int main(int argc, char *argv[])
+{
+    int n = 0;
+    char *src = "base64 test encode / decode ...";
+    char dst[MG_IO_SIZE + 1];
+    mg_base64_encode(src, strlen(src), dst, sizeof(dst));
+    printf("%s\n", dst);
+
+    char decode_dst[MG_IO_SIZE + 1];
+    mg_base64_decode(dst, strlen(dst), decode_dst, sizeof(decode_dst));
+    printf("%s\n", decode_dst);
+
+    return 0;
+}
+#endif
+
