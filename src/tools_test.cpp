@@ -11,6 +11,7 @@
 #include <string>
 #include <getopt.h>
 #include "tools.hpp"
+#include "scopedptr.hpp"
 
 
 /**
@@ -61,6 +62,10 @@ int main(int argc, char* argv[])
             return 0;
 		}
 		//return parse_options(argc, argv);
+		//scopedptr<char*> pstr = new char[1];
+		// pstr = (char*)"test";    // on the heap
+		// char** argv2 = new char*[1] {pstr};
+		//argv2[0] = pstr;
         return 0;
 	}
 	catch(std::runtime_error& ex)

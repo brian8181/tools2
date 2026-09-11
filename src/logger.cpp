@@ -11,25 +11,25 @@ using std::string;
 using std::ofstream;
 using std::endl;
 
-const static string BEGIN = "************ Begin Log : __TIME__ **************";
-const static string END   = "************ End Log : __TIME__ ****************";
+const string logger::BEGIN = "************ Begin Log : ************** --> ";
+const string logger::END   = "************ End Log   : ************** -->";
 
 logger::~logger()
 {
-    log("END __TIME__");
+    *strm << END << __TIME__  << " " << __DATE__ << std::endl;
     strm->close();
     delete strm;    
 }
 
 void logger::open(const string& log_file)
 {
-    strm = new ofstream(log_file, std::ofstream::out);
-    log("BEGIN __TIME__");
+    strm = new ofstream(log_file, std::ofstream::out | std::ofstream::app);
+    *strm << BEGIN << __TIME__ << " " << __DATE__ << std::endl;
 }
 
 void logger::log(const string& msg)
 {
-    *strm << msg << " -> LINE: " << __LINE__ << " OF FILE: " << __FILE__ << " " << __TIME__ << " " << __DATE__ << std::endl;
+    *strm << msg << " -> " << __TIME__ << " " << __DATE__ << std::endl;
 }
 
 logger& logger::operator<<(const string& msg)
