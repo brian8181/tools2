@@ -85,10 +85,15 @@ void TEST_utility::execute(int argc, char* argv[])
 
 void TEST_utility::test_digits10()
 {
-    int n = 1234;
+    //int n = 1234;
     int len = digits10(1234);
-    std::cout << "digits=" << len << std::endl;
-    CPPUNIT_ASSERT(n == 1234);
+    std::cout << "\ndigits=" << len << std::endl;
+    CPPUNIT_ASSERT(len == 4);
+
+    //n = 01;
+    len = digits10(1);
+    std::cout << "\ndigits=" << len << std::endl;
+    CPPUNIT_ASSERT(len == 1);
 }
 
 void TEST_utility::test_to_lower()
@@ -103,17 +108,28 @@ void TEST_utility::test_to_upper()
 
 void TEST_utility::test_ltrim()
 {
-    CPPUNIT_ASSERT(1 == 1);
+    string s = " abc";
+    string expected = "abc";
+    string actual = ltrim(s);
+    CPPUNIT_ASSERT(expected == actual);
 }
 
 void TEST_utility::test_rtrim()
 {
-    CPPUNIT_ASSERT(1 == 1);
+    string s = "abc ";
+    string expected = "abc";
+    //CPPUNIT_ASSERT_ASSERTION_FAIL(expected, actual);
+    string actual = rtrim(s);
+    CPPUNIT_ASSERT(expected == actual);
 }
 
 void TEST_utility::test_trim()
 {
-    CPPUNIT_ASSERT(1 == 1);
+    string s = " abc ";
+    string expected = "abc";
+    //CPPUNIT_ASSERT_ASSERTION_FAIL(expected, actual);
+    string actual = trim(s);
+    CPPUNIT_ASSERT(expected == actual);
 }
 
 void TEST_utility::test_atoi()
@@ -123,7 +139,15 @@ void TEST_utility::test_atoi()
 
 void TEST_utility::test_itoa()
 {
-    CPPUNIT_ASSERT(1 == 1);
+    char s[11] = { '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0' };
+    int n=12345;
+    itoa(n, s);
+    std::cout << "\nn=" << s << std::endl;
+    CPPUNIT_ASSERT(s[0] == '1');
+
+    n = 1234567890;
+    itoa(n, s);
+    CPPUNIT_ASSERT(s[0] == '1');
 }
 
 void TEST_utility::test_get_config()
