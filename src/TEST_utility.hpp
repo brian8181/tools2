@@ -17,6 +17,10 @@ private:
     CPPUNIT_TEST(testOptionHelpLong);
     CPPUNIT_TEST(testOptionVerbose);
     CPPUNIT_TEST(testOptionVerboseLong);
+    CPPUNIT_TEST(test_replace_all);
+    CPPUNIT_TEST(test_reverse);
+    CPPUNIT_TEST(test_int_to_str);
+    CPPUNIT_TEST(test_str_to_int);
     CPPUNIT_TEST(test_digits10);
     CPPUNIT_TEST(test_to_lower);
     CPPUNIT_TEST(test_to_upper);
@@ -44,6 +48,10 @@ protected:
     void testOptionHelpLong();
     void testOptionVerbose();
     void testOptionVerboseLong();
+    void test_replace_all();
+    void test_reverse();
+    void test_int_to_str();
+    void test_str_to_int();
     void test_digits10();
     void test_to_lower();
     void test_to_upper();

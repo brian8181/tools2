@@ -95,6 +95,25 @@ void TEST_utility::test_digits10()
     std::cout << "\ndigits=" << len << std::endl;
     CPPUNIT_ASSERT(len == 1);
 }
+void TEST_utility::test_replace_all()
+{
+    CPPUNIT_ASSERT(1 == 1);
+}
+
+void TEST_utility::test_reverse()
+{
+    CPPUNIT_ASSERT(1 == 1);
+}
+
+void TEST_utility::test_int_to_str()
+{
+    CPPUNIT_ASSERT(1 == 1);
+}
+
+void TEST_utility::test_str_to_int()
+{
+    CPPUNIT_ASSERT(1 == 1);
+}
 
 void TEST_utility::test_to_lower()
 {

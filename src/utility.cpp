@@ -45,20 +45,106 @@ template <typename ...Args> void print(const Args& ...args)
 {
   (std::cout << ... << args);
 }
+void replace_all( string& s, const string& sub_str, const string& replace_str )
+{
+    size_t pos = 0;
+    size_t len = s.length( );
 
-/// name: digits
-/// info: reurn number of base 10 digits
-/// n, number to eval
+    pos = s.find( sub_str, pos );
+    while (pos < len)
+    {
+        s.replace( pos, sub_str.length( ), replace_str );
+        pos += replace_str.length( );
+        pos = s.find( sub_str, pos );
+    }
+}
+
+void reverse( char str[ ], int length )
+{
+    int start = 0;
+    int end = length - 1;
+    while (start < end) {
+        char temp = str[ start ];
+        str[ start ] = str[ end ];
+        str[ end ] = temp;
+        end--;
+        start++;
+    }
+}
+
+/*
+ * @name: long_to_str
+ * @parm: return number of base 10 digits
+ * @param: n, number to eval
+ * @return: void
+ */
+void long_to_str( long num, std::string& str )
+{
+    stringstream ss;
+    ss << num;
+    str = ss.str( );
+}
+
+/*
+ * @name: str_to_long
+ * @parm: return number of base 10 digits
+ * @param: n, number to eval
+ * @return: void
+ */
+void str_to_long( long num, std::string& str )
+{
+    stringstream ss( str );
+    ss >> num;
+    if (ss.fail( )) {
+        throw std::invalid_argument( "Invalid input string: " + str );
+    }
+}
+
+/*
+ * @name: int_to_str
+ * @parm: return number of base 10 digits
+ * @param: n, number to eval
+ * @return: void
+ */
+void int_to_str( int num, std::string& str )
+{
+    stringstream ss;
+    ss << num;
+    str = ss.str( );
+}
+
+/*
+ * @name: str_to_int
+ * @parm: return number of base 10 digits
+ * @param: n, number to eval
+ * @return: void
+ */
+void str_to_int( const std::string& str, int& num )
+{
+    stringstream ss( str );
+    ss >> num;
+    if (ss.fail( )) {
+        throw std::invalid_argument( "Invalid input string: " + str );
+    }
+}
+
+/*
+ * @name: digits10
+ * @info: return number of base 10 digits
+ * @param: n, number to eval
+ * @return: int
+ */
 int digits10(int n)
 {
     return std::floor(std::log10(n) + 1);
 }
 
-/// name: itoa
-/// info: int to ascii
-/// s, string to convert
-/// return: int result
-int atoi(const char* s)
+/* name: atoi
+ * info: ascii to int
+ * s, string to convert
+ * return: int result
+ */
+int atoi(const char* s) //: thow()
 {
     int num = 0;
     int len = strlen(s);
@@ -72,12 +158,12 @@ int atoi(const char* s)
     return num;
 }
 
-/* name: itoa
-* info: int to ascii
-* n, number to eval
-* s, out parma
-* return: void
-*/
+/* @name name: itoa
+ * @param: int to ascii
+ * @param: n, number to eval
+ * @param: s, out parma
+ * @return: void
+ */
 void itoa(int& n, char* s)
 {
     int len = digits10(n);

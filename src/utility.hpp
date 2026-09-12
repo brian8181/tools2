@@ -14,6 +14,40 @@ using std::vector;
 using std::map;
 
 std::map<string, string>& get_config(const string& path, /* out */ map<string, string>& config);
+void replace_all( std::string& s, const std::string& sub_str, const std::string& replace_str );
+void reverse( char str[ ], int length );
+
+/*
+ * @name: long_to_str
+ * @parm: return number of base 10 digits
+ * @param: n, number to eval
+ * @return: void
+ */
+void long_to_str( long num, std::string& str );
+
+/*
+ * @name: str_to_long
+ * @parm: return number of base 10 digits
+ * @param: n, number to eval
+ * @return: void
+ */
+void str_to_long( long num, std::string& str );
+
+/*
+ * @name: int_to_str
+ * @parm: return number of base 10 digits
+ * @param: n, number to eval
+ * @return: void
+ */
+void int_to_str( int num, std::string& str );
+
+/*
+ * @name: str_to_int
+ * @parm: return number of base 10 digits
+ * @param: n, number to eval
+ * @return: void
+ */
+void str_to_int( const std::string& str, int& num );
 
 string& to_lower(const string& s, /* out */ string& r);
 string& to_lower(string& s); // in place
@@ -26,8 +60,27 @@ string& trim(string& s);
 template <typename ...Args>
 void print(const Args& ...args);
 
+/*
+ * @name: digits10
+ * @info: return number of base 10 digits
+ * @param: n, number to eval
+ * @return: int
+ */
 int digits10(int n);
+
+/* name: atoi
+ * info: ascii to int
+ * s, string to convert
+ * return: int result
+ */
 int atoi(const char* s);
+
+/* @name name: itoa
+ * @param: int to ascii
+ * @param: n, number to eval
+ * @param: s, out parma
+ * @return: void
+ */
 void itoa(int& n, char* s);
 
 template<class InputIt, class T, class FunT>
