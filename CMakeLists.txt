@@ -14,6 +14,19 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 #find_package(PkgConfig REQUIRED)
 #pkg_check_modules(CPPUNIT REQUIRED cppunit)
 
+# Find required packages
+find_package(fmt REQUIRED)
+if(NOT fmt_FOUND)
+   message(FATAL_ERROR "fmt not found")
+endif()
+
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(CPPUNIT REQUIRED cppunit)
+if(NOT CPPUNIT_FOUND)
+   message(FATAL_ERROR "CPPUnit not found")
+endif()
+
+
 #set(BUILD_SHARED_LIBS YES)
 
 if(CMAKE_SYSTEM_NAME STREQUAL "CYGWIN")
@@ -21,6 +34,19 @@ if(CMAKE_SYSTEM_NAME STREQUAL "CYGWIN")
     add_definitions(-DCYGWIN)
 endif()
 
+# Include directories
+include_directories(${CMAKE_SOURCE_DIR}/src)# Add source files
+        
+set(SOURCES
+    src/utility.cpp 
+    src/fileio.cpp 
+    src/utest.cpp 
+    src/singleton.cpp 
+    src/variant.cpp 
+    src/logger.cpp
+    src/loop.cpp
+    src/symtab.c
+)
 
 add_library(tools2_a STATIC
     src/utility.cpp 

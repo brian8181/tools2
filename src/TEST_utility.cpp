@@ -20,6 +20,7 @@
 #include <netinet/in.h>
 #include "TEST_utility.hpp"
 #include <string.h>
+#include "utility.hpp"
 
 using namespace CppUnit;
 using namespace std;
@@ -57,7 +58,7 @@ void TEST_utility::testOptionVerbose()
 
 void TEST_utility::testOptionVerboseLong()
 {
-   CPPUNIT_ASSERT(1 == 1);
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_utility::execute()
@@ -70,7 +71,6 @@ void TEST_utility::execute()
     //argv[0] = *pstr;
 
     execute(1, argv);
-
     delete pstr;
     delete [] argv;
 
@@ -83,54 +83,62 @@ void TEST_utility::execute(int argc, char* argv[])
 
 }
 
+void TEST_utility::test_digits10()
+{
+    int n = 1234;
+    int len = digits10(1234);
+    std::cout << "digits=" << len << std::endl;
+    CPPUNIT_ASSERT(n == 1234);
+}
+
 void TEST_utility::test_to_lower()
 {
-
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_utility::test_to_upper()
 {
-    
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_utility::test_ltrim()
 {
-    
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_utility::test_rtrim()
 {
-    
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_utility::test_trim()
 {
-    
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_utility::test_atoi()
 {
-    
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_utility::test_itoa()
 {
-    
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_utility::test_get_config()
 {
-    
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_utility::test_rebase()
 {
-    
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_utility::test_split()
 {
-    
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 

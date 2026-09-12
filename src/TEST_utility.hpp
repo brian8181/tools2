@@ -17,6 +17,7 @@ private:
     CPPUNIT_TEST(testOptionHelpLong);
     CPPUNIT_TEST(testOptionVerbose);
     CPPUNIT_TEST(testOptionVerboseLong);
+    CPPUNIT_TEST(test_digits10);
     CPPUNIT_TEST(test_to_lower);
     CPPUNIT_TEST(test_to_upper);
     CPPUNIT_TEST(test_rtrim);
@@ -43,6 +44,7 @@ protected:
     void testOptionHelpLong();
     void testOptionVerbose();
     void testOptionVerboseLong();
+    void test_digits10();
     void test_to_lower();
     void test_to_upper();
     void test_rtrim();
