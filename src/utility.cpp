@@ -13,7 +13,8 @@ using std::ios;
 
 const int ASCII_OFFSET = 48;
 
-/* @name: getconfig
+/*
+ * @name: getconfig
  * @info: git name -> value pairs/config
  * @param: path, path to config file
  */
@@ -199,6 +200,7 @@ string& to_lower(const string& s, /* out */ string& r)
 
 /*
  * @name: to_lower
+ * @info: in place to_lower
  * @param: string& s
  * @return: string&
  */
@@ -215,6 +217,7 @@ string& to_lower(string& s) // in place
 
 /*
  * @name: to_lower
+ * @info: in place to_lower
  * @param: const char* s
  * @return: const char*
  */
@@ -249,10 +252,11 @@ string& to_upper(const string& s, /* out */ string& r)
 
 /*
  * @name: to_upper
+ * @info: in place to_upper
  * @param: const string& s
  * @return: string&
  */
-string& to_upper(string& s) // in place
+string& to_upper(string& s)
 {
     int len = s.length();
     for(int i = 0; i < len; ++i)
@@ -265,6 +269,7 @@ string& to_upper(string& s) // in place
 
 /*
  * @name: to_upper
+ * @info: in place to_upper
  * @param: const char* s
  * @return: const char*
  */
@@ -281,6 +286,7 @@ const char* to_upper(const char* s)
 
 /*
  * @name: ltrim
+ * @info: in place to_ltrim
  * @param: std::string& s
  * @return: string&
  */
@@ -300,6 +306,7 @@ string& ltrim(std::string& s)
 
 /*
  * @name: rtrim
+ * @info: in place to_rtrim
  * @param: std::string& s
  * @return: string&
  */
@@ -319,6 +326,7 @@ string& rtrim(std::string& s)
 
 /*
  * @name: trim
+ * @info: in place to_trim
  * @param: std::string& s
  * @return: string&
  */
@@ -334,7 +342,6 @@ string rebase(const unsigned int n, const unsigned int base)
     stringstream ss;
     unsigned int c = n;
     unsigned int digit;
-
     while(c > base)
     {
         digit = c % base;

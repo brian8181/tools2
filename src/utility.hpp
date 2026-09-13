@@ -11,7 +11,8 @@ using std::string;
 using std::vector;
 using std::map;
 
-/* @name: getconfig
+/*
+ * @name: getconfig
  * @info: git name -> value pairs/config
  * @param: path, path to config file
  */
@@ -69,13 +70,15 @@ string& to_lower(const string& s, /* out */ string& r);
 
 /*
  * @name: to_lower
+ * @info: in place to_lower
  * @param: string& s
  * @return: string&
  */
-string& to_lower(string& s); // in place
+string& to_lower(string& s);
 
 /*
  * @name: to_lower
+ * @info: in place to_lower
  * @param: const char* s
  * @return: const char*
  */
@@ -91,13 +94,15 @@ string& to_upper(const string& s, /* out */ string& r);
 
 /*
  * @name: to_upper
+ * @info: in place to_upper
  * @param: const string& s
  * @return: string&
  */
-string& to_upper(string& s); // in place
+string& to_upper(string& s);
 
 /*
  * @name: to_upper
+ * @info: in place to_upper
  * @param: const char* s
  * @return: const char*
  */
@@ -105,6 +110,7 @@ const char* to_upper(const char* s);
 
 /*
  * @name: ltrim
+ * @info: in place to_ltrim
  * @param: std::string& s
  * @return: string&
  */
@@ -112,6 +118,7 @@ string& ltrim(string& s);
 
 /*
  * @name: rtrim
+ * @info: in place to_rtrim
  * @param: std::string& s
  * @return: string&
  */
@@ -119,6 +126,7 @@ string& rtrim(string& s);
 
 /*
  * @name: trim
+ * @info: in place to_trim
  * @param: std::string& s
  * @return: string&
  */
@@ -147,17 +155,19 @@ int atoi(const char* s);
  */
 void itoa(int& n, char* s);
 
+//
 typedef string line_t;
 typedef vector<line_t> lines_t;
 typedef string field_t;
 typedef vector<field_t> record_t;
 typedef vector<record_t> table_t;
 
+//
 string rebase(const unsigned int n, const unsigned int base);
-
+//
 template<class InputIt, class T, class FunT>
 void split(InputIt first, InputIt last, const T& delim, FunT output);
-
+//
 std::vector<std::string> split(const std::string& s, char c);
 
 #endif
