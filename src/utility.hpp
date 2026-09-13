@@ -7,14 +7,24 @@
 
 using std::string;
 using std::vector;
-
-
 using std::string;
 using std::vector;
 using std::map;
 
+/* @name: getconfig
+ * @info: git name -> value pairs/config
+ * @param: path, path to config file
+ */
 std::map<string, string>& get_config(const string& path, /* out */ map<string, string>& config);
+
+/*
+ * @name: replace_all
+ */
 void replace_all( std::string& s, const std::string& sub_str, const std::string& replace_str );
+
+/*
+ * @name: reverse
+ */
 void reverse( char str[ ], int length );
 
 /*

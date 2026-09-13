@@ -13,10 +13,10 @@ using std::ios;
 
 const int ASCII_OFFSET = 48;
 
-/// name: getconfig
-/// info: git name -> value pairs/config
-/// path, path to config file
-/// config, out parma
+/* @name: getconfig
+ * @info: git name -> value pairs/config
+ * @param: path, path to config file
+ */
 map<string, string>& get_config(const string& path, /* out */ map<string, string>& config)
 {
     ifstream file;
@@ -41,6 +41,9 @@ map<string, string>& get_config(const string& path, /* out */ map<string, string
     return config;
 }
 
+/*
+ * @name: replace_all
+ */
 void replace_all( string& s, const string& sub_str, const string& replace_str )
 {
     size_t pos = 0;
@@ -55,6 +58,9 @@ void replace_all( string& s, const string& sub_str, const string& replace_str )
     }
 }
 
+/*
+ * @name: reverse
+ */
 void reverse( char str[ ], int length )
 {
     int start = 0;
