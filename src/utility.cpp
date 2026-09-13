@@ -41,10 +41,6 @@ map<string, string>& get_config(const string& path, /* out */ map<string, string
     return config;
 }
 
-template <typename ...Args> void print(const Args& ...args)
-{
-  (std::cout << ... << args);
-}
 void replace_all( string& s, const string& sub_str, const string& replace_str )
 {
     size_t pos = 0;
@@ -177,6 +173,171 @@ void itoa(int& n, char* s)
     s[len] = (char)'\0';
 }
 
+/*
+ * @name: to_lower
+ * @param: const string& s
+ * @param: string& r
+ * @return: string&
+ */
+string& to_lower(const string& s, /* out */ string& r)
+{
+    int len = s.length();
+    r.clear();
+    for(int i = 0; i < len; ++i)
+    {
+        int c = std::tolower(s[i]);
+        r.push_back(c);
+    }
+    return r;
+}
+
+/*
+ * @name: to_lower
+ * @param: string& s
+ * @return: string&
+ */
+string& to_lower(string& s) // in place
+{
+    int len = s.length();
+    for(int i = 0; i < len; ++i)
+    {
+        int c = std::tolower(s[i]);
+        s[i] = c;
+    }
+    return s;
+}
+
+/*
+ * @name: to_lower
+ * @param: const char* s
+ * @return: const char*
+ */
+const char* to_lower(const char* s)
+{
+    int len = strlen(s);
+    char* r = new char[len+1];
+    for(int i = 0; i < len; ++i)
+    {
+            r[i] = std::tolower(s[i]);
+    }
+    return r;
+}
+
+/*
+ * @name: to_upper
+ * @param: const string& s
+ * @param: string& r
+ * @return: string&
+ */
+string& to_upper(const string& s, /* out */ string& r)
+{
+    int len = s.length();
+    r.clear();
+    for(int i = 0; i < len; ++i)
+    {
+        int c = std::toupper(s[i]);
+        r.push_back(c);
+    }
+    return r;
+}
+
+/*
+ * @name: to_upper
+ * @param: const string& s
+ * @return: string&
+ */
+string& to_upper(string& s) // in place
+{
+    int len = s.length();
+    for(int i = 0; i < len; ++i)
+    {
+        int c = std::toupper(s[i]);
+        s[i] = c;
+    }
+    return s;
+}
+
+/*
+ * @name: to_upper
+ * @param: const char* s
+ * @return: const char*
+ */
+const char* to_upper(const char* s)
+{
+    int len = strlen(s);
+    char* r = new char[len+1];
+    for(int i = 0; i < len; ++i)
+    {
+            r[i] = std::toupper(s[i]);
+    }
+    return r;
+}
+
+/*
+ * @name: ltrim
+ * @param: std::string& s
+ * @return: string&
+ */
+string& ltrim(std::string& s)
+{
+    int len = s.size();
+    int i;
+    for(i = 0; i < len; ++i)
+    {
+        if(!std::isspace(s[i]))
+            break;
+    }
+    string::iterator beg = s.begin();
+    s.erase(beg, beg+i);
+    return s;
+}
+
+/*
+ * @name: rtrim
+ * @param: std::string& s
+ * @return: string&
+ */
+string& rtrim(std::string& s)
+{
+    int len = s.size();
+    int i = len;
+    for(;i > 0; --i)
+    {
+        if(!std::isspace(s[i-1]))
+            break;
+    }
+    string::iterator end = s.end();
+    s.erase(end-(len-i), end);
+    return s;
+}
+
+/*
+ * @name: trim
+ * @param: std::string& s
+ * @return: string&
+ */
+string& trim(std::string& s)
+{
+    rtrim(s);
+    ltrim(s);
+    return s;
+}
+
+string rebase(const unsigned int n, const unsigned int base)
+{
+    stringstream ss;
+    unsigned int c = n;
+    unsigned int digit;
+
+    while(c > base)
+    {
+        digit = c % base;
+        c /= base;
+        ss << digit;
+    }
+    return ss.str();
+}
+
 template<class InputIt, class T, class FunT>
 void split(InputIt first, InputIt last, const T& delim, FunT output)
 {
@@ -199,173 +360,12 @@ std::vector<std::string> split(const std::string& s, char c)
         size_t end = s.find_first_of(c, begin);
         result.push_back(s.substr(begin, end - begin));
 
-    if (end == std::string::npos) 
-    {
-      break;
-    }
-
-    begin = end + 1;
-  }
-  return result;
-}
-
-string& to_lower(const string& s, /* out */ string& r)
-{
-    int len = s.length();
-    r.clear();
-    for(int i = 0; i < len; ++i)
-    {
-        int c = std::tolower(s[i]);
-        r.push_back(c);
-    }
-    return r;
-}
-
-string& to_lower(string& s) // in place
-{
-    int len = s.length();
-    for(int i = 0; i < len; ++i)
-    {
-        int c = std::tolower(s[i]);
-        s[i] = c;
-    }
-    return s;
-}
-
-const char* to_lower(const char* s)
-{
-    int len = strlen(s);
-    char* r = new char[len+1];
-    for(int i = 0; i < len; ++i)
-    {
-            r[i] = std::tolower(s[i]);
-    }
-    return r;
-}
-
-string& to_upper(const string& s, /* out */ string& r)
-{
-    int len = s.length();
-    r.clear();
-    for(int i = 0; i < len; ++i)
-    {
-        int c = std::toupper(s[i]);
-        r.push_back(c);
-    }
-    return r;
-}
-
-string& to_upper(string& s) // in place
-{
-    int len = s.length();
-    for(int i = 0; i < len; ++i)
-    {
-        int c = std::toupper(s[i]);
-        s[i] = c;
-    }
-    return s;
-}
-
-const char* to_upper(const char* s)
-{
-    int len = strlen(s);
-    char* r = new char[len+1];
-    for(int i = 0; i < len; ++i)
-    {
-            r[i] = std::toupper(s[i]);
-    }
-    return r;
-}
-
-string& ltrim(std::string& s)
-{
-    int len = s.size();
-    int i;
-    for(i = 0; i < len; ++i)
-    {
-        if(!std::isspace(s[i]))
-            break;
-    }
-    string::iterator beg = s.begin();
-    s.erase(beg, beg+i);
-    return s;
-}
-
-string& rtrim(std::string& s)
-{
-    int len = s.size();
-    int i = len;
-    for(;i > 0; --i)
-    {
-        if(!std::isspace(s[i-1]))
-            break;
-    }
-    string::iterator end = s.end();
-    s.erase(end-(len-i), end);
-    return s;
-}
-
-string& trim(std::string& s)
-{
-    rtrim(s);
-    ltrim(s);
-    return s;
-}
-
-vector<long>& psieve(const int& end, vector<long>& ret)
-{
-    for(int n = 3; n < end; ++n)
-    {
-        long n1 = n * (n-1);
-        long n2 = n * n;
-        ret.push_back(n1);
-        ret.push_back(n2);
-
-        const int LEN = 0; // ? not sure on beg val
-        for(int i = 0; i < LEN; ++i)
+        if (end == std::string::npos)
         {
-
+            break;
         }
+
+        begin = end + 1;
     }
-    return ret;
-}
-
-template <typename T> bool equal(const T& a, const T& b)
-{
-    return (a^b);
-}
-
-union grid
-{
-    static const unsigned int ROWS = 8;
-    static const unsigned int COLS = 8;
-
-    unsigned char cols[ROWS][COLS];
-    unsigned char rows[ROWS][COLS];
-    unsigned char square[ROWS * COLS];
-
-    void redim(int from, int to)
-    {
-
-    }
-};
-
-void redim(int from, int to)
-{
-
-}
-
-string rebase(const unsigned int n, const unsigned int base)
-{
-    stringstream ss;
-    unsigned int c = n;
-    unsigned int digit;
-
-    while(c > base)
-    {
-        digit = c % base;
-        c /= base;
-        ss << digit;
-    }
-    return ss.str();
+    return result;
 }

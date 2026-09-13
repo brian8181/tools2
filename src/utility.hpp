@@ -57,9 +57,6 @@ string& ltrim(string& s);
 string& rtrim(string& s);
 string& trim(string& s);
 
-template <typename ...Args>
-void print(const Args& ...args);
-
 /*
  * @name: digits10
  * @info: return number of base 10 digits
@@ -83,23 +80,17 @@ int atoi(const char* s);
  */
 void itoa(int& n, char* s);
 
-template<class InputIt, class T, class FunT>
-void split(InputIt first, InputIt last, const T& delim, FunT output);
-
 typedef string line_t;
 typedef vector<line_t> lines_t;
 typedef string field_t;
 typedef vector<field_t> record_t;
 typedef vector<record_t> table_t;
 
-std::vector<std::string> split(const std::string& s, char c);
-
-
-//vector<long>& psieve(const int& end, vector<long>& ret);
-
-//template <typename T> bool equal(const T& a, const T& b);
-
-//void redim(int from, int to);
 string rebase(const unsigned int n, const unsigned int base);
+
+template<class InputIt, class T, class FunT>
+void split(InputIt first, InputIt last, const T& delim, FunT output);
+
+std::vector<std::string> split(const std::string& s, char c);
 
 #endif
