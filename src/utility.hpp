@@ -49,12 +49,69 @@ void int_to_str( int num, std::string& str );
  */
 void str_to_int( const std::string& str, int& num );
 
+/*
+ * @name: to_lower
+ * @param: const string& s
+ * @param: string& r
+ * @return: string&
+ */
 string& to_lower(const string& s, /* out */ string& r);
+
+/*
+ * @name: to_lower
+ * @param: string& s
+ * @return: string&
+ */
 string& to_lower(string& s); // in place
+
+/*
+ * @name: to_lower
+ * @param: const char* s
+ * @return: const char*
+ */
+const char* to_lower(const char* s);
+
+/*
+ * @name: to_upper
+ * @param: const string& s
+ * @param: string& r
+ * @return: string&
+ */
 string& to_upper(const string& s, /* out */ string& r);
+
+/*
+ * @name: to_upper
+ * @param: const string& s
+ * @return: string&
+ */
 string& to_upper(string& s); // in place
+
+/*
+ * @name: to_upper
+ * @param: const char* s
+ * @return: const char*
+ */
+const char* to_upper(const char* s);
+
+/*
+ * @name: ltrim
+ * @param: std::string& s
+ * @return: string&
+ */
 string& ltrim(string& s);
+
+/*
+ * @name: rtrim
+ * @param: std::string& s
+ * @return: string&
+ */
 string& rtrim(string& s);
+
+/*
+ * @name: trim
+ * @param: std::string& s
+ * @return: string&
+ */
 string& trim(string& s);
 
 /*
