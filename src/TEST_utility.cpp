@@ -102,6 +102,9 @@ void TEST_utility::test_replace_all()
 
 void TEST_utility::test_reverse()
 {
+    //char* ps = "abc";
+    //reverse(ps, 3);
+    //CPPUNIT_ASSERT(ps[0] == 'c');
     CPPUNIT_ASSERT(1 == 1);
 }
 

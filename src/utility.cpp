@@ -337,48 +337,48 @@ string& trim(std::string& s)
     return s;
 }
 
-string rebase(const unsigned int n, const unsigned int base)
-{
-    stringstream ss;
-    unsigned int c = n;
-    unsigned int digit;
-    while(c > base)
-    {
-        digit = c % base;
-        c /= base;
-        ss << digit;
-    }
-    return ss.str();
-}
+// string rebase(const unsigned int n, const unsigned int base)
+// {
+//     stringstream ss;
+//     unsigned int c = n;
+//     unsigned int digit;
+//     while(c > base)
+//     {
+//         digit = c % base;
+//         c /= base;
+//         ss << digit;
+//     }
+//     return ss.str();
+// }
 
-template<class InputIt, class T, class FunT>
-void split(InputIt first, InputIt last, const T& delim, FunT output)
-{
-    auto start = first;
-    while (true)
-    {
-        auto it = std::find(start, last, delim);
-        output(start, it);
-        if (it == last) break;
-        start = ++it; // skip delimiter
-    }
-}
+// template<class InputIt, class T, class FunT>
+// void split(InputIt first, InputIt last, const T& delim, FunT output)
+// {
+//     auto start = first;
+//     while (true)
+//     {
+//         auto it = std::find(start, last, delim);
+//         output(start, it);
+//         if (it == last) break;
+//         start = ++it; // skip delimiter
+//     }
+// }
 
-std::vector<std::string> split(const std::string& s, char c)
-{
-    std::vector<std::string> result;
-    size_t begin = 0;
-    while (true)
-    {
-        size_t end = s.find_first_of(c, begin);
-        result.push_back(s.substr(begin, end - begin));
+// std::vector<std::string> split(const std::string& s, char c)
+// {
+//     std::vector<std::string> result;
+//     size_t begin = 0;
+//     while (true)
+//     {
+//         size_t end = s.find_first_of(c, begin);
+//         result.push_back(s.substr(begin, end - begin));
 
-        if (end == std::string::npos)
-        {
-            break;
-        }
+//         if (end == std::string::npos)
+//         {
+//             break;
+//         }
 
-        begin = end + 1;
-    }
-    return result;
-}
+//         begin = end + 1;
+//     }
+//     return result;
+// }

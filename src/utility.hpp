@@ -155,19 +155,19 @@ int atoi(const char* s);
  */
 void itoa(int& n, char* s);
 
-//
-typedef string line_t;
-typedef vector<line_t> lines_t;
-typedef string field_t;
-typedef vector<field_t> record_t;
-typedef vector<record_t> table_t;
+// //
+// typedef string line_t;
+// typedef vector<line_t> lines_t;
+// typedef string field_t;
+// typedef vector<field_t> record_t;
+// typedef vector<record_t> table_t;
 
-//
-string rebase(const unsigned int n, const unsigned int base);
-//
-template<class InputIt, class T, class FunT>
-void split(InputIt first, InputIt last, const T& delim, FunT output);
-//
-std::vector<std::string> split(const std::string& s, char c);
+// //
+// string rebase(const unsigned int n, const unsigned int base);
+// //
+// template<class InputIt, class T, class FunT>
+// void split(InputIt first, InputIt last, const T& delim, FunT output);
+// //
+// std::vector<std::string> split(const std::string& s, char c);
 
 #endif
