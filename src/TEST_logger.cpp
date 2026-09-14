@@ -37,6 +37,29 @@ void TEST_logger::tearDown()
 {
 }
 
+void TEST_logger::execute()     
+{
+    // on head
+    char** pstr = new char*;
+    *pstr = (char*)"test";    // on the heap
+
+    char** argv = new char*[1] {*pstr};
+    //argv[0] = *pstr;
+
+    execute(1, argv);
+
+    delete pstr;
+    delete [] argv;
+
+    // on stack
+    //char* argv_[3] {(char*)"./App", (char*)"abc", (char*)"abc"};
+}
+
+void TEST_logger::execute(int argc, char* argv[])
+{
+
+}
+
 void TEST_logger::testNoOptions()
 {
     CPPUNIT_ASSERT(1 == 1);
@@ -79,27 +102,5 @@ void TEST_logger::test_logger_log()
     CPPUNIT_ASSERT(1 == 1);
 }
 
-void TEST_logger::execute()     
-{
-    // on head
-    char** pstr = new char*;
-    *pstr = (char*)"test";    // on the heap
-
-    char** argv = new char*[1] {*pstr};
-    //argv[0] = *pstr;
-
-    execute(1, argv);
-
-    delete pstr;
-    delete [] argv;
-
-    // on stack
-    //char* argv_[3] {(char*)"./App", (char*)"abc", (char*)"abc"};
-}
-
-void TEST_logger::execute(int argc, char* argv[])
-{
-
-}
 
 

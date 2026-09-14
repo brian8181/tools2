@@ -36,6 +36,30 @@ void TEST_singleton::tearDown()
 {
 }
 
+
+void TEST_singleton::execute()
+{
+    // on head
+    char** pstr = new char*;
+    *pstr = (char*)"test";    // on the heap
+
+    char** argv = new char*[1] {*pstr};
+    //argv[0] = *pstr;
+
+    execute(1, argv);
+
+    delete pstr;
+    delete [] argv;
+
+    // on stack
+    //char* argv_[3] {(char*)"./App", (char*)"abc", (char*)"abc"};
+}
+
+void TEST_singleton::execute(int argc, char* argv[])
+{
+
+}
+
 void TEST_singleton::testNoOptions()
 {
     CPPUNIT_ASSERT(1 == 1);
@@ -75,28 +99,3 @@ void TEST_singleton::test_singleton_instance()
     // *log << 45.67 << std::endl;
     // *log << 890L << std::endl;
 }   
-
-void TEST_singleton::execute()
-{
-    // on head
-    char** pstr = new char*;
-    *pstr = (char*)"test";    // on the heap
-
-    char** argv = new char*[1] {*pstr};
-    //argv[0] = *pstr;
-
-    execute(1, argv);
-
-    delete pstr;
-    delete [] argv;
-
-    // on stack
-    //char* argv_[3] {(char*)"./App", (char*)"abc", (char*)"abc"};
-}
-
-void TEST_singleton::execute(int argc, char* argv[])
-{
-
-}
-
-

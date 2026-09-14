@@ -36,6 +36,29 @@ void TEST_symtab::tearDown()
 {
 }
 
+void TEST_symtab::execute()
+{
+    // on head
+    char** pstr = new char*;
+    *pstr = (char*)"test";    // on the heap
+
+    char** argv = new char*[1] {*pstr};
+    //argv[0] = *pstr;
+
+    execute(1, argv);
+
+    delete pstr;
+    delete [] argv;
+
+    // on stack
+    //char* argv_[3] {(char*)"./App", (char*)"abc", (char*)"abc"};
+}
+
+void TEST_symtab::execute(int argc, char* argv[])
+{
+
+}
+
 void TEST_symtab::testNoOptions()
 {
     CPPUNIT_ASSERT(1 == 1);
@@ -130,29 +153,6 @@ void TEST_symtab::test_find_tail()
 void TEST_symtab::test_size()
 {
     CPPUNIT_ASSERT(1 == 1);
-}
-
-void TEST_symtab::execute()
-{
-    // on head
-    char** pstr = new char*;
-    *pstr = (char*)"test";    // on the heap
-
-    char** argv = new char*[1] {*pstr};
-    //argv[0] = *pstr;
-
-    execute(1, argv);
-
-    delete pstr;
-    delete [] argv;
-
-    // on stack
-    //char* argv_[3] {(char*)"./App", (char*)"abc", (char*)"abc"};
-}
-
-void TEST_symtab::execute(int argc, char* argv[])
-{
-
 }
 
 

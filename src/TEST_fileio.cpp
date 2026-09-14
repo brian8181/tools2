@@ -35,6 +35,28 @@ void TEST_fileio::tearDown()
 {
 }
 
+void TEST_fileio::execute()
+{
+    // on head
+    char** pstr = new char*;
+    *pstr = (char*)"test";    // on the heap
+
+    char** argv = new char*[1] {*pstr};
+    //argv[0] = *pstr;
+
+    execute(1, argv);
+
+    delete pstr;
+    delete [] argv;
+
+    // on stack
+    //char* argv_[3] {(char*)"./App", (char*)"abc", (char*)"abc"};
+}
+
+void TEST_fileio::execute(int argc, char* argv[])
+{
+
+}
 void TEST_fileio::testNoOptions()
 {
     CPPUNIT_ASSERT(1 == 1);
@@ -60,77 +82,82 @@ void TEST_fileio::testOptionVerboseLong()
    CPPUNIT_ASSERT(1 == 1);
 }
 
-void TEST_fileio::execute()
-{
-    // on head
-    char** pstr = new char*;
-    *pstr = (char*)"test";    // on the heap
-
-    char** argv = new char*[1] {*pstr};
-    //argv[0] = *pstr;
-
-    execute(1, argv);
-
-    delete pstr;
-    delete [] argv;
-
-    // on stack
-    //char* argv_[3] {(char*)"./App", (char*)"abc", (char*)"abc"};
-}
-
-void TEST_fileio::execute(int argc, char* argv[])
-{
-
-}
-
 void TEST_fileio::test_file_size() 
 {
-
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_fileio::test_file_exist() 
 {
-
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_fileio::test_get_ofstream() 
 { 
-
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_fileio::test_get_ifstream() 
 { 
-
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_fileio::test_getc() 
 { 
-
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_fileio::test_read_char() 
 { 
-
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_fileio::test_write_char() 
 { 
-
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_fileio::test_read_buf() 
 {
-    
+    CPPUNIT_ASSERT(1 == 1);
 }
 
-void TEST_fileio::test_write_buf() { }
-void TEST_fileio::test_read_str() { }
-void TEST_fileio::test_write_str() { }
-void TEST_fileio::test_read_sstream() { }
-void TEST_fileio::test_write_sstream() { }
-void TEST_fileio::test_read_line() { }
-void TEST_fileio::test_write_line() { }
-void TEST_fileio::test_read_lines() { }
-void TEST_fileio::test_write_lines() { }
+void TEST_fileio::test_write_buf() 
+{ 
+    CPPUNIT_ASSERT(1 == 1);
+}
 
+void TEST_fileio::test_read_str() 
+{ 
+    CPPUNIT_ASSERT(1 == 1);
+}
+void TEST_fileio::test_write_str() 
+{ 
+    CPPUNIT_ASSERT(1 == 1);
+}
+void TEST_fileio::test_read_sstream() 
+{ 
+    CPPUNIT_ASSERT(1 == 1);
+}
+void TEST_fileio::test_write_sstream() 
+{ 
+    CPPUNIT_ASSERT(1 == 1);
+}
+void TEST_fileio::test_read_line() 
+{ 
+    CPPUNIT_ASSERT(1 == 1);
+}
+void TEST_fileio::test_write_line() 
+{ 
+    CPPUNIT_ASSERT(1 == 1);
+}
+
+void TEST_fileio::test_read_lines() 
+{ 
+    CPPUNIT_ASSERT(1 == 1);
+}
+void TEST_fileio::test_write_lines() 
+{ 
+    CPPUNIT_ASSERT(1 == 1);
+}
 
