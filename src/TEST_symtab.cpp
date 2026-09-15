@@ -85,13 +85,13 @@ void TEST_symtab::testOptionVerboseLong()
 
 void TEST_symtab::test_get_stable()
 {
-    symbol_tab* stab = get_stable();
+    symbol_tab* stab = init_stable();
     CPPUNIT_ASSERT(stab != nullptr);
 }
 
 void TEST_symtab::test_init_symbol()
 {
-    symbol_tab* stab = get_stable();
+    symbol_tab* stab = init_stable();
     symbol* s = nullptr;
     init_symbol(&s, "id", "type_modifiers", "type");
     CPPUNIT_ASSERT(stab != nullptr);
@@ -99,7 +99,7 @@ void TEST_symtab::test_init_symbol()
 
 void TEST_symtab::test_add_symbol()
 {
-    symbol_tab* stab = get_stable();
+    symbol_tab* stab = init_stable();
     symbol* s = nullptr;
     init_symbol(&s, "id", "type_modifiers", "type");
     add_symbol(stab, s);
@@ -114,13 +114,13 @@ void TEST_symtab::test_insert_symbol()
 
 void TEST_symtab::test_remove_symbol()
 {
-    symbol_tab* stab = get_stable();
+    symbol_tab* stab = init_stable();
     CPPUNIT_ASSERT(stab != nullptr);
 }  
 
 void TEST_symtab::test_clear_symbols()
 {
-    symbol_tab* stab = get_stable();
+    symbol_tab* stab = init_stable();
     CPPUNIT_ASSERT(stab != nullptr);
 }  
 

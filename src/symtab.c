@@ -7,14 +7,13 @@
 #include <string.h>
 #include "symtab.h"
 
+static symbol_tab* tab = 0;
 /*
- * @brief: get symbol table
+ * @brief: initialize symbol table
  * @return: symbol_tab* 
  */
-symbol_tab* get_stable()
+symbol_tab* init_stable()
 {
-    static symbol_tab* tab = 0;
-
     if(tab != 0)
         return tab;
 

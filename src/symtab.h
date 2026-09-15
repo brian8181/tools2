@@ -34,10 +34,11 @@ typedef struct symbol_tab
 } symbol_tab;
 
 /*
- * @brief: get symbol table
+ * @brief: initialize symbol table
  * return: symbol_tab* 
  */
-symbol_tab* get_stable();
+symbol_tab* init_stable();
+
 /*
  * @brief: free node
  * @param: symbol_tab* stab
@@ -129,5 +130,7 @@ node* find_tail(symbol_tab* stab);
  * return: in
  */
 int size(symbol_tab* stab);
+
+
 
 #endif
