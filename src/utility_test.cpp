@@ -37,17 +37,8 @@ int parse_options(int argc, char* argv[])
 	// }
 
 
-	// run prime sieve
-	std::vector<long> ps;
-	len = 10000;
-	ps.reserve(len*10);
-	psieve(len, ps);
-
-	long size = ps.size();
-	for(int i = 0; i < size; ++i)
-	{
-		cout << "idx=" << i << "; val=" << ps[i] << endl;
-	}
+	
+	
 
 	return 0;
 }

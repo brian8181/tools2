@@ -1,4 +1,4 @@
-/**
+/*
  * @file    logger.hpp
  * @version 0.0.1
  * @date    Mon, 17 Aug 2026 14:38:40 +0000

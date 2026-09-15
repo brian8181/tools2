@@ -1,0 +1,3 @@
+BasedOnStyle: Microsoft
+BreakAfterOpenBracketFunction: false
+BreakAfterOpenBracketIf: Never
