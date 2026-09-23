@@ -10,7 +10,7 @@
 
 class TEST_symtab : public CppUnit::TestFixture
 {
-private:
+  private:
     CPPUNIT_TEST_SUITE(TEST_symtab);
     CPPUNIT_TEST(testNoOptions);
     CPPUNIT_TEST(testOptionHelp);
@@ -31,15 +31,15 @@ private:
     CPPUNIT_TEST(test_size);
     CPPUNIT_TEST_SUITE_END();
 
-public:
+  public:
     void setUp();
     void tearDown();
 
     // agregate test functions
     void execute();
-    void execute(int argc, char* argv[]);
+    void execute(int argc, char *argv[]);
 
-protected:
+  protected:
     void testNoOptions();
     void testOptionHelp();
     void testOptionHelpLong();
@@ -57,11 +57,10 @@ protected:
     void test_find_node();
     void test_find_tail();
     void test_size();
-    
-private:
-    int m_argc;
-    char* m_argv[10];
 
+  private:
+    int m_argc;
+    char *m_argv[10];
 };
 
 #endif

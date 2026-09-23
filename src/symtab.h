@@ -37,7 +37,7 @@ typedef struct symbol_tab
  * @brief: initialize symbol table
  * return: symbol_tab* 
  */
-symbol_tab* init_stable();
+symbol_tab* get_stable();
 
 /*
  * @brief: free node

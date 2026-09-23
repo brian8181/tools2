@@ -6,6 +6,7 @@
 #include <iostream>
 #include <string>
 #include <list>
+#include <string.h>
 #include <cppunit/TestCase.h>
 #include <cppunit/TestFixture.h>
 #include <cppunit/ui/text/TextTestRunner.h>
@@ -19,9 +20,6 @@
 #include <cppunit/XmlOutputter.h>
 #include <netinet/in.h>
 #include "TEST_logger.hpp"
-#include <string.h>
-#include <iostream>
-#include <string>
 #include "logger.hpp"
 
 using namespace CppUnit;

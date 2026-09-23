@@ -1,3 +1,13 @@
 BasedOnStyle: Microsoft
+
+BreakAfterOpenBracketBracedList: false
 BreakAfterOpenBracketFunction: false
-BreakAfterOpenBracketIf: Never
+BreakAfterOpenBracketIf: false
+BreakAfterOpenBracketLoop: false
+BreakAfterOpenBracketSwitch: false
+
+BreakBeforeCloseBracketBracedList: true
+BreakBeforeCloseBracketFunction: true
+BreakBeforeCloseBracketIf: true
+BreakBeforeCloseBracketLoop: true
+BreakBeforeCloseBracketSwitch: true

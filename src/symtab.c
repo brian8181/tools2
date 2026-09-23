@@ -7,30 +7,20 @@
 #include <string.h>
 #include "symtab.h"
 
-static symbol_tab* tab = 0;
+
 /*
  * @brief: initialize symbol table
  * @return: symbol_tab* 
  */
-symbol_tab* init_stable()
+symbol_tab* get_stable()
 {
+    static symbol_tab* tab;
+
     if(tab != 0)
         return tab;
 
-    symbol* streamy_init_object = (symbol*)malloc(sizeof(symbol));
-    // bkp todo! allocate strings ...
-    char id[] = "$streamy";
-    char type[] = "object";
-    char type_mods[] = "static";
-    streamy_init_object->id = id;
-    streamy_init_object->type = type;
-    streamy_init_object->type_modifiers = type_mods;
-    streamy_init_object->pval = 0;
     tab = (symbol_tab*)malloc(sizeof(symbol_tab));
-    tab->head = (node*)malloc(sizeof(node));
-    tab->head->sym = streamy_init_object;
-    tab->head->next = 0;
-    tab->head->prev = 0;
+    tab->head = 0;
     tab->parent = 0;
 
     return tab;
@@ -128,6 +118,9 @@ void insert_symbol(symbol_tab* stab, const char* dst_id, const char* src_id, con
  */
 void remove_symbol(symbol_tab* stab, const char* id)
 {
+    if(stab->head == 0)
+        return;
+
     node* cur = stab->head;
     while(cur->next != 0)
     {
@@ -148,6 +141,9 @@ void remove_symbol(symbol_tab* stab, const char* id)
  */
 void clear_symbols(symbol_tab* stab)
 {
+    if(stab->head == 0)
+        return;
+
     node* cur = stab->head;
     while(cur != 0)
     {
@@ -165,6 +161,9 @@ void clear_symbols(symbol_tab* stab)
  */
 symbol* find_symbol_by_addr(symbol_tab* stab, symbol* sym)
 {
+    if(stab->head == 0)
+        return 0;
+
     node* cur = stab->head;
     while(cur->next != 0)
     {
@@ -184,6 +183,9 @@ symbol* find_symbol_by_addr(symbol_tab* stab, symbol* sym)
  */
 symbol* find_symbol_by_id(symbol_tab* stab, const char* id)
 {
+    if(stab->head == 0)
+        return 0;
+
     node* cur = stab->head;
     while(cur->next != 0)
     {
@@ -203,6 +205,9 @@ symbol* find_symbol_by_id(symbol_tab* stab, const char* id)
  */
 symbol* find_symbol(symbol_tab* stab, const char* id)
 {
+    if(stab->head == 0)
+        return 0;
+
     node* cur = stab->head;
     while(cur->next != 0)
     {
@@ -222,6 +227,9 @@ symbol* find_symbol(symbol_tab* stab, const char* id)
  */
 node* find_node(symbol_tab* stab, const char* id)
 {
+    if(stab->head == 0)
+        return 0;
+
     node* cur = stab->head;
     while(cur->next != 0)
     {
@@ -240,6 +248,9 @@ node* find_node(symbol_tab* stab, const char* id)
  */
 node* find_tail(symbol_tab* stab)
 {
+    if(stab->head == 0)
+        return 0;
+
     node* cur = stab->head;
     while(cur->next != 0)
     {
