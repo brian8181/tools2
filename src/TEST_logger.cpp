@@ -6,7 +6,6 @@
 #include <iostream>
 #include <string>
 #include <list>
-#include <string.h>
 #include <cppunit/TestCase.h>
 #include <cppunit/TestFixture.h>
 #include <cppunit/ui/text/TextTestRunner.h>

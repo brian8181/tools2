@@ -19,7 +19,6 @@
 #include <cppunit/XmlOutputter.h>
 #include <netinet/in.h>
 #include "TEST_singleton.hpp"
-#include <string.h>
 #include "logger.hpp"
 
 using namespace CppUnit;

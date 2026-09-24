@@ -19,7 +19,6 @@
 #include <cppunit/XmlOutputter.h>
 #include <netinet/in.h>
 #include "TEST_fileio.hpp"
-#include <string.h>
 
 using namespace CppUnit;
 using namespace std;

@@ -19,7 +19,6 @@
 #include <cppunit/XmlOutputter.h>
 #include <netinet/in.h>
 #include "TEST_tools.hpp"
-#include <string.h>
 
 using namespace CppUnit;
 using namespace std;

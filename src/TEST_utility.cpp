@@ -19,7 +19,6 @@
 #include <cppunit/XmlOutputter.h>
 #include <netinet/in.h>
 #include "TEST_utility.hpp"
-#include <string.h>
 #include "utility.hpp"
 
 using namespace CppUnit;
