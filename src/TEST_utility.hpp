@@ -38,7 +38,7 @@ public:
     void setUp();
     void tearDown();
 
-    // agregate test functions
+    // aggregate test functions
     void execute();
     void execute(int argc, char* argv[]);
 
