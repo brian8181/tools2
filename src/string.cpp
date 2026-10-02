@@ -1,10 +1,15 @@
+/** @file    string.cpp
+  * @version 0.0.1
+  * @date    Fri Oct  2 05:23:39 AM CDT 2026
+  * @brief   todo
+  */
 #include <string.h>
 #include <vector>
 #include <iostream>
 #include <fstream>
 #include "math.h"
 #include "fileio.hpp"
-#include "utility.hpp"
+#include "string.hpp"
 #include "fileio.hpp"
 
 using std::ifstream;

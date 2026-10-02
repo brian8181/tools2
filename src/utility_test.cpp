@@ -6,7 +6,7 @@
 #include <string>
 #include <getopt.h>
 #include <vector>
-#include "utility.hpp"
+#include "string.hpp"
 
 using std::cout;
 using std::endl;

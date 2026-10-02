@@ -1,5 +1,10 @@
-#ifndef _utility_HPP
-#define _utility_HPP
+/** @file    string.hpp
+  * @version 0.0.1
+  * @date    Fri Oct  2 05:23:39 AM CDT 2026
+  * @brief   todo
+  */
+#ifndef _string_HPP
+#define _string_HPP
 
 #include <iostream>
 #include <vector>
