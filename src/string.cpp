@@ -1,0 +1,384 @@
+#include <string.h>
+#include <vector>
+#include <iostream>
+#include <fstream>
+#include "math.h"
+#include "fileio.hpp"
+#include "utility.hpp"
+#include "fileio.hpp"
+
+using std::ifstream;
+using std::pair;
+using std::ios;
+
+const int ASCII_OFFSET = 48;
+
+/*
+ * @name: getconfig
+ * @info: git name -> value pairs/config
+ * @param: path, path to config file
+ */
+map<string, string>& get_config(const string& path, /* out */ map<string, string>& config)
+{
+    ifstream file;
+    file.open(path, ios::out); //open a file
+    pair<string, string> config_pair;
+
+    if (file.is_open())
+    {
+        string line;
+        while(getline(file, line))
+        {
+            size_t pos = line.find('=');
+            string name = line.substr(0, pos-1);
+            name = trim(name);
+            string value = line.substr(pos+1);
+            value = trim(value);
+            pair<string, string> p(name, value);
+            config.insert(p);
+        }
+        file.close(); //close the file
+    }
+    return config;
+}
+
+/*
+ * @name: replace_all
+ */
+void replace_all( string& s, const string& sub_str, const string& replace_str )
+{
+    size_t pos = 0;
+    size_t len = s.length( );
+
+    pos = s.find( sub_str, pos );
+    while (pos < len)
+    {
+        s.replace( pos, sub_str.length( ), replace_str );
+        pos += replace_str.length( );
+        pos = s.find( sub_str, pos );
+    }
+}
+
+/*
+ * @name: reverse
+ */
+void reverse( char str[ ], int length )
+{
+    int start = 0;
+    int end = length - 1;
+    while (start < end) {
+        char temp = str[ start ];
+        str[ start ] = str[ end ];
+        str[ end ] = temp;
+        end--;
+        start++;
+    }
+}
+
+/*
+ * @name: long_to_str
+ * @parm: return number of base 10 digits
+ * @param: n, number to eval
+ * @return: void
+ */
+void long_to_str( long num, std::string& str )
+{
+    stringstream ss;
+    ss << num;
+    str = ss.str( );
+}
+
+/*
+ * @name: str_to_long
+ * @parm: return number of base 10 digits
+ * @param: n, number to eval
+ * @return: void
+ */
+void str_to_long( long num, std::string& str )
+{
+    stringstream ss( str );
+    ss >> num;
+    if (ss.fail( )) {
+        throw std::invalid_argument( "Invalid input string: " + str );
+    }
+}
+
+/*
+ * @name: int_to_str
+ * @parm: return number of base 10 digits
+ * @param: n, number to eval
+ * @return: void
+ */
+void int_to_str( int num, std::string& str )
+{
+    stringstream ss;
+    ss << num;
+    str = ss.str( );
+}
+
+/*
+ * @name: str_to_int
+ * @parm: return number of base 10 digits
+ * @param: n, number to eval
+ * @return: void
+ */
+void str_to_int( const std::string& str, int& num )
+{
+    stringstream ss( str );
+    ss >> num;
+    if (ss.fail( )) {
+        throw std::invalid_argument( "Invalid input string: " + str );
+    }
+}
+
+/*
+ * @name: digits10
+ * @info: return number of base 10 digits
+ * @param: n, number to eval
+ * @return: int
+ */
+int digits10(int n)
+{
+    return std::floor(std::log10(n) + 1);
+}
+
+/* name: atoi
+ * info: ascii to int
+ * s, string to convert
+ * return: int result
+ */
+int atoi(const char* s) //: thow()
+{
+    int num = 0;
+    int len = strlen(s);
+    for(int i = 0; i < len; ++i)
+    {
+        int digit = ASCII_OFFSET - i;
+        if(digit < 0 || digit > 10)
+            return -1;
+        num += digit * pow(10, i);
+    }
+    return num;
+}
+
+/* @name name: itoa
+ * @param: int to ascii
+ * @param: n, number to eval
+ * @param: s, out parma
+ * @return: void
+ */
+void itoa(int& n, char* s)
+{
+    int len = digits10(n);
+    for(int i = 0; i < len; ++i)
+    {
+        int c = n / pow(10, i);
+        c = std::floor( c );
+        c = c % 10;
+        s[(len-1)-i] = (char)(c + ASCII_OFFSET); // 0x30
+    }
+    s[len] = (char)'\0';
+}
+
+/*
+ * @name: to_lower
+ * @param: const string& s
+ * @param: string& r
+ * @return: string&
+ */
+string& to_lower(const string& s, /* out */ string& r)
+{
+    int len = s.length();
+    r.clear();
+    for(int i = 0; i < len; ++i)
+    {
+        int c = std::tolower(s[i]);
+        r.push_back(c);
+    }
+    return r;
+}
+
+/*
+ * @name: to_lower
+ * @info: in place to_lower
+ * @param: string& s
+ * @return: string&
+ */
+string& to_lower(string& s) // in place
+{
+    int len = s.length();
+    for(int i = 0; i < len; ++i)
+    {
+        int c = std::tolower(s[i]);
+        s[i] = c;
+    }
+    return s;
+}
+
+/*
+ * @name: to_lower
+ * @info: in place to_lower
+ * @param: const char* s
+ * @return: const char*
+ */
+const char* to_lower(const char* s)
+{
+    int len = strlen(s);
+    char* r = new char[len+1];
+    for(int i = 0; i < len; ++i)
+    {
+            r[i] = std::tolower(s[i]);
+    }
+    return r;
+}
+
+/*
+ * @name: to_upper
+ * @param: const string& s
+ * @param: string& r
+ * @return: string&
+ */
+string& to_upper(const string& s, /* out */ string& r)
+{
+    int len = s.length();
+    r.clear();
+    for(int i = 0; i < len; ++i)
+    {
+        int c = std::toupper(s[i]);
+        r.push_back(c);
+    }
+    return r;
+}
+
+/*
+ * @name: to_upper
+ * @info: in place to_upper
+ * @param: const string& s
+ * @return: string&
+ */
+string& to_upper(string& s)
+{
+    int len = s.length();
+    for(int i = 0; i < len; ++i)
+    {
+        int c = std::toupper(s[i]);
+        s[i] = c;
+    }
+    return s;
+}
+
+/*
+ * @name: to_upper
+ * @info: in place to_upper
+ * @param: const char* s
+ * @return: const char*
+ */
+const char* to_upper(const char* s)
+{
+    int len = strlen(s);
+    char* r = new char[len+1];
+    for(int i = 0; i < len; ++i)
+    {
+            r[i] = std::toupper(s[i]);
+    }
+    return r;
+}
+
+/*
+ * @name: ltrim
+ * @info: in place to_ltrim
+ * @param: std::string& s
+ * @return: string&
+ */
+string& ltrim(std::string& s)
+{
+    int len = s.size();
+    int i;
+    for(i = 0; i < len; ++i)
+    {
+        if(!std::isspace(s[i]))
+            break;
+    }
+    string::iterator beg = s.begin();
+    s.erase(beg, beg+i);
+    return s;
+}
+
+/*
+ * @name: rtrim
+ * @info: in place to_rtrim
+ * @param: std::string& s
+ * @return: string&
+ */
+string& rtrim(std::string& s)
+{
+    int len = s.size();
+    int i = len;
+    for(;i > 0; --i)
+    {
+        if(!std::isspace(s[i-1]))
+            break;
+    }
+    string::iterator end = s.end();
+    s.erase(end-(len-i), end);
+    return s;
+}
+
+/*
+ * @name: trim
+ * @info: in place to_trim
+ * @param: std::string& s
+ * @return: string&
+ */
+string& trim(std::string& s)
+{
+    rtrim(s);
+    ltrim(s);
+    return s;
+}
+
+// string rebase(const unsigned int n, const unsigned int base)
+// {
+//     stringstream ss;
+//     unsigned int c = n;
+//     unsigned int digit;
+//     while(c > base)
+//     {
+//         digit = c % base;
+//         c /= base;
+//         ss << digit;
+//     }
+//     return ss.str();
+// }
+
+// template<class InputIt, class T, class FunT>
+// void split(InputIt first, InputIt last, const T& delim, FunT output)
+// {
+//     auto start = first;
+//     while (true)
+//     {
+//         auto it = std::find(start, last, delim);
+//         output(start, it);
+//         if (it == last) break;
+//         start = ++it; // skip delimiter
+//     }
+// }
+
+// std::vector<std::string> split(const std::string& s, char c)
+// {
+//     std::vector<std::string> result;
+//     size_t begin = 0;
+//     while (true)
+//     {
+//         size_t end = s.find_first_of(c, begin);
+//         result.push_back(s.substr(begin, end - begin));
+
+//         if (end == std::string::npos)
+//         {
+//             break;
+//         }
+
+//         begin = end + 1;
+//     }
+//     return result;
+// }

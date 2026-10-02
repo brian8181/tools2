@@ -35,7 +35,7 @@ all: $(BLD)/libtools.a $(BLD)/libtools.so $(BLD)/TEST $(BLD)/logger_test
 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
 
 OBJS= \
-$(OBJ)/utility.o \
+$(OBJ)/string.o \
 $(OBJ)/fileio.o \
 $(OBJ)/utest.o \
 $(OBJ)/variant.o \
@@ -62,12 +62,12 @@ $(BLD)/libtools.so: $(BLD)/tools.o
 OBJ_TST= \
 $(OBJ)/TEST.o \
 $(OBJ)/variant.o \
-$(OBJ)/utility.o \
+$(OBJ)/string.o \
 $(OBJ)/tools.o \
 $(OBJ)/logger.o \
 $(OBJ)/fileio.o \
 $(OBJ)/TEST_variant.o \
-$(OBJ)/TEST_utility.o \
+$(OBJ)/TEST_string.o \
 $(OBJ)/TEST_tools.o \
 $(OBJ)/TEST_logger.o \
 $(OBJ)/TEST_fileio.o \
