@@ -71,7 +71,8 @@ $(OBJ)/TEST_string.o \
 $(OBJ)/TEST_tools.o \
 $(OBJ)/TEST_logger.o \
 $(OBJ)/TEST_fileio.o \
-$(OBJ)/TEST_singleton.o
+$(OBJ)/TEST_singleton.o \
+$(OBJ)/TEST_symtab.o
 
 OBJS_C= \
 $(OBJ)/util.o \

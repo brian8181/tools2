@@ -36,10 +36,6 @@ int parse_options(int argc, char* argv[])
     // 	std::cout << "n=" << s << std::endl;
 	// }
 
-
-	
-	
-
 	return 0;
 }
 

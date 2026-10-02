@@ -89,7 +89,7 @@ void TEST_logger::test_logger_open()
     // *log << 123 << std::endl;
     // *log << 45.67 << std::endl;
     // *log << 890L << std::endl;
-   CPPUNIT_ASSERT(1 == 1);
+    CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_logger::test_logger_log()

@@ -22,7 +22,7 @@
 #include "string.hpp"
 
 using namespace CppUnit;
-using namespace std;
+using std::string;
 
 
 CPPUNIT_TEST_SUITE_REGISTRATION( TEST_string );
@@ -155,7 +155,10 @@ void TEST_string::test_trim()
 
 void TEST_string::test_atoi()
 {
-    CPPUNIT_ASSERT(1 == 1);
+    string s = "1234";
+    int expected = atoi(s.c_str());
+    //cout << endl << "excepted=" << expected << endl;
+    CPPUNIT_ASSERT(expected == 1234);
 }
 
 void TEST_string::test_itoa()
