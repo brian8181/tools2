@@ -26,13 +26,24 @@ using namespace std;
 
 CPPUNIT_TEST_SUITE_REGISTRATION( TEST_fileio );
 
+/**
+ * @name: setUp
+ * @return: void
+ * @brief: set up set case
+ */
 void TEST_fileio::setUp()
 {
 }
 
+/**
+ * @name: tearDown
+ * @return: void
+ * @brief: clean up after test case
+ */
 void TEST_fileio::tearDown()
 {
 }
+
 
 void TEST_fileio::execute()
 {

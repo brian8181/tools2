@@ -32,16 +32,21 @@ public:
 
     /**
      * @name: tearDown
+     * @return: void
      * @brief: clean up after test case
      */
     void tearDown();
 
     /**
+     * @name execute
      * @brief: agregate test functions
+     * @return: void
      */ 
     void execute();
 
     /**
+     * @name: execute
+     * @return: void
      * @brief: agregate test functions
      */ 
     void execute(int argc, char* argv[]);

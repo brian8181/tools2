@@ -23,22 +23,30 @@ private:
 public:
    /**
      * @name: setUp
+     * @return: void
      * @brief: set up set case
      */
     void setUp();
 
     /**
      * @name: tearDown
+     * @return: void
      * @brief: clean up after test case
      */
     void tearDown();
 
     /**
+     * @name: execute
+     * @return: void
      * @brief: agregate test functions
      */ 
     void execute();
 
     /**
+     * @name execute
+     * @param: int argc
+     * @parma: char* argv[]
+     * @return: void
      * @brief: agregate test functions
      */ 
     void execute(int argc, char* argv[]);

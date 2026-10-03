@@ -26,14 +26,29 @@ using namespace std;
 
 CPPUNIT_TEST_SUITE_REGISTRATION( TEST_logger );
 
+/**
+ * @name: setUp
+ * @return: void
+ * @brief: set up set case
+ */
 void TEST_logger::setUp()
 {
 }
 
+/**
+ * @name: tearDown
+ * @return: void
+ * @brief: clean up after test case
+ */
 void TEST_logger::tearDown()
 {
 }
 
+/**
+ * @name: execute
+ * @return: void
+ * @brief: agregate test functions
+ */ 
 void TEST_logger::execute()     
 {
     // on head
@@ -52,6 +67,11 @@ void TEST_logger::execute()
     //char* argv_[3] {(char*)"./App", (char*)"abc", (char*)"abc"};
 }
 
+/**
+ * @name: execute
+ * @return: void
+ * @brief: agregate test functions
+ */ 
 void TEST_logger::execute(int argc, char* argv[])
 {
 

@@ -27,15 +27,29 @@ using namespace std;
 
 CPPUNIT_TEST_SUITE_REGISTRATION( TEST_singleton );
 
+/**
+ * @name: setUp
+ * @return: void
+ * @brief: set up set case
+ */
 void TEST_singleton::setUp()
 {
 }
 
+/**
+ * @name: tearDown
+ * @return: void
+ * @brief: clean up after test case
+ */
 void TEST_singleton::tearDown()
 {
 }
 
-
+/**
+ * @name: execute
+ * @return: void
+ * @brief: agregate test functions
+ */ 
 void TEST_singleton::execute()
 {
     // on head
@@ -54,6 +68,13 @@ void TEST_singleton::execute()
     //char* argv_[3] {(char*)"./App", (char*)"abc", (char*)"abc"};
 }
 
+/**
+ * @name: execute
+ * @param: int argc
+ * @parma: char* argv[]
+ * @return: void
+ * @brief: agregate test functions
+ */ 
 void TEST_singleton::execute(int argc, char* argv[])
 {
 
