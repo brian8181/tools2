@@ -23,6 +23,8 @@
 
 using namespace CppUnit;
 using std::string;
+using std::cout;
+using std::endl;
 
 
 CPPUNIT_TEST_SUITE_REGISTRATION( TEST_string );
@@ -84,15 +86,15 @@ void TEST_string::execute(int argc, char* argv[])
 
 void TEST_string::test_digits10()
 {
-    //int n = 1234;
-    int len = digits10(1234);
-    std::cout << "\ndigits=" << len << std::endl;
-    CPPUNIT_ASSERT(len == 4);
+    int expected = 1234;
+    int actual = digits10(1234);
+    std::cout << "\ndigits=" << actual << std::endl;
+    CPPUNIT_ASSERT(expected == actual);
 
-    //n = 01;
-    len = digits10(1);
-    std::cout << "\ndigits=" << len << std::endl;
-    CPPUNIT_ASSERT(len == 1);
+    expected = 01;
+    actual = digits10(1);
+    std::cout << "\ndigits=" << actual << std::endl;
+    CPPUNIT_ASSERT(actual == expected);
 }
 void TEST_string::test_replace_all()
 {
@@ -132,7 +134,7 @@ void TEST_string::test_ltrim()
     string s = " abc";
     string expected = "abc";
     string actual = ltrim(s);
-    CPPUNIT_ASSERT(expected == actual);
+    CPPUNIT_ASSERT(actual == expected);
 }
 
 void TEST_string::test_rtrim()
@@ -155,10 +157,11 @@ void TEST_string::test_trim()
 
 void TEST_string::test_atoi()
 {
+    int expected = 1234;
     string s = "1234";
-    int expected = atoi(s.c_str());
-    //cout << endl << "excepted=" << expected << endl;
-    CPPUNIT_ASSERT(expected == 1234);
+    int actual = atoi(s.c_str());
+    cout << endl << "actual=" << actual << endl;
+    CPPUNIT_ASSERT(actual == expected);
 }
 
 void TEST_string::test_itoa()

@@ -152,7 +152,7 @@ int digits10(int n)
  * s, string to convert
  * return: int result
  */
-int atoi(const char* s) //: thow()
+int atoi(const char* s) noexcept
 {
     int num = 0;
     int len = strlen(s);

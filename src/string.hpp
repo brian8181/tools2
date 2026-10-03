@@ -150,7 +150,7 @@ int digits10(int n);
  * s, string to convert
  * return: int result
  */
-int atoi(const char* s);
+int atoi(const char* s) noexcept;
 
 /* @name name: itoa
  * @param: int to ascii
