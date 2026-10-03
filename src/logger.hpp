@@ -1,7 +1,8 @@
-// File Name:  logger.hpp
-// Build Date: Thu Oct 31 01:46:28 PM CDT 2024
-// Version:    0.0.1
-
+/**
+ * @file     logger.hpp
+ * @date:    Thu Oct 31 01:46:28 PM CDT 2024
+ * @version: 0.0.1
+ */
 #ifndef _logger_HPP
 #define _logger_HPP
 

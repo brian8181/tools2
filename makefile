@@ -12,6 +12,7 @@
 #-Wnested-externs -Wpacked -Wpointer-arith -Wredundant-decls
 #-Wstack-protector -Wstrict-null-sentinel -Wswitch-enum -Wwrite-strings
 SHELL:=bash
+RED=\033[31m
 GREEN=\033[32m
 RESET=\033[0m
 
@@ -26,7 +27,8 @@ OBJ=build
 TST=build
 
 # lib settings
-INCLUDES=-I"/home/brian/src/boost_1_91_0" -I./$(SRC) -I./$(BLD) -I./$(TST)
+#INCLUDES=-I"/home/brian/src/boost_1_91_0" -I./$(SRC) -I./$(BLD) -I./$(TST)
+INCLUDES=-I"./$(SRC)" -I"./$(BLD)" -I"./$(TST)"
 LIBS=-fPIC /usr/local/lib/libcppunit.a
 LDFLAGS=$(INCLUDES) $(LIBS)
 
@@ -119,7 +121,7 @@ uninstall:
 	-rm ./$(prefix)/bin/tools
 
 clean:
-	@echo "removing files ..."
+	@echo -e "$(RED)Removing files ...$(RESET)"
 	-rm -f $(OBJ)/*
 	-rm -f $(BLD)/*
 

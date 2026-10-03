@@ -79,14 +79,8 @@ void TEST_singleton::testOptionVerbose()
     CPPUNIT_ASSERT(1 == 1);
 }
 
-// void TEST_singleton::testOptionVerboseLong()
-// {
-//    CPPUNIT_ASSERT(1 == 1);
-// }
-
 void TEST_singleton::test_singleton_instance()
 {
-    //logger* p_logger  = logger::instance();
     logger& log = logger::instance();
     log.open("test.log");
     log.log("This is a test message.");
