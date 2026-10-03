@@ -23,11 +23,26 @@ private:
     CPPUNIT_TEST_SUITE_END();
 
 public:
+    /**
+     * @name: setUp
+     * @brief: set up set case
+     */
     void setUp();
+
+    /**
+     * @name: tearDown
+     * @brief: clean up after test case
+     */
     void tearDown();
 
-    // agregate test functions
+    /**
+     * @brief: agregate test functions
+     */ 
     void execute();
+
+    /**
+     * @brief: agregate test functions
+     */ 
     void execute(int argc, char* argv[]);
 
 protected:
