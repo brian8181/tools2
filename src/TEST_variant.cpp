@@ -28,11 +28,47 @@ using namespace std;
 
 CPPUNIT_TEST_SUITE_REGISTRATION( TEST_variant );
 
+/**
+ * @name: setUp
+ * @brief: set up set case
+ */
 void TEST_variant::setUp()
 {
 }
 
+/**
+ * @name: tearDown
+ * @brief: clean up after test case
+ */
 void TEST_variant::tearDown()
+{
+}
+
+/**
+ * @brief: agregate test functions
+ */ 
+void TEST_variant::execute()
+{
+    // on head
+    char** pstr = new char*;
+    *pstr = (char*)"test";    // on the heap
+
+    char** argv = new char*[1] {*pstr};
+    //argv[0] = *pstr;
+
+    execute(1, argv);
+
+    delete pstr;
+    delete [] argv;
+
+    // on stack
+    //char* argv_[3] {(char*)"./App", (char*)"abc", (char*)"abc"};
+}
+
+/**
+ * @brief: agregate test functions
+ */ 
+void TEST_variant::execute(int argc, char* argv[])
 {
 }
 
@@ -78,28 +114,3 @@ void TEST_variant::test_ctor3()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
-
-void TEST_variant::execute()
-{
-    // on head
-    char** pstr = new char*;
-    *pstr = (char*)"test";    // on the heap
-
-    char** argv = new char*[1] {*pstr};
-    //argv[0] = *pstr;
-
-    execute(1, argv);
-
-    delete pstr;
-    delete [] argv;
-
-    // on stack
-    //char* argv_[3] {(char*)"./App", (char*)"abc", (char*)"abc"};
-}
-
-void TEST_variant::execute(int argc, char* argv[])
-{
-
-}
-
-
