@@ -1,4 +1,5 @@
-/* @file    symtab.c
+/**
+ * @file    symtab.c
  * @version 0.0.1
  * @date    Wed Aug 19 01:47:09 PM CDT 2026
  */
@@ -8,25 +9,22 @@
 #include "symtab.h"
 
 
-/*
+/**
  * @brief: initialize symbol table
  * @return: symbol_tab* 
  */
 symbol_tab* get_stable()
 {
     static symbol_tab* tab;
-
     if(tab != 0)
         return tab;
-
     tab = (symbol_tab*)malloc(sizeof(symbol_tab));
     tab->head = 0;
     tab->parent = 0;
-
     return tab;
 }
 
-/*
+/**
  * @brief: free node
  * @param: symbol_tab* stab
  * @param: node* n
@@ -40,7 +38,7 @@ void free_node(symbol_tab* stab, node* n)
     n = 0;
 }
 
-/*
+/**
  * @brief: intitialize symbol
  * @param: symbol** s
  * @param: const char* id
@@ -60,7 +58,7 @@ void init_symbol(symbol** s, const char* id, const char* type_modifiers, const c
     (*s)->pval = 0;
 }
 
-/*
+/**
  * @brief: intitialize sub-tbale
  * @param: symbol_tab* parent
  * @return: void
@@ -72,7 +70,7 @@ void init_sub_table(symbol_tab* parent)
     symtab->parent = parent;
 }
 
-/*
+/**
  * @brief: add symbol
  * @param: symbol_tab* stab
  * @param: symbol* sym
@@ -88,7 +86,7 @@ void add_symbol(symbol_tab* stab, symbol* sym)
     tail->next = new_node;
 }
 
-/*
+/**
  * @brief: insert symbol
  * @param: symbol_tab* stab
  * @param: const char* dst_id
@@ -110,7 +108,7 @@ void insert_symbol(symbol_tab* stab, const char* dst_id, const char* src_id, con
     dst_node->next = src_node;
 }
 
-/*
+/**
  * @brief: remove symbol
  * @param: symbol_tab* stab
  * @param: const char* id
@@ -120,7 +118,6 @@ void remove_symbol(symbol_tab* stab, const char* id)
 {
     if(stab->head == 0)
         return;
-
     node* cur = stab->head;
     while(cur->next != 0)
     {
@@ -134,7 +131,7 @@ void remove_symbol(symbol_tab* stab, const char* id)
     }
 }
 
-/*
+/**
  * @brief: remove all symbols
  * @param: symbol_tab* stab
  * @return: void
@@ -143,7 +140,6 @@ void clear_symbols(symbol_tab* stab)
 {
     if(stab->head == 0)
         return;
-
     node* cur = stab->head;
     while(cur != 0)
     {
@@ -153,7 +149,7 @@ void clear_symbols(symbol_tab* stab)
     }
 }
 
-/*
+/**
  * @brief: find symbol by address
  * @param: symbol_tab* stab
  * @param: symbol* sym
@@ -163,7 +159,6 @@ symbol* find_symbol_by_addr(symbol_tab* stab, symbol* sym)
 {
     if(stab->head == 0)
         return 0;
-
     node* cur = stab->head;
     while(cur->next != 0)
     {
@@ -175,7 +170,7 @@ symbol* find_symbol_by_addr(symbol_tab* stab, symbol* sym)
     return 0;
 }
 
-/*
+/**
  * @brief: find symbol by id
  * @param: symbol_tab* stab
  * @param: const char* id
@@ -185,7 +180,6 @@ symbol* find_symbol_by_id(symbol_tab* stab, const char* id)
 {
     if(stab->head == 0)
         return 0;
-
     node* cur = stab->head;
     while(cur->next != 0)
     {
@@ -197,7 +191,7 @@ symbol* find_symbol_by_id(symbol_tab* stab, const char* id)
     return 0;
 }
 
-/*
+/**
  * @brief: find symbol by id
  * @param: symbol_tab* stab
  * @param: const char* id
@@ -207,7 +201,6 @@ symbol* find_symbol(symbol_tab* stab, const char* id)
 {
     if(stab->head == 0)
         return 0;
-
     node* cur = stab->head;
     while(cur->next != 0)
     {
@@ -219,17 +212,16 @@ symbol* find_symbol(symbol_tab* stab, const char* id)
     return 0;
 }
 
-/*
+/**
  * @brief: find node by id
  * @param: symbol_tab* stab
  * @param: const char* id
- * return: node*
+ * @return: node*
  */
 node* find_node(symbol_tab* stab, const char* id)
 {
     if(stab->head == 0)
         return 0;
-
     node* cur = stab->head;
     while(cur->next != 0)
     {
@@ -241,16 +233,15 @@ node* find_node(symbol_tab* stab, const char* id)
     return 0;
 }
 
-/*
+/**
  * @brief: find tail node
  * @param: symbol_tab* stab
- * return: node*
+ * @return: node*
  */
 node* find_tail(symbol_tab* stab)
 {
     if(stab->head == 0)
         return 0;
-
     node* cur = stab->head;
     while(cur->next != 0)
     {
@@ -259,10 +250,10 @@ node* find_tail(symbol_tab* stab)
     return cur;
 }
 
-/*
+/**
  * @brief: get size
  * @param: symbol_tab* stab
- * return: in
+ * @return: int
  */
 int size(symbol_tab* stab)
 {

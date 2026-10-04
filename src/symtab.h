@@ -5,7 +5,7 @@
 #ifndef _SYMTAB_H_
 #define _SYMTAB_H_
 
-/*
+/**
  * @struct: symbol
  */
 typedef struct symbol
@@ -15,7 +15,8 @@ typedef struct symbol
     char* type;
     void* pval;
 } symbol;
-/*
+
+/**
  * @struct: node
  */
 typedef struct node
@@ -24,7 +25,8 @@ typedef struct node
     struct node* next;
     struct node* prev;
 } node;
-/*
+
+/**
  * @struct: symbol_tab
  */
 typedef struct symbol_tab
@@ -33,13 +35,13 @@ typedef struct symbol_tab
    struct symbol_tab* parent;
 } symbol_tab;
 
-/*
+/**
  * @brief: initialize symbol table
- * return: symbol_tab* 
+ * @return: symbol_tab* 
  */
 symbol_tab* get_stable();
 
-/*
+/**
  * @brief: free node
  * @param: symbol_tab* stab
  * @param: node* n
@@ -47,7 +49,7 @@ symbol_tab* get_stable();
  */
 void free_node(symbol_tab* stab, node* n);
 
-/*
+/**
  * @brief: intitialize symbol
  * @param: symbol** s
  * @param: const char* id
@@ -57,22 +59,22 @@ void free_node(symbol_tab* stab, node* n);
  */
 void init_symbol(symbol** s, const char* id, const char* type_modifiers, const char* type);
 
-/*
+/**
  * @brief: intitialize sub-tbale
  * @param: symbol_tab* parent
  * @return: void
  */
 void init_sub_table(symbol_tab* parent);
 
-/*
+/**
  * @brief: add symbol
  * @param: symbol_tab* stab
  * @param: symbol* sym
- * return: void
+ * @return: void
  */
 void add_symbol(symbol_tab* stab, symbol* sym);
 
-/*
+/**
  * @brief: insert symbol
  * @param: symbol_tab* stab
  * @param: const char* dst_id
@@ -82,7 +84,7 @@ void add_symbol(symbol_tab* stab, symbol* sym);
  */
 void insert_symbol(symbol_tab* stab, const char* dst_id, const char* src_id, const char* src_val);
 
-/*
+/**
  * @brief: remove symbol
  * @param: symbol_tab* stab
  * @param: const char* id
@@ -96,47 +98,50 @@ void remove_symbol(symbol_tab* stab, const char* id);
  */
 void clear_symbols(symbol_tab* stab);
 
-/*
+/**
  * @brief: find symbol by address
  * @param: symbol_tab* stab
  * @param: symbol* sym
  * @return: symbol*
  */
 symbol* find_symbol_by_addr(symbol_tab* stab, symbol* sym);
-/*
+
+/**
  * @brief: find symbol by id
  * @param: symbol_tab* stab
  * @param: const char* id
  * @return: symbol*
  */
 symbol* find_symbol_by_id(symbol_tab* stab, const char* id);
-/*
+
+/**
  * @brief: find symbol by id
  * @param: symbol_tab* stab
  * @param: const char* id
  * @return: symbol*
  */
 symbol* find_symbol(symbol_tab* stab, const char* id);
-/*
+
+/**
  * @brief: find node by id
  * @param: symbol_tab* stab
  * @param: const char* id
  * @return: node*
  */
 node* find_node(symbol_tab* stab, const char* id);
-/*
+
+/**
  * @brief: find tail node
  * @param: symbol_tab* stab
  * @return: node*
  */
 node* find_tail(symbol_tab* stab);
-/*
+
+/**
  * @brief: get size
  * @param: symbol_tab* stab
  * @return: int
  */
 int size(symbol_tab* stab);
-
-
 
 #endif
