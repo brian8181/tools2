@@ -35,6 +35,7 @@ LDFLAGS=$(INCLUDES) $(LIBS)
 all: $(BLD)/libtools.a $(BLD)/libtools.so $(BLD)/TEST $(BLD)/logger_test
 	@echo -e "building prequisite -> $^ ... \nbuilding -> $@ ...$(FMT_RESET)"
 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
+	ls -al $(BLD)
 
 OBJS= \
 $(OBJ)/string.o \
@@ -50,7 +51,7 @@ $(OBJ)/tools_test.o \
 $(OBJ)/logger_test.o
 
 $(BLD)/libtools.a: $(OBJS) 
-@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
+	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
 	ar rvs $@ $^
 	chmod 755 $@
 	cp $@ ~/src/lib
