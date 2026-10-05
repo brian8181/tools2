@@ -111,15 +111,23 @@ void TEST_string::test_digits10()
 }
 void TEST_string::test_replace_all()
 {
-    CPPUNIT_ASSERT(1 == 1);
+    string str = "abcxabcxabc";
+    cout << "str=" << str << endl; 
+    string sub_str = str;
+    string rpl = "BOO";
+    replace_all(str, sub_str, rpl);
+    cout << "str=" << str << endl; 
+    CPPUNIT_ASSERT(str == "BOOxBOOXBOO");
 }
 
 void TEST_string::test_reverse()
 {
-    //char* ps = "abc";
-    //reverse(ps, 3);
-    //CPPUNIT_ASSERT(ps[0] == 'c');
-    CPPUNIT_ASSERT(1 == 1);
+   char s[] = "1234567890";
+   cout << endl << "s=" << s << endl; 
+   reverse(s, 10);
+   string excepted = string(s);
+   cout << "s=" << s << endl; 
+   CPPUNIT_ASSERT(excepted == "0987654321");
 }
 
 void TEST_string::test_int_to_str()
