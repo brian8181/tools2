@@ -7,6 +7,9 @@
 #define _TEST_singleton_H
 
 #include <cppunit/Test.h>
+#include <cppunit/TestFixture.h>
+#include <cppunit/extensions/HelperMacros.h>
+#include <cppunit/Test.h>
 
 class TEST_singleton : public CppUnit::TestFixture
 {
@@ -16,7 +19,6 @@ private:
     CPPUNIT_TEST(testOptionHelp);
     CPPUNIT_TEST(testOptionHelpLong);
     CPPUNIT_TEST(testOptionVerbose);
-    //CPPUNIT_TEST(test_logger_open);
     CPPUNIT_TEST(test_singleton_instance);
     CPPUNIT_TEST_SUITE_END();
 
