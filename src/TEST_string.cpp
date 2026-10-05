@@ -148,6 +148,19 @@ void TEST_string::test_to_lower()
     to_lower(s, r);
     cout << "r=" << r << endl; 
     CPPUNIT_ASSERT(r == "abcdefghijklmnopqrstuvwxyz0123456789");
+
+    s = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    cout << endl << "s=" << s << endl; 
+    r = to_lower(s);
+    cout << "r=" << r << endl; 
+    CPPUNIT_ASSERT(r == "abcdefghijklmnopqrstuvwxyz0123456789");
+
+    char* ps = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    cout << endl << "ps=" << ps << endl; 
+    char* pr = 0;
+    //const char pr = to_lower(ps);
+    //cout << "pr=" << pr << endl; 
+    CPPUNIT_ASSERT(r == "abcdefghijklmnopqrstuvwxyz0123456789");
 }
 
 void TEST_string::test_to_upper()
@@ -157,6 +170,19 @@ void TEST_string::test_to_upper()
     string r;
     to_upper(s, r);
     cout << "r=" << r << endl; 
+    CPPUNIT_ASSERT(r == "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
+
+    s = "abcdefghijklmnopqrstuvwxyz0123456789";
+    cout << endl << "s=" << s << endl; 
+    r = to_upper(s);
+    cout << "r=" << r << endl; 
+    CPPUNIT_ASSERT(r == "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
+
+    char* ps = "abcdefghijklmnopqrstuvwxyz0123456789";
+    cout << endl << "ps=" << ps << endl; 
+    char* pr = 0;
+    //const char pr = to_lower(ps);
+    //cout << "pr=" << pr << endl; 
     CPPUNIT_ASSERT(r == "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
 }
 
