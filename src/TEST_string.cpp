@@ -142,7 +142,12 @@ void TEST_string::test_str_to_int()
 
 void TEST_string::test_to_lower()
 {
-    CPPUNIT_ASSERT(1 == 1);
+    string s = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    cout << "s=" << s << endl; 
+    string r;
+    to_lower(s, r);
+    cout << "acutal=" << r << endl; 
+    CPPUNIT_ASSERT(r == "abcdefghijklmnopqrstuvwxyz0123456789");
 }
 
 void TEST_string::test_to_upper()
