@@ -26,12 +26,58 @@ using namespace std;
 CPPUNIT_TEST_SUITE_REGISTRATION( TEST_symtab );
 //int parse_options(int argc, char* argv[]);
 
+/**
+ * @name: setUp
+ * @return: void
+ * @brief: set up set case
+ */
 void TEST_symtab::setUp()
 {
 }
 
+
+/**
+ * @name: tearDown
+ * @return: void
+ * @brief: clean up after test case
+ */
 void TEST_symtab::tearDown()
 {
+}
+
+/**
+ * @name: execute
+ * @return: void
+ * @brief: agregate test functions
+ */ 
+void TEST_symtab::execute()
+{
+    // on head
+    char** pstr = new char*;
+    *pstr = (char*)"test";    // on the heap
+
+    char** argv = new char*[1] {*pstr};
+    //argv[0] = *pstr;
+
+    execute(1, argv);
+
+    delete pstr;
+    delete [] argv;
+
+    // on stack
+    //char* argv_[3] {(char*)"./App", (char*)"abc", (char*)"abc"};
+}
+
+ /**
+ * @name: execute
+ * @return: void
+ * @param: int argc
+ * @param: char* argv[]
+ * @brief: agregate test functions
+ */ 
+void TEST_symtab::execute(int argc, char* argv[])
+{
+
 }
 
 void TEST_symtab::testNoOptions()
@@ -57,29 +103,6 @@ void TEST_symtab::testOptionVerbose()
 void TEST_symtab::testOptionVerboseLong()
 {
    CPPUNIT_ASSERT(1 == 1);
-}
-
-void TEST_symtab::execute()
-{
-    // on head
-    char** pstr = new char*;
-    *pstr = (char*)"test";    // on the heap
-
-    char** argv = new char*[1] {*pstr};
-    //argv[0] = *pstr;
-
-    execute(1, argv);
-
-    delete pstr;
-    delete [] argv;
-
-    // on stack
-    //char* argv_[3] {(char*)"./App", (char*)"abc", (char*)"abc"};
-}
-
-void TEST_symtab::execute(int argc, char* argv[])
-{
-
 }
 
 void TEST_symtab::test_get_stable()

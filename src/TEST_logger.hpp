@@ -44,9 +44,11 @@ public:
      */ 
     void execute();
 
-    /**
+     /**
      * @name: execute
      * @return: void
+     * @param: int argc
+     * @param: char* argv[]
      * @brief: agregate test functions
      */ 
     void execute(int argc, char* argv[]);

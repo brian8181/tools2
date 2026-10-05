@@ -67,11 +67,13 @@ void TEST_logger::execute()
     //char* argv_[3] {(char*)"./App", (char*)"abc", (char*)"abc"};
 }
 
-/**
+ /**
  * @name: execute
  * @return: void
+ * @param: int argc
+ * @param: char* argv[]
  * @brief: agregate test functions
- */ 
+ */  
 void TEST_logger::execute(int argc, char* argv[])
 {
 

@@ -8,7 +8,6 @@
 #include <string.h>
 #include "symtab.h"
 
-
 /**
  * @brief: initialize symbol table
  * @return: symbol_tab* 

@@ -36,6 +36,7 @@ all: $(BLD)/libtools.a $(BLD)/libtools.so $(BLD)/TEST $(BLD)/logger_test
 	@echo -e "building prequisite -> $^ ... \nbuilding -> $@ ...$(FMT_RESET)"
 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
 	ls -al $(BLD)
+	@echo -e "$(GREEN)Build \"$@\" complete ...$(RESET)"
 
 OBJS= \
 $(OBJ)/string.o \

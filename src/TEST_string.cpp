@@ -37,6 +37,40 @@ void TEST_string::tearDown()
 {
 }
 
+/**
+ * @name: execute
+ * @return: void
+ * @brief: agregate test functions
+ */ 
+void TEST_string::execute()
+{
+    // on head
+    char** pstr = new char*;
+    *pstr = (char*)"test";    // on the heap
+
+    char** argv = new char*[1] {*pstr};
+    //argv[0] = *pstr;
+
+    execute(1, argv);
+    delete pstr;
+    delete [] argv;
+
+    // on stack
+    //char* argv_[3] {(char*)"./App", (char*)"abc", (char*)"abc"};
+}
+
+ /**
+ * @name: execute
+ * @return: void
+ * @param: int argc
+ * @param: char* argv[]
+ * @brief: agregate test functions
+ */ 
+void TEST_string::execute(int argc, char* argv[])
+{
+
+}
+
 void TEST_string::testNoOptions()
 {
     CPPUNIT_ASSERT(1 == 1);
@@ -57,31 +91,10 @@ void TEST_string::testOptionVerbose()
     CPPUNIT_ASSERT(1 == 1);
 }
 
+
 void TEST_string::testOptionVerboseLong()
 {
     CPPUNIT_ASSERT(1 == 1);
-}
-
-void TEST_string::execute()
-{
-    // on head
-    char** pstr = new char*;
-    *pstr = (char*)"test";    // on the heap
-
-    char** argv = new char*[1] {*pstr};
-    //argv[0] = *pstr;
-
-    execute(1, argv);
-    delete pstr;
-    delete [] argv;
-
-    // on stack
-    //char* argv_[3] {(char*)"./App", (char*)"abc", (char*)"abc"};
-}
-
-void TEST_string::execute(int argc, char* argv[])
-{
-
 }
 
 void TEST_string::test_digits10()
