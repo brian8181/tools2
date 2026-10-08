@@ -19,6 +19,7 @@
 #include <cppunit/XmlOutputter.h>
 #include <netinet/in.h>
 #include "TEST_fileio.hpp"
+#include "fileio.hpp"
 
 using namespace CppUnit;
 using namespace std;
@@ -106,16 +107,22 @@ void TEST_fileio::testOptionVerboseLong()
 
 void TEST_fileio::test_file_size() 
 {
-    CPPUNIT_ASSERT(1 == 1);
+    string file = "../test/test.config";
+    long sz = file_size("../test/test.config");
+    cout << file << " = " << sz << " BYTES" << endl;
+    CPPUNIT_ASSERT(sz != 0);
 }
 
 void TEST_fileio::test_file_exist() 
 {
-    CPPUNIT_ASSERT(1 == 1);
+    string file = "../test/test.config";
+    bool exist = file_exist("../test/test.config");
+    CPPUNIT_ASSERT(exist == true);
 }
 
 void TEST_fileio::test_get_ofstream() 
 { 
+    
     CPPUNIT_ASSERT(1 == 1);
 }
 
