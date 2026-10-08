@@ -158,10 +158,9 @@ int atoi(const char* s) noexcept
     int len = strlen(s);
     for(int i = 0; i < len; ++i)
     {
-        int digit = ASCII_OFFSET - i;
-        if(digit < 0 || digit > 10)
-            return -1;
-        num += digit * pow(10, i);
+        char c = s[i];
+        int digit = c - ASCII_OFFSET;
+        num += (digit * std::pow(10, (len-1)-i));
     }
     return num;
 }

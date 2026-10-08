@@ -99,7 +99,7 @@ void TEST_string::testOptionVerboseLong()
 
 void TEST_string::test_digits10()
 {
-    int expected = 1234;
+    int expected = 4;
     int actual = digits10(1234);
     std::cout << "\ndigits=" << actual << std::endl;
     CPPUNIT_ASSERT(expected == actual);
@@ -113,11 +113,11 @@ void TEST_string::test_replace_all()
 {
     string str = "abcxabcxabc";
     cout << "str=" << str << endl; 
-    string sub_str = str;
+    string sub_str = "x";
     string rpl = "BOO";
     replace_all(str, sub_str, rpl);
     cout << "str=" << str << endl; 
-    CPPUNIT_ASSERT(str == "BOOxBOOXBOO");
+    CPPUNIT_ASSERT(str == "abcBOOabcBOOabc");
 }
 
 void TEST_string::test_reverse()
@@ -132,12 +132,18 @@ void TEST_string::test_reverse()
 
 void TEST_string::test_int_to_str()
 {
-    CPPUNIT_ASSERT(1 == 1);
+    int n = 123456;
+    string r;
+    int_to_str(n, r);
+    CPPUNIT_ASSERT(r == "123456");
 }
 
 void TEST_string::test_str_to_int()
 {
-    CPPUNIT_ASSERT(1 == 1);
+    string s = "123456";
+    int n = 0;
+    str_to_int(s, n);
+    CPPUNIT_ASSERT(n == 123456);
 }
 
 void TEST_string::test_to_lower()
@@ -155,7 +161,7 @@ void TEST_string::test_to_lower()
     cout << "r=" << r << endl; 
     CPPUNIT_ASSERT(r == "abcdefghijklmnopqrstuvwxyz0123456789");
 
-    char* ps = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    char ps[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     cout << endl << "ps=" << ps << endl; 
     char* pr = 0;
     //const char pr = to_lower(ps);
@@ -178,7 +184,7 @@ void TEST_string::test_to_upper()
     cout << "r=" << r << endl; 
     CPPUNIT_ASSERT(r == "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
 
-    char* ps = "abcdefghijklmnopqrstuvwxyz0123456789";
+    char ps[] = "abcdefghijklmnopqrstuvwxyz0123456789";
     cout << endl << "ps=" << ps << endl; 
     char* pr = 0;
     //const char pr = to_lower(ps);
@@ -217,6 +223,24 @@ void TEST_string::test_atoi()
     int expected = 1234;
     string s = "1234";
     int actual = atoi(s.c_str());
+    cout << endl << "actual=" << actual << endl;
+    CPPUNIT_ASSERT(actual == expected);
+
+    expected = 1;
+    s = "1";
+    actual = atoi(s.c_str());
+    cout << endl << "actual=" << actual << endl;
+    CPPUNIT_ASSERT(actual == expected);
+
+    expected = 0;
+    s = "0";
+    actual = atoi(s.c_str());
+    cout << endl << "actual=" << actual << endl;
+    CPPUNIT_ASSERT(actual == expected);
+
+    expected = 1000;
+    s = "1000";
+    actual = atoi(s.c_str());
     cout << endl << "actual=" << actual << endl;
     CPPUNIT_ASSERT(actual == expected);
 }
