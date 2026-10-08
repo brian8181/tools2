@@ -122,7 +122,7 @@ void TEST_fileio::test_file_exist()
 
 void TEST_fileio::test_get_ofstream() 
 { 
-    
+    string file = "../test/test.config";
     CPPUNIT_ASSERT(1 == 1);
 }
 
@@ -166,7 +166,11 @@ void TEST_fileio::test_write_str()
 }
 void TEST_fileio::test_read_sstream() 
 { 
-    CPPUNIT_ASSERT(1 == 1);
+    string file = "../test/test.config";
+    stringstream ostrm;
+    read_sstream(file, ostrm);
+    // todo
+    CPPUNIT_ASSERT(ostrm.str().size() != 0);
 }
 void TEST_fileio::test_write_sstream() 
 { 
@@ -178,6 +182,11 @@ void TEST_fileio::test_read_line()
 }
 void TEST_fileio::test_write_line() 
 { 
+    string file = "../test/test_write.txt";
+    stringstream ss;
+    ss << "Test1" << endl;
+    write_sstream(file, ss);
+    // todo
     CPPUNIT_ASSERT(1 == 1);
 }
 
