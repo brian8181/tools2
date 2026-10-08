@@ -20,11 +20,13 @@
 #include <netinet/in.h>
 #include "TEST_string.hpp"
 #include "string.hpp"
+#include <map>
 
 using namespace CppUnit;
 using std::string;
 using std::cout;
 using std::endl;
+using std::map;
 
 
 CPPUNIT_TEST_SUITE_REGISTRATION( TEST_string );
@@ -260,7 +262,23 @@ void TEST_string::test_itoa()
 
 void TEST_string::test_get_config()
 {
-    CPPUNIT_ASSERT(1 == 1);
+    string file = "./test/test.config";
+    map<string, string> m;
+    get_config(file, m);
+
+    auto end = m.end();
+    for(auto iter = m.begin(); iter != end; ++iter)
+    {
+        cout << iter->first << " = "  << iter->second << endl;
+    }
+
+    auto iter = m.begin();
+    CPPUNIT_ASSERT((*iter).first == "x");
+    CPPUNIT_ASSERT((*iter).second == "1");
+    CPPUNIT_ASSERT((*++iter).first == "y");
+    CPPUNIT_ASSERT((*iter).second == "2");
+    CPPUNIT_ASSERT((*++iter).first == "z");
+    CPPUNIT_ASSERT((*iter).second == "3");
 }
 
 void TEST_string::test_rebase()

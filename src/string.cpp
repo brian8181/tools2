@@ -35,7 +35,7 @@ map<string, string>& get_config(const string& path, /* out */ map<string, string
         while(getline(file, line))
         {
             size_t pos = line.find('=');
-            string name = line.substr(0, pos-1);
+            string name = line.substr(0, pos);
             name = trim(name);
             string value = line.substr(pos+1);
             value = trim(value);
