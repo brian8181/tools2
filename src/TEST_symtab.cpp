@@ -19,6 +19,7 @@
 #include <cppunit/XmlOutputter.h>
 #include <netinet/in.h>
 #include "TEST_symtab.hpp"
+#include "symtab.h"
 
 using namespace CppUnit;
 using namespace std;
@@ -107,7 +108,8 @@ void TEST_symtab::testOptionVerboseLong()
 
 void TEST_symtab::test_get_stable()
 {
-    CPPUNIT_ASSERT(1 == 1);
+    //symbol_tab* tab = get_stable();
+    //CPPUNIT_ASSERT(tab != 0);
 }
 
 void TEST_symtab::test_freenode()
