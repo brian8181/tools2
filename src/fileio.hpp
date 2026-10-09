@@ -75,7 +75,7 @@ ifstream& read_char(ifstream& stream, /* out */ char& c);
  * @param  c : character to write
  * @return file stream
  */
-ofstream& write_char(ofstream& stream, /* in */ const char& c);
+ofstream& write_char(ofstream& stream, /* in */ const unsigned char& c);
 
 /**
  * @brief  read a file into a buffer

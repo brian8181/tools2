@@ -123,12 +123,17 @@ void TEST_fileio::test_file_exist()
 void TEST_fileio::test_get_ofstream() 
 { 
     string file = "../test/test.config";
-    CPPUNIT_ASSERT(1 == 1);
+    ofstream* strm = 0;
+    get_ofstream(file, strm);
+    CPPUNIT_ASSERT(strm != 0);
 }
 
 void TEST_fileio::test_get_ifstream() 
 { 
-    CPPUNIT_ASSERT(1 == 1);
+    string file = "../test/test.config";
+    ifstream* strm = 0;
+    get_ifstream(file, strm);
+    CPPUNIT_ASSERT(strm != 0);
 }
 
 void TEST_fileio::test_getc() 
@@ -138,31 +143,55 @@ void TEST_fileio::test_getc()
 
 void TEST_fileio::test_read_char() 
 { 
+    string file = "../test/test_read_char.txt";
+    ifstream* strm = 0;
+    get_ifstream(file, strm);
+    
+    char c;
+    //read_char(*strm, c);
     CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_fileio::test_write_char() 
 { 
+    string file = "../test/test_write_char.txt";
+    ofstream* strm = 0;
+    get_ofstream(file, strm);
+
+    char c;
+    //write_char(*strm, c);
     CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_fileio::test_read_buf() 
 {
+    string file = "../test/test_read_buf.txt";
+    unsigned char buffer[1024];
+    read_buf(file, buffer, 1024);
     CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_fileio::test_write_buf() 
 { 
+    string file = "../test/test_read_buf.txt";
+    unsigned char buffer[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    //write_buf(file, &buffer[0], 26);
     CPPUNIT_ASSERT(1 == 1);
 }
 
 void TEST_fileio::test_read_str() 
 { 
-    CPPUNIT_ASSERT(1 == 1);
+    string file = "../test/test_read_str.txt";
+    string str;
+    read_str(file, str);
+    CPPUNIT_ASSERT(str.length() > 0);
 }
 void TEST_fileio::test_write_str() 
 { 
-    CPPUNIT_ASSERT(1 == 1);
+    string file = "../test/test_write_str.txt";
+    string out = "Hello World!";
+    int ret = write_str(file, out);
+    CPPUNIT_ASSERT(ret != 0);
 }
 void TEST_fileio::test_read_sstream() 
 { 

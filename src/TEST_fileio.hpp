@@ -99,7 +99,6 @@ protected:
 private:
     int m_argc;
     char* m_argv[10];
-
 };
 
 #endif
