@@ -70,6 +70,7 @@ $(OBJ)/string.o \
 $(OBJ)/tools.o \
 $(OBJ)/logger.o \
 $(OBJ)/fileio.o \
+$(OBJ)/symtab.o \
 $(OBJ)/TEST_variant.o \
 $(OBJ)/TEST_string.o \
 $(OBJ)/TEST_tools.o \
