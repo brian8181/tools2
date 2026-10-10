@@ -3,9 +3,9 @@
 #include <algorithm>
 #include <memory>
 
-/* 
-* @class observer 
-*/
+/**
+ * @class observer 
+ */
 class observer 
 {
 public:
@@ -13,9 +13,9 @@ public:
     virtual void update() = 0;
 };
 
-/* 
-* @class observable 
-*/
+/**
+ * @class observable 
+ */
 class observable 
 {
 private:
