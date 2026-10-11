@@ -32,7 +32,7 @@ INCLUDES=-I"./$(SRC)" -I"./$(BLD)" -I"./$(TST)"
 LIBS=-fPIC /usr/local/lib/libcppunit.a
 LDFLAGS=$(INCLUDES) $(LIBS)
 
-all: $(BLD)/libtools.a $(BLD)/libtools.so $(BLD)/TEST $(BLD)/logger_test
+all: $(BLD)/libtools.a $(BLD)/libtools.so $(BLD)/TEST
 	@echo -e "building prequisite -> $^ ... \nbuilding -> $@ ...$(FMT_RESET)"
 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
 	ls -al $(BLD)
@@ -44,12 +44,8 @@ $(OBJ)/fileio.o \
 $(OBJ)/utest.o \
 $(OBJ)/variant.o \
 $(OBJ)/logger.o \
-$(OBJ)/loop.o \
-$(OBJ)/SmartPtr.o \
 $(OBJ)/symtab.o \
-$(OBJ)/tools.o \
-$(OBJ)/tools_test.o \
-$(OBJ)/logger_test.o
+$(OBJ)/tools.o
 
 $(BLD)/libtools.a: $(OBJS) 
 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
@@ -71,6 +67,7 @@ $(OBJ)/tools.o \
 $(OBJ)/logger.o \
 $(OBJ)/fileio.o \
 $(OBJ)/symtab.o \
+$(OBJ)/utest.o \
 $(OBJ)/TEST_variant.o \
 $(OBJ)/TEST_string.o \
 $(OBJ)/TEST_tools.o \
@@ -78,7 +75,8 @@ $(OBJ)/TEST_logger.o \
 $(OBJ)/TEST_fileio.o \
 $(OBJ)/TEST_singleton.o \
 $(OBJ)/TEST_symtab.o \
-$(OBJ)/TEST_observer_observable.o
+$(OBJ)/TEST_observer_observable.o \
+$(OBJ)/TEST_utest.o
 
 OBJS_C= \
 $(OBJ)/util.o \
@@ -94,17 +92,17 @@ $(BLD)/TEST: $(OBJ_TST)
 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
 	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
 	
-$(BLD)/iomanip_ex: $(OBJ)/iomanip_ex.o
-	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
-	$(CXX) $(CXXFLAGS) $^ -o $@
+# $(BLD)/iomanip_ex: $(OBJ)/iomanip_ex.o
+# 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
+# 	$(CXX) $(CXXFLAGS) $^ -o $@
 
-$(BLD)/logger_test: $(OBJ)/logger.o $(OBJ)/logger_test.o
-	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
-	$(CXX) $(CXXFLAGS) $^ -o $@
+# $(BLD)/logger_test: $(OBJ)/logger.o $(OBJ)/logger_test.o
+# 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
+# 	$(CXX) $(CXXFLAGS) $^ -o $@
 
-$(BLD)/tools_test: $(OBJ)/tools_test.o
-	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
-	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
+# $(BLD)/tools_test: $(OBJ)/tools_test.o
+# 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
+# 	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
 
 # build object files
 $(OBJ)/%.o: $(SRC)/%.c

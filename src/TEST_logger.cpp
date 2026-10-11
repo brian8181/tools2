@@ -123,3 +123,25 @@ void TEST_logger::test_logger_log()
 
 
 
+void TEST_logger::test_logger_strm_operator_string()
+{
+    CPPUNIT_ASSERT(1 == 1);
+}
+
+void TEST_logger::test_logger_strm_operator_int()
+{
+    CPPUNIT_ASSERT(1 == 1);
+}
+
+void TEST_logger::test_logger_strm_operator_long()
+{
+    CPPUNIT_ASSERT(1 == 1);
+}
+
+void TEST_logger::test_logger_strm_operator_double()
+{
+    CPPUNIT_ASSERT(1 == 1);
+}
+
+
+

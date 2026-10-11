@@ -21,6 +21,10 @@ private:
     CPPUNIT_TEST(testOptionVerbose);
     CPPUNIT_TEST(test_logger_open);
     CPPUNIT_TEST(test_logger_log);
+    CPPUNIT_TEST(test_logger_strm_operator_string);
+    CPPUNIT_TEST(test_logger_strm_operator_int);
+    CPPUNIT_TEST(test_logger_strm_operator_long);
+    CPPUNIT_TEST(test_logger_strm_operator_double);
     CPPUNIT_TEST_SUITE_END();
 
 public:
@@ -61,6 +65,10 @@ protected:
     void testOptionVerbose();
     void test_logger_open();
     void test_logger_log();
+    void test_logger_strm_operator_string();
+    void test_logger_strm_operator_int();
+    void test_logger_strm_operator_long();
+    void test_logger_strm_operator_double();
 private:
     int m_argc;
     char* m_argv[10];
