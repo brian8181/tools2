@@ -4,6 +4,19 @@
  * @date    Wed Aug 19 01:47:09 PM CDT 2026
  */
 #include <iostream>
+#include <cstring>
+#include <unistd.h> /* for STDIN_FILENO */
+#if defined(_WIN32)
+// Windows-specific code (e.g., MSYS2 UCRT64)
+#include <winsock2.h>
+#elif defined(__linux__)
+// Linux-specific code (e.g., Fedora, Ubuntu)
+#include <sys/select.h>
+#elif defined(__unix__)
+// Other Unix-like systems (e.g., BSD, macOS)
+#include <sys/select.h>
+#endif
+#include <cstdlib>
 #include <getopt.h>
 #include "tools.hpp"
 #include "bash_color.hpp"
@@ -71,4 +84,68 @@ int parse_options(int argc, char* argv[])
 	cout << argv[0] << endl;
 
 	return 0;
+}
+
+#ifndef _WIN32
+/**
+ * @brief  stdin_ready function
+ * @param filedes
+ * @param int filedes : the file handle
+ * @return ready or error code
+ */
+int stdin_ready(int filedes)
+{
+    fd_set set;
+    // declare/initialize zero timeout
+#ifndef CYGWIN
+    struct timespec timeout = {.tv_sec = 0};
+#else
+    timeval timeout = {.tv_sec = 0};
+#endif
+    // initialize the file descriptor set
+    FD_ZERO(&set);
+    FD_SET(filedes, &set);
+    // check stdin_ready is ready on filedes
+#ifndef CYGWIN
+    return pselect(filedes + 1, &set, NULL, NULL, &timeout, NULL);
+#else
+    return select(filedes + 1, &set, nullptr, nullptr, &timeout);
+#endif
+}
+#endif
+
+/**
+ * @brief main function
+ * @param argc : param count in argv
+ * @param argv : command line parameters
+ * @return 0 success : or error
+ */
+int main(int argc, char *argv[])
+{
+    try
+    {
+#ifndef _WIN32
+        char *argv_cpy[sizeof(char *) * argc + 1];
+        if (stdin_ready(STDIN_FILENO))
+        {
+            std::string buffer;
+            std::cin >> buffer;
+            memcpy(argv_cpy, argv, sizeof(char *) * argc);
+            argv_cpy[argc] = &buffer[0];
+            ++argc;
+            return parse_options(argc, argv_cpy);
+        }
+#endif
+        return parse_options(argc, argv);
+    }
+    catch (std::runtime_error &ex)
+    {
+        std::cout << ex.what() << std::endl;
+        std::exit(-1);
+    }
+    catch (std::logic_error &ex)
+    {
+        std::cout << ex.what() << std::endl;
+        std::exit(-1);
+    }
 }

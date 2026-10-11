@@ -32,7 +32,7 @@ INCLUDES=-I"./$(SRC)" -I"./$(BLD)" -I"./$(TST)"
 LIBS=-fPIC /usr/local/lib/libcppunit.a
 LDFLAGS=$(INCLUDES) $(LIBS)
 
-all: $(BLD)/libtools.a $(BLD)/libtools.so $(BLD)/TEST
+all: $(BLD)/libtools.a $(BLD)/libtools.so $(BLD)/TEST $(BLD)/tools
 	@echo -e "building prequisite -> $^ ... \nbuilding -> $@ ...$(FMT_RESET)"
 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
 	ls -al $(BLD)
@@ -63,7 +63,6 @@ OBJ_TST= \
 $(OBJ)/TEST.o \
 $(OBJ)/variant.o \
 $(OBJ)/string.o \
-$(OBJ)/tools.o \
 $(OBJ)/logger.o \
 $(OBJ)/fileio.o \
 $(OBJ)/symtab.o \
@@ -91,7 +90,10 @@ $(OBJ)/net.o
 $(BLD)/TEST: $(OBJ_TST)
 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
 	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
-	
+
+$(BLD)/tools: $(BLD)/tools.o
+	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
+
 # $(BLD)/iomanip_ex: $(OBJ)/iomanip_ex.o
 # 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
 # 	$(CXX) $(CXXFLAGS) $^ -o $@
