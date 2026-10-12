@@ -28,9 +28,10 @@ TST=build
 
 # lib settings
 #INCLUDES=-I"/home/brian/src/boost_1_91_0" -I./$(SRC) -I./$(BLD) -I./$(TST)
-INCLUDES=
-LIBS=-fPIC /usr/local/lib/libcppunit.a
-LDFLAGS=$(INCLUDES) $(LIBS)
+#INCLUDES=
+LIBS=/usr/local/lib/libcppunit.a
+#LDFLAGS=$(INCLUDES) $(LIBS)
+LDFLAGS= $(LIBS)
 
 all: $(BLD)/libtools.a $(BLD)/TEST $(BLD)/tools
 	@echo -e "building prequisite -> $^ ... \nbuilding -> $@ ...$(FMT_RESET)"
