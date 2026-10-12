@@ -1,5 +1,7 @@
 {
     "C_Cpp.codeAnalysis.clangTidy.enabled": true,
     "files.autoSave": "afterDelay",
-    "editor.mouseWheelZoom": true
+    "editor.mouseWheelZoom": true,
+    "C_Cpp.default.cppStandard": "c++17",
+    "C_Cpp.default.compilerPath": "/usr/bin/g++"
 }
