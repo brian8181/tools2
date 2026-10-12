@@ -18,7 +18,7 @@ using std::map;
 
 /**
  * @name getconfig
- * @info0: git name -> value pairs/config
+ * @brief git name -> value pairs/config
  * @param path, path to config file
  */
 std::map<string, string>& get_config(const string& path, /** out */ map<string, string>& config);
