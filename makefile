@@ -36,7 +36,7 @@ LDFLAGS= $(LIBS)
 all: $(BLD)/libtools.a $(BLD)/TEST $(BLD)/tools
 	@echo -e "building prequisite -> $^ ... \nbuilding -> $@ ...$(FMT_RESET)"
 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
-	ls -al $(BLD)
+	ls -alF $(BLD)
 	@echo -e "$(GREEN)Build \"$@\" complete ...$(RESET)"
 
 OBJS= \
@@ -95,18 +95,6 @@ $(BLD)/tools: $(BLD)/fileio.o $(BLD)/libtools.a $(BLD)/tools.o
 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
 	#$(CXX) $(CXXFLAGS) $< $(LDFLAGS) -o $@
 	g++ -std=c++17 -Wall -DDEBUG -ggdb -fPIC build/tools.o build/string.o -o build/tools
-
-# $(BLD)/iomanip_ex: $(OBJ)/iomanip_ex.o
-# 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
-# 	$(CXX) $(CXXFLAGS) $^ -o $@
-
-# $(BLD)/logger_test: $(OBJ)/logger.o $(OBJ)/logger_test.o
-# 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
-# 	$(CXX) $(CXXFLAGS) $^ -o $@
-
-# $(BLD)/tools_test: $(OBJ)/tools_test.o
-# 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
-# 	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
 
 # build object files
 $(OBJ)/%.o: $(SRC)/%.c
