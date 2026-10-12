@@ -28,11 +28,11 @@ TST=build
 
 # lib settings
 #INCLUDES=-I"/home/brian/src/boost_1_91_0" -I./$(SRC) -I./$(BLD) -I./$(TST)
-INCLUDES=-I"./$(SRC)" -I"./$(BLD)" -I"./$(TST)"
+INCLUDES=
 LIBS=-fPIC /usr/local/lib/libcppunit.a
 LDFLAGS=$(INCLUDES) $(LIBS)
 
-all: $(BLD)/libtools.a $(BLD)/libtools.so $(BLD)/TEST $(BLD)/tools
+all: $(BLD)/libtools.a $(BLD)/TEST $(BLD)/tools
 	@echo -e "building prequisite -> $^ ... \nbuilding -> $@ ...$(FMT_RESET)"
 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
 	ls -al $(BLD)
@@ -44,8 +44,7 @@ $(OBJ)/fileio.o \
 $(OBJ)/utest.o \
 $(OBJ)/variant.o \
 $(OBJ)/logger.o \
-$(OBJ)/symtab.o \
-$(OBJ)/tools.o
+$(OBJ)/symtab.o
 
 $(BLD)/libtools.a: $(OBJS)
 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
@@ -53,9 +52,9 @@ $(BLD)/libtools.a: $(OBJS)
 	chmod 755 $@
 	cp $@ ~/src/lib
 
-$(BLD)/libtools.so: $(BLD)/tools.o
+$(BLD)/libtools.so: $(OBJS)
 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
-	$(CXX) $(CXXFLAGS) --shared $(OBJ)/tools.o $(LDFLAGS) -o $(BLD)/libtools.so
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BLD)/libtools.so
 	chmod 755 $(BLD)/libtools.so
 	cp $(BLD)/libtools.so ~/src/lib
 

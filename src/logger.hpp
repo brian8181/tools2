@@ -6,6 +6,7 @@
 #ifndef _logger_HPP
 #define _logger_HPP
 
+#include <limits>
 #include <string>
 #include <fstream>
 #include <ostream>
