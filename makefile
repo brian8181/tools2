@@ -47,7 +47,7 @@ $(OBJ)/logger.o \
 $(OBJ)/symtab.o \
 $(OBJ)/tools.o
 
-$(BLD)/libtools.a: $(OBJS) 
+$(BLD)/libtools.a: $(OBJS)
 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
 	ar rvs $@ $^
 	chmod 755 $@
@@ -91,8 +91,10 @@ $(BLD)/TEST: $(OBJ_TST)
 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
 	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
 
-$(BLD)/tools: $(BLD)/tools.o
-	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
+$(BLD)/tools: $(BLD)/fileio.o $(BLD)/libtools.a $(BLD)/tools.o
+	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
+	#$(CXX) $(CXXFLAGS) $< $(LDFLAGS) -o $@
+	g++ -std=c++17 -Wall -DDEBUG -ggdb -fPIC build/tools.o build/string.o -o build/tools
 
 # $(BLD)/iomanip_ex: $(OBJ)/iomanip_ex.o
 # 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"

@@ -19,6 +19,8 @@
 #include <cstdlib>
 #include <getopt.h>
 #include "tools.hpp"
+#include "fileio.hpp"
+#include "string.hpp"
 #include "bash_color.hpp"
 
 using std::string;
@@ -82,6 +84,12 @@ int parse_options(int argc, char* argv[])
 
 	string path = argv[0];   // get exe file path
 	cout << argv[0] << endl;
+
+	string s = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    cout << endl << "s=" << s << endl; 
+    string r;
+    to_lower(s, r);
+    cout << "r=" << r << endl; 
 
 	return 0;
 }
