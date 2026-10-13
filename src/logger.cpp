@@ -66,7 +66,10 @@ logger& logger::operator<<(int n)
     return *this;
 }
 
-// fstream& operator<<(fstream& os, const logger& log)
+// /**
+//  * @name fstream& oparator<<
+//  */
+// fstream& logger::operator<<(fstream& os, const logger& log)
 // {
 //     os << "testing";
 //     return os;

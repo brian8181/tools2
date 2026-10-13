@@ -77,6 +77,11 @@ public:
      */
     logger& operator<<(double n);
 
+    // /**
+    //  * @name fstream& oparator<<
+    //  */
+    // fstream& operator<<(fstream& os, const logger& log);
+
     
 private:
     std::ofstream* strm;
