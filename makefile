@@ -91,19 +91,21 @@ $(BLD)/TEST: $(OBJ_TST)
 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
 	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
 
-$(BLD)/tools: $(BLD)/fileio.o $(BLD)/libtools.a $(BLD)/tools.o
+$(BLD)/tools: $(BLD)/libtools.a $(BLD)/tools.o
 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
-	#$(CXX) $(CXXFLAGS) $< $(LDFLAGS) -o $@
-	g++ -std=c++17 -Wall -DDEBUG -ggdb -fPIC build/tools.o build/string.o -o build/tools
+	#$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
+	g++ -std=c++17 -Wall -DDEBUG -ggdb -fPIC $(BLD)/tools.o $(BLD)/string.o -o $(BLD)/tools
+	#g++ -std=c++17 -Wall -DDEBUG -ggdb -fPIC build/libtools.a build/tools.o -o build/tools2
+	#g++ -std=c++17 -Wall -DDEBUG -ggdb -fPIC -lbuild/libtsools.so build/tools.o -o build/tools2
 
 # build object files
 $(OBJ)/%.o: $(SRC)/%.c
 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
-	$(CXX) $(CXXFLAGS) -c $^ -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(OBJ)/%.o: $(SRC)/%.cpp
 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
-	$(CXX) $(CXXFLAGS) -c $^ -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 .PHONY: all clean install unintsall rebuild help
 rebuild: clean all

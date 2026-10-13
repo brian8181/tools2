@@ -16,6 +16,9 @@ using std::string;
 using std::fstream;
 using std::ostream;
 
+/**
+ * @class logger : singleton<logger>
+ */
 class logger : public singleton_base<logger>
 {
     friend class singleton_base<logger>; // access private constructor  
@@ -24,16 +27,57 @@ private:
 public:
     logger(const logger&) = delete;
     logger& operator=(const logger&) = delete;
+
+    /**
+     * @name logger dtor
+     * @brief logger dtor
+     */
     ~logger();
 
 public:
+    /**
+     * @name open
+     * @param  const string& log_file
+     */
     void open(const string& log_file);
+
+    /**
+     * @name log
+     * @param const string& msg
+     */
     void log(const string& msg);
+
+    /**
+     * @name operator<<
+     * @param string& msg
+     */
     logger& operator<<(const string& msg);
+
+    /**
+     * @name operator<<
+     * @param int n
+     */
     logger& operator<<(int n);
-    logger& operator<<(double n);
+
+    /**
+     * @name operator<<
+     * @param long n
+     */
     logger& operator<<(long n);
 
+    /**
+     * @name operator<<
+     * @param float n
+     */
+    logger& operator<<(float n);
+
+    /**
+     * @name operator<<
+     * @param double n
+     */
+    logger& operator<<(double n);
+
+    
 private:
     std::ofstream* strm;
     const static string BEGIN;

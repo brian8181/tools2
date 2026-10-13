@@ -16,6 +16,10 @@ using std::endl;
 const string logger::BEGIN = "************ Begin Log : ************** --> ";
 const string logger::END   = "************ End Log   : ************** -->";
 
+/**
+ * @name logger dtor
+ * @brief logger dtor
+ */
 logger::~logger()
 {
     *strm << END << __TIME__  << " " << __DATE__ << std::endl;
@@ -23,23 +27,39 @@ logger::~logger()
     delete strm;    
 }
 
+/**
+ * @name open
+ * @param  const string& log_file
+ */
 void logger::open(const string& log_file)
 {
     strm = new ofstream(log_file, std::ofstream::out | std::ofstream::app);
     *strm << BEGIN << __TIME__ << " " << __DATE__ << std::endl;
 }
 
+/**
+ * @name log
+ * @param const string& msg
+*/
 void logger::log(const string& msg)
 {
     *strm << msg << " -> " << __TIME__ << " " << __DATE__ << std::endl;
 }
 
+/**
+ * @name operator<<
+ * @param string& msg
+ */
 logger& logger::operator<<(const string& msg)
 {
     *strm << msg;
     return *this;
 }
 
+/**
+ * @name operator<<
+ * @param int n
+ */
 logger& logger::operator<<(int n)
 {
     *strm << n;
