@@ -97,7 +97,7 @@ ifstream &read_char(ifstream &strm, /* out */ char &c)
         if (strm.good())
             return strm;
     }
-    //exit(-1);
+    exit(-1);
 }
 
 /**
@@ -114,7 +114,7 @@ ofstream &write_char(ofstream &strm, /* in */ const char &c)
         if (strm.good())
             return strm;
     }
-    //exit(-1);
+    exit(-1);
 }
 
 /**

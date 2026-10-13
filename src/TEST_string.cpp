@@ -165,7 +165,7 @@ void TEST_string::test_to_lower()
 
     char ps[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     cout << endl << "ps=" << ps << endl; 
-    char* pr = 0;
+    //char* pr = 0;
     //const char pr = to_lower(ps);
     //cout << "pr=" << pr << endl; 
     CPPUNIT_ASSERT(r == "abcdefghijklmnopqrstuvwxyz0123456789");
@@ -188,7 +188,7 @@ void TEST_string::test_to_upper()
 
     char ps[] = "abcdefghijklmnopqrstuvwxyz0123456789";
     cout << endl << "ps=" << ps << endl; 
-    char* pr = 0;
+    //  char* pr = 0;
     //const char pr = to_lower(ps);
     //cout << "pr=" << pr << endl; 
     CPPUNIT_ASSERT(r == "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");

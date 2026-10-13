@@ -147,7 +147,7 @@ void TEST_fileio::test_read_char()
     ifstream* strm = 0;
     get_ifstream(file, strm);
     
-    char c;
+    //char c;
     //read_char(*strm, c);
     CPPUNIT_ASSERT(1 == 1);
 }
@@ -158,7 +158,7 @@ void TEST_fileio::test_write_char()
     ofstream* strm = 0;
     get_ofstream(file, strm);
 
-    char c;
+    //char c;
     //write_char(*strm, c);
     CPPUNIT_ASSERT(1 == 1);
 }
@@ -174,7 +174,7 @@ void TEST_fileio::test_read_buf()
 void TEST_fileio::test_write_buf() 
 { 
     string file = "../test/test_read_buf.txt";
-    unsigned char buffer[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    //unsigned char buffer[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     //write_buf(file, &buffer[0], 26);
     CPPUNIT_ASSERT(1 == 1);
 }

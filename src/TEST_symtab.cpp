@@ -136,7 +136,7 @@ void TEST_symtab::test_init_sub_table()
 void TEST_symtab::test_add_symbol()
 {
     // get the symbol table
-    symbol_tab* tab = get_stable();
+    //symbol_tab* tab = get_stable();
     // init a new symbol
     symbol* ps;
     init_symbol(&ps, "one", "const", "int");
