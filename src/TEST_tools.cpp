@@ -26,34 +26,69 @@ using namespace std;
 CPPUNIT_TEST_SUITE_REGISTRATION( TEST_tools );
 //int parse_options(int argc, char* argv[]);
 
+/**
+ * @name: setUp
+ * @brief: set up set case
+ * @return void
+ */
 void TEST_tools::setUp()
 {
 }
 
+/**
+ * @name: tearDown
+ * @brief: clean up after test case
+ * @return: void
+ */
 void TEST_tools::tearDown()
 {
 }
 
+/**
+ * @name testNoOptions
+ * @brief test with no options
+ * @return void
+ */
 void TEST_tools::testNoOptions()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name testOptionHelp
+ * @brief test help option
+ * @return void
+ */
 void TEST_tools::testOptionHelp()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name testOptionHelpLong
+ * @brief test long help option
+ * @return void
+ */
 void TEST_tools::testOptionHelpLong()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name testOptionVerbose
+ * @brief test verbose option
+ * @return void
+ */
 void TEST_tools::testOptionVerbose()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name testOptionVerboseLong
+ * @brief test long verbose option
+ * @return void
+ */
 void TEST_tools::testOptionVerboseLong()
 {
    CPPUNIT_ASSERT(1 == 1);

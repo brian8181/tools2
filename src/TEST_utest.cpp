@@ -26,10 +26,20 @@ using namespace std;
 CPPUNIT_TEST_SUITE_REGISTRATION( TEST_utest );
 //int parse_options(int argc, char* argv[]);
 
+/**
+ * @name: tearDown
+ * @return: void
+ * @brief: clean up after test case
+ */
 void TEST_utest::setUp()
 {
 }
 
+/**
+ * @name: tearDown
+ * @return: void
+ * @brief: clean up after test case
+ */
 void TEST_utest::tearDown()
 {
 }

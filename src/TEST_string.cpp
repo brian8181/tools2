@@ -31,10 +31,20 @@ using std::map;
 
 CPPUNIT_TEST_SUITE_REGISTRATION( TEST_string );
 
+/**
+ * @name: setUp
+ * @return: void
+ * @brief: set up set case
+ */
 void TEST_string::setUp()
 {
 }
 
+/**
+ * @name: tearDown
+ * @return: void
+ * @brief: clean up after test case
+ */
 void TEST_string::tearDown()
 {
 }

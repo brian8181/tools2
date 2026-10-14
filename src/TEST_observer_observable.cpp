@@ -26,10 +26,20 @@ using namespace std;
 CPPUNIT_TEST_SUITE_REGISTRATION( TEST_observer_observable );
 //int parse_options(int argc, char* argv[]);
 
+/**
+ * @name: tearDown
+ * @return: void
+ * @brief: clean up after test case
+ */
 void TEST_observer_observable::setUp()
 {
 }
 
+/**
+ * @name: tearDown
+ * @return: void
+ * @brief: clean up after test case
+ */
 void TEST_observer_observable::tearDown()
 {
 }
