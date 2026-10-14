@@ -59,10 +59,41 @@ public:
 
 
 protected:
+    /**
+     * @name testNoOptions
+     * @brief test with no options
+     * @return void
+     */
     void testNoOptions();
+
+    /**
+     * @name testOptionHelp
+     * @brief test help option
+     * @return void
+     */
     void testOptionHelp();
+
+    /**
+     * @name testOptionHelpLong
+     * @brief test long help option
+     * @return void
+     */
     void testOptionHelpLong();
+    
+    /**
+     * @name testOptionVerbose
+     * @brief test verbose option
+     * @return void
+     */
     void testOptionVerbose();
+
+    /**
+     * @name testOptionVerboseLong
+     * @brief test long verbose option
+     * @return void
+     */
+    void testOptionVerboseLong();
+
     void test_logger_open();
     void test_logger_log();
     void test_logger_strm_operator_string();

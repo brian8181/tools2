@@ -33,20 +33,55 @@ public:
     void tearDown();
 
     /**
+     * @name: execute
+     * @return: void
      * @brief: agregate test functions
-     */ 
+     */  
     void execute();
 
     /**
+     * @name: execute
+     * @return: void
+     * @param: int argc
+     * @param: char* argv[]
      * @brief: agregate test functions
      */ 
     void execute(int argc, char* argv[]);
 
 protected:
+    /**
+     * @name testNoOptions
+     * @brief test with no options
+     * @return void
+     */
     void testNoOptions();
+
+    /**
+     * @name testOptionHelp
+     * @brief test help option
+     * @return void
+     */
     void testOptionHelp();
+
+    /**
+     * @name testOptionHelpLong
+     * @brief test long help option
+     * @return void
+     */
     void testOptionHelpLong();
+    
+    /**
+     * @name testOptionVerbose
+     * @brief test verbose option
+     * @return void
+     */
     void testOptionVerbose();
+
+    /**
+     * @name testOptionVerboseLong
+     * @brief test long verbose option
+     * @return void
+     */
     void testOptionVerboseLong();
 
 private:
