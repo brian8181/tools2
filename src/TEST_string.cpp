@@ -83,32 +83,59 @@ void TEST_string::execute(int argc, char* argv[])
 
 }
 
+/**
+ * @name testNoOptions
+ * @brief test with no options
+ * @return void
+ */
 void TEST_string::testNoOptions()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name testOptionHelp
+ * @brief test help option
+ * @return void
+ */
 void TEST_string::testOptionHelp()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name testOptionHelpLong
+ * @brief test long help option
+ * @return void
+ */
 void TEST_string::testOptionHelpLong()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name testOptionHelpLong
+ * @brief test long help option
+ * @return void
+ */
 void TEST_string::testOptionVerbose()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
-
+/**
+ * @name testOptionVerboseLong
+ * @brief test long verbose option
+ * @return void
+ */
 void TEST_string::testOptionVerboseLong()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name test_digits10
+ */
 void TEST_string::test_digits10()
 {
     int expected = 4;
@@ -121,6 +148,10 @@ void TEST_string::test_digits10()
     std::cout << "\ndigits=" << actual << std::endl;
     CPPUNIT_ASSERT(actual == expected);
 }
+
+/**
+ * @name test_replace_all
+ */
 void TEST_string::test_replace_all()
 {
     string str = "abcxabcxabc";
@@ -132,6 +163,9 @@ void TEST_string::test_replace_all()
     CPPUNIT_ASSERT(str == "abcBOOabcBOOabc");
 }
 
+/**
+ * @name test_reverse
+ */
 void TEST_string::test_reverse()
 {
    char s[] = "1234567890";
@@ -142,6 +176,9 @@ void TEST_string::test_reverse()
    CPPUNIT_ASSERT(excepted == "0987654321");
 }
 
+/**
+ * @name test_int_to_str
+ */
 void TEST_string::test_int_to_str()
 {
     int n = 123456;
@@ -150,6 +187,9 @@ void TEST_string::test_int_to_str()
     CPPUNIT_ASSERT(r == "123456");
 }
 
+/** 
+ * @name test_str_to_int
+ */
 void TEST_string::test_str_to_int()
 {
     string s = "123456";
@@ -158,6 +198,9 @@ void TEST_string::test_str_to_int()
     CPPUNIT_ASSERT(n == 123456);
 }
 
+/**
+ * @name test_to_lower
+ */
 void TEST_string::test_to_lower()
 {
     string s = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -181,6 +224,9 @@ void TEST_string::test_to_lower()
     CPPUNIT_ASSERT(r == "abcdefghijklmnopqrstuvwxyz0123456789");
 }
 
+/**
+ * @name test_to_lower
+ */
 void TEST_string::test_to_upper()
 {
     string s = "abcdefghijklmnopqrstuvwxyz0123456789";
@@ -204,6 +250,9 @@ void TEST_string::test_to_upper()
     CPPUNIT_ASSERT(r == "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
 }
 
+/**
+ * @name test_ltrim
+ */
 void TEST_string::test_ltrim()
 {
     string s = " abc";
@@ -212,6 +261,9 @@ void TEST_string::test_ltrim()
     CPPUNIT_ASSERT(actual == expected);
 }
 
+/**
+ * @name test_rtrim
+ */
 void TEST_string::test_rtrim()
 {
     string s = "abc ";
@@ -221,6 +273,10 @@ void TEST_string::test_rtrim()
     CPPUNIT_ASSERT(expected == actual);
 }
 
+
+/**
+ * @name test_trim
+ */
 void TEST_string::test_trim()
 {
     string s = " abc ";
@@ -230,6 +286,9 @@ void TEST_string::test_trim()
     CPPUNIT_ASSERT(expected == actual);
 }
 
+/**
+ * @name test_atoi
+ */
 void TEST_string::test_atoi()
 {
     int expected = 1234;
@@ -257,6 +316,9 @@ void TEST_string::test_atoi()
     CPPUNIT_ASSERT(actual == expected);
 }
 
+/**
+ * test itoa
+ */
 void TEST_string::test_itoa()
 {
     char s[11] = { '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0' };
@@ -270,6 +332,9 @@ void TEST_string::test_itoa()
     CPPUNIT_ASSERT(s[0] == '1');
 }
 
+/**
+ * @name test_get_config
+ */
 void TEST_string::test_get_config()
 {
     string file = "./test/test.config";
@@ -291,11 +356,17 @@ void TEST_string::test_get_config()
     CPPUNIT_ASSERT((*iter).second == "3");
 }
 
+/**
+ * @name test_rebase
+ */
 void TEST_string::test_rebase()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name test_split
+ */
 void TEST_string::test_split()
 {
     CPPUNIT_ASSERT(1 == 1);
