@@ -73,7 +73,6 @@ $(OBJ)/TEST_tools.o \
 $(OBJ)/TEST_logger.o \
 $(OBJ)/TEST_fileio.o \
 $(OBJ)/TEST_singleton.o \
-$(OBJ)/TEST_symtab.o \
 $(OBJ)/TEST_observer_observable.o \
 $(OBJ)/TEST_utest.o
 

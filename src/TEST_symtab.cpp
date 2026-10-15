@@ -46,6 +46,56 @@ void TEST_symtab::tearDown()
 {
 }
 
+// /**
+//  * @name testNoOptions
+//  * @brief test with no options
+//  * @return void
+//  */
+// void TEST_symtab::testNoOptions()
+// {
+//     CPPUNIT_ASSERT(1 == 1);
+// }
+
+// /**
+//  * @name testOptionHelp
+//  * @brief test help option
+//  * @return void
+//  */
+// void TEST_symtab::testOptionHelp()
+// {
+//     CPPUNIT_ASSERT(1 == 1);
+// }
+
+// /**
+//  * @name testOptionHelpLong
+//  * @brief test long help option
+//  * @return void
+//  */
+// void TEST_symtab::testOptionHelpLong()
+// {
+//     CPPUNIT_ASSERT(1 == 1);
+// }
+
+// /**
+//  * @name testOptionHelpLong
+//  * @brief test long help option
+//  * @return void
+//  */
+// void TEST_symtab::testOptionVerbose()
+// {
+//     CPPUNIT_ASSERT(1 == 1);
+// }
+
+// /**
+//  * @name testOptionVerboseLong
+//  * @brief test long verbose option
+//  * @return void
+//  */
+// void TEST_symtab::testOptionVerboseLong()
+// {
+//     CPPUNIT_ASSERT(1 == 1);
+// }
+
 /**
  * @name: execute
  * @return: void
