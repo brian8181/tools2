@@ -44,31 +44,61 @@ void TEST_utest::tearDown()
 {
 }
 
+/**
+ * @name testOptionNoOptions
+ * @brief test no option
+ * @return void
+ */
 void TEST_utest::testNoOptions()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name testOptionHelp
+ * @brief test help option
+ * @return void
+ */
 void TEST_utest::testOptionHelp()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name testOptionHelpLong
+ * @brief test long help option
+ * @return void
+ */
 void TEST_utest::testOptionHelpLong()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name testOptionVerbose
+ * @brief test verbose option
+ * @return void
+ */
 void TEST_utest::testOptionVerbose()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name testOptionVerboseLong
+ * @brief test long verbose option
+ * @return void
+ */
 void TEST_utest::testOptionVerboseLong()
 {
    CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name: execute
+ * @return: void
+ * @brief: agregate test functions
+ */
 void TEST_utest::execute()
 {
     // on head
@@ -87,6 +117,13 @@ void TEST_utest::execute()
     //char* argv_[3] {(char*)"./App", (char*)"abc", (char*)"abc"};
 }
 
+/**
+ * @name: execute
+ * @return: void
+ * @param: int argc
+ * @param: char* argv[]
+ * @brief: agregate test functions
+ */
 void TEST_utest::execute(int argc, char* argv[])
 {
 

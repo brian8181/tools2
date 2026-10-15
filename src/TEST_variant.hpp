@@ -56,6 +56,12 @@ protected:
     void testOptionHelp();
     void testOptionHelpLong();
     void testOptionVerbose();
+
+    /**
+     * @name testOptionVerbose
+     * @brief test verbose option
+     * @return void
+     */
     void testOptionVerboseLong();
     void test_ctor1();
     void test_ctor2();

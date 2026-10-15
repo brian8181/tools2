@@ -44,26 +44,51 @@ void TEST_observer_observable::tearDown()
 {
 }
 
+/**
+ * @name testNoOptions
+ * @brief test with no options
+ * @return void
+ */
 void TEST_observer_observable::testNoOptions()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name testOptionHelp
+ * @brief test Help option
+ * @return void
+ */
 void TEST_observer_observable::testOptionHelp()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name testOptionHelpLong
+ * @brief test long verbose option
+ * @return void
+ */
 void TEST_observer_observable::testOptionHelpLong()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name testOptionVerbose
+ * @brief test verbose option
+ * @return void
+ */
 void TEST_observer_observable::testOptionVerbose()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name testOptionVerboseLong
+ * @brief test long verbose option
+ * @return void
+ */
 void TEST_observer_observable::testOptionVerboseLong()
 {
    CPPUNIT_ASSERT(1 == 1);

@@ -45,6 +45,8 @@ void TEST_variant::tearDown()
 }
 
 /**
+ * @name: execute
+ * @return: void
  * @brief: agregate test functions
  */ 
 void TEST_variant::execute()
@@ -66,32 +68,61 @@ void TEST_variant::execute()
 }
 
 /**
+ * @name: execute
+ * @return: void
+ * @param: int argc
+ * @param: char* argv[]
  * @brief: agregate test functions
- */ 
+ */
 void TEST_variant::execute(int argc, char* argv[])
 {
 }
 
+/**
+ * @name testNoOptions
+ * @brief test with no options
+ * @return void
+ */
 void TEST_variant::testNoOptions()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name testOptionHelp
+ * @brief test help option
+ * @return void
+ */
 void TEST_variant::testOptionHelp()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name testOptionHelpLong
+ * @brief test long help option
+ * @return void
+ */
 void TEST_variant::testOptionHelpLong()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name testOptionVerbose
+ * @brief test verbose option
+ * @return void
+ */
 void TEST_variant::testOptionVerbose()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name testOptionVerboseLong
+ * @brief test long verbose option
+ * @return void
+ */
 void TEST_variant::testOptionVerboseLong()
 {
    CPPUNIT_ASSERT(1 == 1);
