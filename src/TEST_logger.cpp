@@ -79,26 +79,51 @@ void TEST_logger::execute(int argc, char* argv[])
 
 }
 
+/**
+ * @name testNoOptions
+ * @brief test with no options
+ * @return void
+ */
 void TEST_logger::testNoOptions()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name testOptionHelp
+ * @brief test help option
+ * @return void
+ */
 void TEST_logger::testOptionHelp()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name testOptionHelpLong
+ * @brief test long help option
+ * @return void
+ */
 void TEST_logger::testOptionHelpLong()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name testOptionVerbose
+ * @brief test verbose option
+ * @return void
+ */
 void TEST_logger::testOptionVerbose()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name testOptionVerboseLong
+ * @brief test long verbose option
+ * @return void
+ */
 void TEST_logger::test_logger_open()
 {
     logger& log = logger::instance();

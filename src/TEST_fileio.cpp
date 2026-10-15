@@ -80,26 +80,51 @@ void TEST_fileio::execute(int argc, char* argv[])
 
 }
 
+/**
+ * @name testNoOptions
+ * @brief test with no options
+ * @return void
+ */
 void TEST_fileio::testNoOptions()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name testOptionHelp
+ * @brief test help option
+ * @return void
+ */
 void TEST_fileio::testOptionHelp()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name testOptionHelpLong
+ * @brief test long help option
+ * @return void
+ */
 void TEST_fileio::testOptionHelpLong()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name testOptionVerbose
+ * @brief test verbose option
+ * @return void
+ */
 void TEST_fileio::testOptionVerbose()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+ /**
+ * @name testOptionVerboseLong
+ * @brief test long verbose option
+ * @return void
+ */
 void TEST_fileio::testOptionVerboseLong()
 {
    CPPUNIT_ASSERT(1 == 1);
