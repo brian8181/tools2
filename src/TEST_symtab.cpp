@@ -36,7 +36,6 @@ void TEST_symtab::setUp()
 {
 }
 
-
 /**
  * @name: tearDown
  * @return: void
@@ -46,15 +45,15 @@ void TEST_symtab::tearDown()
 {
 }
 
-/**
- * @name testNoOptions
- * @brief test with no options
- * @return void
- */
-void TEST_symtab::testNoOptions()
-{
-    CPPUNIT_ASSERT(1 == 1);
-}
+    /**
+     * @name testNoOptions
+     * @brief test with no options
+     * @return void
+     */
+    void TEST_symtab::testNoOptions()
+    {
+        CPPUNIT_ASSERT(1 == 1);
+    }
 
 /**
  * @name testOptionHelp
@@ -128,7 +127,7 @@ void TEST_symtab::execute()
  */ 
 void TEST_symtab::execute(int argc, char* argv[])
 {
-    }
+}
 
 void TEST_symtab::test_get_stable()
 {
