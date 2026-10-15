@@ -45,15 +45,15 @@ void TEST_symtab::tearDown()
 {
 }
 
-    /**
-     * @name testNoOptions
-     * @brief test with no options
-     * @return void
-     */
-    void TEST_symtab::testNoOptions()
-    {
-        CPPUNIT_ASSERT(1 == 1);
-    }
+/**
+ * @name testNoOptions
+ * @brief test with no options
+ * @return void
+ */
+void TEST_symtab::testNoOptions()
+{
+    CPPUNIT_ASSERT(1 == 1);
+}
 
 /**
  * @name testOptionHelp
