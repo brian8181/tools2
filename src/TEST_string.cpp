@@ -80,7 +80,6 @@ void TEST_string::execute()
  */ 
 void TEST_string::execute(int argc, char* argv[])
 {
-
 }
 
 /**

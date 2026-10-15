@@ -100,19 +100,103 @@ protected:
      */
     void testOptionVerboseLong();
     
+    /**
+     * @name test_get_stable
+     * @brief test get stable function
+     * @return void
+     */
     void test_get_stable();
+
+    /**
+     * @name test_freenode
+     * @brief test free node function
+     * @return void
+     */
     void test_freenode();
+
+    /**
+     * @name test_init_symbol
+     * @brief test initialize symbol function
+     * @return void
+     */
     void test_init_symbol();
+
+    /**
+     * @name test_init_sub_table
+     * @brief test initialize sub table function
+     * @return void
+     */
     void test_init_sub_table();
+
+    /**
+     * @name test_add_symbol
+     * @brief test add symbol function
+     * @return void
+     */ 
     void test_add_symbol();
+
+    /**
+     * @name test_insert_symbol
+     * @brief test insert symbol function
+     * @return void
+     */
     void test_insert_symbol();
+
+    /**
+     * @name test_remove_symbol
+     * @brief test remove symbol function
+     * @return void
+     */
     void test_remove_symbol();
+
+    /**
+     * @name test_clear_symbols
+     * @brief test clear symbols function
+     * @return void
+     */  
     void test_clear_symbols();
+
+    /**
+     * @name test_find_symbol_by_addr
+     * @brief test find symbol by address function
+     * @return void
+     */
     void test_find_symbol_by_addr();
+
+    /**
+     * @name test_find_symbol_by_id
+     * @brief test find symbol by id function
+     * @return void
+     */
     void test_find_symbol_by_id();
+
+    /**
+     * @name test_find_symbol
+     * @brief test find symbol function
+     * @return void
+     */
     void test_find_symbol();
+
+
+    /**
+     * @name test_find_node
+     * @brief test find node function
+     * @return void
+     */
     void test_find_node();
+
+    /**
+     * @name test_find_tail
+     * @brief test find tail function
+     * @return void
+     */
     void test_find_tail();
+
+    /**
+     * @name test_size
+     * @brief test size function
+     * @return void
+     */
     void test_size();
 
 private:

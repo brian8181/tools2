@@ -129,6 +129,11 @@ void TEST_symtab::execute(int argc, char* argv[])
 {
 }
 
+/**
+ * @name test_get_stable
+ * @brief test get symbol table function
+ * @return void
+ */
 void TEST_symtab::test_get_stable()
 {
     // get the symbol table
@@ -137,11 +142,21 @@ void TEST_symtab::test_get_stable()
     CPPUNIT_ASSERT(tab != 0);
 }
 
+/**
+ * @name test_freenode
+ * @brief test free node function
+ * @return void
+ */
 void TEST_symtab::test_freenode()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name test_init_symbol
+ * @brief test init symbol function
+ * @return void
+ */
 void TEST_symtab::test_init_symbol()
 {
     // init a new symbol
@@ -151,11 +166,21 @@ void TEST_symtab::test_init_symbol()
     CPPUNIT_ASSERT(ps != 0);
 }
 
+/**
+ * @name test_init_sub_table
+ * @brief test init sub table function
+ * @return void
+ */
 void TEST_symtab::test_init_sub_table()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name test_add_symbol
+ * @brief test add symbol function
+ * @return void
+ */
 void TEST_symtab::test_add_symbol()
 {
     // get the symbol table
@@ -170,45 +195,92 @@ void TEST_symtab::test_add_symbol()
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name test_insert_symbol
+ * @brief test insert symbol function
+ * @return void
+ */
 void TEST_symtab::test_insert_symbol()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name test_remove_symbol
+ * @brief test remove symbol function
+ * @return void
+ */
 void TEST_symtab::test_remove_symbol()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
+
+/**
+ * @name test_clear_symbols
+ * @brief test clear symbols function
+ * @return void
+ */
 void TEST_symtab::test_clear_symbols()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+
+/**
+ * @name test_find_symbol_by_addr
+ * @brief test find symbol by address function
+ * @return void
+ */
 void TEST_symtab::test_find_symbol_by_addr()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name test_find_symbol_by_id
+ * @brief test find symbol by id function
+ * @return void
+ */
 void TEST_symtab::test_find_symbol_by_id()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name test_find_symbol
+ * @brief test find symbol function
+ * @return void
+ */
 void TEST_symtab::test_find_symbol()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name test_find_node
+ * @brief test find node function
+ * @return void
+ */
 void TEST_symtab::test_find_node()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name test_find_tail
+ * @brief test find tail function
+ * @return void
+ */
 void TEST_symtab::test_find_tail()
 {
     CPPUNIT_ASSERT(1 == 1);
 }
 
+/**
+ * @name test_size
+ * @brief test size function
+ * @return void
+ */
 void TEST_symtab::test_size()
 {
     CPPUNIT_ASSERT(1 == 1);
