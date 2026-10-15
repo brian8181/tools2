@@ -73,7 +73,7 @@ $(OBJ)/TEST_tools.o \
 $(OBJ)/TEST_logger.o \
 $(OBJ)/TEST_fileio.o \
 $(OBJ)/TEST_singleton.o \
-$(BBJ)/TEST_symtab.o \
+$(OBJ)/TEST_symtab.o \
 $(OBJ)/TEST_observer_observable.o \
 $(OBJ)/TEST_utest.o
 
@@ -91,12 +91,13 @@ $(BLD)/TEST: $(OBJ_TST)
 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
 	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
 
-$(BLD)/tools: $(BLD)/libtools.a $(BLD)/tools.o
+$(BLD)/tools: $(BLD)/libtools.a $(BLD)/tools.o $(BLD)/string.o 
 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
 	#$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
-	g++ -std=c++17 -Wall -DDEBUG -ggdb -fPIC $(BLD)/tools.o $(BLD)/string.o -o $(BLD)/tools
+	#g++ -std=c++17 -Wall -DDEBUG -ggdb -fPIC $(BLD)/tools.o $(BLD)/string.o -o $(BLD)/tools
 	#g++ -std=c++17 -Wall -DDEBUG -ggdb -fPIC build/libtools.a build/tools.o -o build/tools2
 	#g++ -std=c++17 -Wall -DDEBUG -ggdb -fPIC -lbuild/libtsools.so build/tools.o -o build/tools2
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
 # build object files
 $(OBJ)/%.o: $(SRC)/%.c
