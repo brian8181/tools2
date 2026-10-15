@@ -12,13 +12,17 @@
 using namespace std;
 
 /**
-  * @brief class variant
+  * @class variant
+  * @brief variant class 
   */
 class variant
 {
 public:
-	// signed unsigned
-	// short, int, long, float, double, char, string
+	/**
+	 * @name etype
+	 * @brief signed unsigned
+	 * @brief short, int, long, float, double, char, string
+	 */
 	enum etype
 	{
 		VAR_I4,
@@ -26,28 +30,31 @@ public:
 	};
 
 	/**
-	* @brief : ctor
+	* @brief constructor
+	* @param const long& val
 	*/
 	variant( const long& val ) : m_type(VAR_I4), m_long_val(val)
 	{
 	}
 
 	/**
-	* @brief : ctor
+	* @brief constructor
+	* @param char*& val
 	*/
 	variant( char*& val ) : m_type(VAR_CSTR), m_str_val(val)
 	{
 	}
 
 	/**
-	* @brief : copy ctor
+	* @brief copy constructor
+	* @param const variant& src
 	*/
 	variant( const variant& src )
 	{
 	}
 	
 	/**
-	* @brief : destructor
+	* @brief destructor
 	*/
 	~variant()
 	{
@@ -58,17 +65,29 @@ public:
 	{
 	}
 	
+	/**
+	 * @name long
+	 * @brief conversion operator
+	 */
 	operator long()
 	{
 		return 0;
 	}
 
+	/**
+	 * @name char*
+	 * @brief conversion operator
+	 */
 	operator char*()
 	{
 		int len = std::strlen(m_str_val); 
 		return new char[len+1];
 	}
 
+	/**
+	 * @name operator=
+	 * @brief assignment operator
+	 */
 	void operator=(const variant& src)
 	{
 		clear();
