@@ -187,7 +187,6 @@ void TEST_symtab::test_add_symbol()
     // init a new symbol
     symbol* ps;
     init_symbol(&ps, "one", "const", "int");
-
     // add a symbol
     add_symbol(tab, ps);
 
@@ -211,6 +210,15 @@ void TEST_symtab::test_insert_symbol()
  */
 void TEST_symtab::test_remove_symbol()
 {
+    // get the symbol table
+    symbol_tab* tab = get_stable();
+    // init a new symbol
+    symbol* ps;
+    init_symbol(&ps, "one", "const", "int");
+    // add a symbol
+    add_symbol(tab, ps);
+    //remove_symbol(tab, "one");  
+
     CPPUNIT_ASSERT(1 == 1);
 }
 
@@ -221,6 +229,9 @@ void TEST_symtab::test_remove_symbol()
  */
 void TEST_symtab::test_clear_symbols()
 {
+    // get the symbol table 
+    symbol_tab* tab = get_stable();
+    
     CPPUNIT_ASSERT(1 == 1);
 }
 
@@ -284,5 +295,19 @@ void TEST_symtab::test_find_tail()
  */
 void TEST_symtab::test_size()
 {
-    CPPUNIT_ASSERT(1 == 1);
+    // get the symbol table
+    symbol_tab* tab = get_stable();
+    // init a new symbol
+    symbol* ps;
+    init_symbol(&ps, "one", "const", "int");
+    // add a symbol
+    add_symbol(tab, ps);
+    int sz = size(tab);
+    CPPUNIT_ASSERT(sz == 1);
+
+    init_symbol(&ps, "two", "const", "int");
+    // add a symbol
+    add_symbol(tab, ps);
+    sz = size(tab);
+    CPPUNIT_ASSERT(sz == 2);
 }
