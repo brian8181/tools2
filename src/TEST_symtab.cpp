@@ -138,7 +138,6 @@ void TEST_symtab::test_get_stable()
 {
     // get the symbol table
     symbol_tab* tab = get_stable();
-
     CPPUNIT_ASSERT(tab != 0);
 }
 
@@ -184,13 +183,13 @@ void TEST_symtab::test_init_sub_table()
 void TEST_symtab::test_add_symbol()
 {
     // get the symbol table
-    //symbol_tab* tab = get_stable();
+    symbol_tab* tab = get_stable();
     // init a new symbol
     symbol* ps;
     init_symbol(&ps, "one", "const", "int");
 
     // add a symbol
-    //add_symbol(tab, ps);
+    add_symbol(tab, ps);
 
     CPPUNIT_ASSERT(1 == 1);
 }
@@ -273,7 +272,9 @@ void TEST_symtab::test_find_node()
  */
 void TEST_symtab::test_find_tail()
 {
-    CPPUNIT_ASSERT(1 == 1);
+    symbol_tab* stab = get_stable();
+    node* tail = find_tail(stab);
+    CPPUNIT_ASSERT(tail != 0);
 }
 
 /**

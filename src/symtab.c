@@ -81,6 +81,12 @@ void add_symbol(symbol_tab* stab, symbol* sym)
     new_node->sym = sym;
     // add node / symbol to tail
     node* tail = find_tail(stab);
+    if(tail == 0)
+    {
+        stab->head = new_node;
+        new_node->next = 0;
+        return;
+    }   
     new_node->next = 0;
     tail->next = new_node;
 }
