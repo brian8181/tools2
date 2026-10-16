@@ -3,14 +3,6 @@
 # @date:    Mon Aug 17 09:38:40 AM CDT 2026
 # @version: version 0.0.1
 
-# g++ warnings
-#-Wall -Wextra -Wpedantic -Wshadow -Wconversion -Werror -Wundef
-#-fsanitize=undefined,address -Wfloat-equal -Wformat-nonliteral
-#-Wformat-security -Wformat-y2k -Wformat=2 -Wimport -Winvalid-pch
-#-Wlogical-op -Wmissing-declarations -Wmissing-field-initializers
-#-Wmissing-format-attribute -Wmissing-include-dirs -Wmissing-noreturn
-#-Wnested-externs -Wpacked -Wpointer-arith -Wredundant-decls
-#-Wstack-protector -Wstrict-null-sentinel -Wswitch-enum -Wwrite-strings
 SHELL:=bash
 RED=\033[31m
 GREEN=\033[32m
@@ -28,16 +20,8 @@ TST=build
 
 # lib settings
 #INCLUDES=-I"/home/brian/src/boost_1_91_0" -I./$(SRC) -I./$(BLD) -I./$(TST)
-#INCLUDES=
 LIBS=/usr/local/lib/libcppunit.a
-#LDFLAGS=$(INCLUDES) $(LIBS)
-LDFLAGS= $(LIBS)
-
-all: $(BLD)/libutilcxx.a $(BLD)/libutilcxx.so $(BLD)/TEST $(BLD)/utilcxx $(BLD)/utilcxx2
-	@echo -e "building prequisite -> $^ ... \nbuilding -> $@ ...$(FMT_RESET)"
-	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
-	ls -alF $(BLD)
-	@echo -e "$(GREEN)Build \"$@\" complete ...$(RESET)"
+LDFLAGS=$(INCLUDES) $(LIBS)
 
 OBJS=\
 $(OBJ)/string.o \
@@ -46,6 +30,25 @@ $(OBJ)/utest.o \
 $(OBJ)/variant.o \
 $(OBJ)/logger.o \
 $(OBJ)/symtab.o
+
+OBJ_TST=\
+$(OBJS) \
+$(OBJ)/TEST.o \
+$(OBJ)/TEST_variant.o \
+$(OBJ)/TEST_string.o \
+$(OBJ)/TEST_tools.o \
+$(OBJ)/TEST_logger.o \
+$(OBJ)/TEST_fileio.o \
+$(OBJ)/TEST_singleton.o \
+$(OBJ)/TEST_symtab.o \
+$(OBJ)/TEST_observer_observable.o \
+$(OBJ)/TEST_utest.o
+
+all: $(BLD)/libutilcxx.a $(BLD)/libutilcxx.so $(BLD)/TEST $(BLD)/utilcxx $(BLD)/utilcxx2
+	@echo -e "building prequisite -> $^ ... \nbuilding -> $@ ...$(FMT_RESET)"
+	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
+	ls -alF $(BLD)
+	@echo -e "$(GREEN)Build \"$@\" complete ...$(RESET)"
 
 $(BLD)/libutilcxx.a: $(OBJS)
 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
@@ -59,28 +62,11 @@ $(BLD)/libutilcxx.so: $(OBJS)
 	chmod 755 $@
 	cp $@ ~/src/lib #sudo ldconfig
 
-OBJ_TST= \
-$(OBJ)/TEST.o \
-$(OBJ)/variant.o \
-$(OBJ)/string.o \
-$(OBJ)/logger.o \
-$(OBJ)/fileio.o \
-$(OBJ)/symtab.o \
-$(OBJ)/utest.o \
-$(OBJ)/TEST_variant.o \
-$(OBJ)/TEST_string.o \
-$(OBJ)/TEST_tools.o \
-$(OBJ)/TEST_logger.o \
-$(OBJ)/TEST_fileio.o \
-$(OBJ)/TEST_singleton.o \
-$(OBJ)/TEST_symtab.o \
-$(OBJ)/TEST_observer_observable.o \
-$(OBJ)/TEST_utest.o
-
 $(BLD)/TEST: $(OBJ_TST)
 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
 	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
 
+# target for the executable (linking against the static library)
 $(BLD)/utilcxx: $(BLD)/tools.o $(BLD)/libutilcxx.a  
 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
 	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
