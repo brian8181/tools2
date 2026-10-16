@@ -33,13 +33,13 @@ LIBS=/usr/local/lib/libcppunit.a
 #LDFLAGS=$(INCLUDES) $(LIBS)
 LDFLAGS= $(LIBS)
 
-all: $(BLD)/libtools.a $(BLD)/TEST $(BLD)/tools
+all: $(BLD)/libutilcxx.a $(BLD)/libutilcxx.so $(BLD)/TEST $(BLD)/utilcxx $(BLD)/utilcxx2
 	@echo -e "building prequisite -> $^ ... \nbuilding -> $@ ...$(FMT_RESET)"
 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
 	ls -alF $(BLD)
 	@echo -e "$(GREEN)Build \"$@\" complete ...$(RESET)"
 
-OBJS= \
+OBJS=\
 $(OBJ)/string.o \
 $(OBJ)/fileio.o \
 $(OBJ)/utest.o \
@@ -47,17 +47,17 @@ $(OBJ)/variant.o \
 $(OBJ)/logger.o \
 $(OBJ)/symtab.o
 
-$(BLD)/libtools.a: $(OBJS)
+$(BLD)/libutilcxx.a: $(OBJS)
 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
 	ar rvs $@ $^
 	chmod 755 $@
 	cp $@ ~/src/lib
 
-$(BLD)/libtools.so: $(OBJS)
+$(BLD)/libutilcxx.so: $(OBJS)
 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BLD)/libtools.so
-	chmod 755 $(BLD)/libtools.so
-	cp $(BLD)/libtools.so ~/src/lib
+	$(CXX) -shared -o $@ $^
+	chmod 755 $@
+	cp $@ ~/src/lib #sudo ldconfig
 
 OBJ_TST= \
 $(OBJ)/TEST.o \
@@ -77,28 +77,19 @@ $(OBJ)/TEST_symtab.o \
 $(OBJ)/TEST_observer_observable.o \
 $(OBJ)/TEST_utest.o
 
-OBJS_C= \
-$(OBJ)/util.o \
-$(OBJ)/dns.o \
-$(OBJ)/json.o \
-$(OBJ)/url.o \
-$(OBJ)/md5.o \
-$(OBJ)/sha1.o \
-$(OBJ)/sha256.o \
-$(OBJ)/net.o 
-
 $(BLD)/TEST: $(OBJ_TST)
 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
 	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
 
-$(BLD)/tools: $(BLD)/libtools.a $(BLD)/tools.o $(BLD)/string.o 
+$(BLD)/utilcxx: $(BLD)/tools.o $(BLD)/libutilcxx.a  
 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
-	#$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
-	#g++ -std=c++17 -Wall -DDEBUG -ggdb -fPIC $(BLD)/tools.o $(BLD)/string.o -o $(BLD)/tools
-	#g++ -std=c++17 -Wall -DDEBUG -ggdb -fPIC build/libtools.a build/tools.o -o build/tools2
-	#g++ -std=c++17 -Wall -DDEBUG -ggdb -fPIC -lbuild/libtsools.so build/tools.o -o build/tools2
-	$(CXX) $(CXXFLAGS) $^ -o $@
+	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
 
+# target for the executable (linking against the shared library)
+$(BLD)/utilcxx2: $(BLD)/tools.o $(BLD)/libutilcxx.so
+	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
+	$(CXX) $(CXXFLAGS) $< -L$(BLD) -lutilcxx $(LDFLAGS) -Wl,-rpath,$(BLD) -o $@
+	
 # build object files
 $(OBJ)/%.o: $(SRC)/%.c
 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
@@ -112,10 +103,10 @@ $(OBJ)/%.o: $(SRC)/%.cpp
 rebuild: clean all
 
 install:
-	cp ./$(BLD)/tools ./$(prefix)/bin/tools
+	cp ./$(BLD)/utilcxx ./$(prefix)/bin/utilcxx
 
 uninstall:
-	-rm ./$(prefix)/bin/tools
+	-rm ./$(prefix)/bin/utilcxx
 
 clean:
 	@echo -e "$(RED)Removing files ...$(RESET)"
@@ -131,8 +122,8 @@ help:
 	@echo  '    -Make Targets ...'
 	@echo
 	@echo  '        * all                              - build all'
-	@echo  '        * $(BLD)/tools:                   - re/build tools'
-	@echo  '        * $(BLD)/tools_utest:             - re/build tools_utest, unit testing'
+	@echo  '        * $(BLD)/utilcxx:                 - re/build utilcxx'
+	@echo  '        * $(BLD)/utilcxx2:                - re/build utilcxx2'
 	@echo  '        * clean                            - remove most generated files but keep the config'
 	@echo
 

@@ -231,7 +231,7 @@ void TEST_symtab::test_clear_symbols()
 {
     // get the symbol table 
     symbol_tab* tab = get_stable();
-    
+    //clear_symbols(tab);
     CPPUNIT_ASSERT(1 == 1);
 }
 
