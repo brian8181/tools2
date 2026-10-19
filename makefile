@@ -39,6 +39,9 @@ $(OBJ)/TEST_symtab.o \
 $(OBJ)/TEST_observer_observable.o \
 $(OBJ)/TEST_utest.o
 
+# clang++ json ast dump command
+# clang++ -Xclang -ast-dump=json -fsyntax-only build/symtab.cpp > ast.json
+
 all: $(BLD)/libutilcxx.a $(BLD)/libutilcxx.so $(BLD)/TEST $(BLD)/utilcxx $(BLD)/utilcxx2
 	@echo -e "building prequisite -> $^ ... \nbuilding -> $@ ...$(FMT_RESET)"
 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
@@ -57,10 +60,10 @@ $(BLD)/libutilcxx.so: $(OBJS)
 	chmod 755 $@
 	cp $@ ~/src/lib #sudo ldconfig
 
-$(BLD)/TEST: $(OBJ_TST)
+$(BLD)/TEST: $(OBJ_TST) #$(BLD)/tools.o
 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
 	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
-
+	
 # target for the executable (linking against the static library)
 $(BLD)/utilcxx: $(BLD)/tools.o $(BLD)/libutilcxx.a  
 	@echo -e "$(GREEN)Target -> \"$@: $^$(RESET)"
