@@ -1,0 +1,8 @@
+-g++ warnings
+-Wall -Wextra -Wpedantic -Wshadow -Wconversion -Werror -Wundef
+-fsanitize=undefined,address -Wfloat-equal -Wformat-nonliteral
+-Wformat-security -Wformat-y2k -Wformat=2 -Wimport -Winvalid-pch
+-Wlogical-op -Wmissing-declarations -Wmissing-field-initializers
+-Wmissing-format-attribute -Wmissing-include-dirs -Wmissing-noreturn
+-Wnested-externs -Wpacked -Wpointer-arith -Wredundant-decls
+-Wstack-protector -Wstrict-null-sentinel -Wswitch-enum -Wwrite-strings

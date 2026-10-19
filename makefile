@@ -24,12 +24,7 @@ LIBS=/usr/local/lib/libcppunit.a
 LDFLAGS=$(INCLUDES) $(LIBS)
 
 OBJS=\
-$(OBJ)/string.o \
-$(OBJ)/fileio.o \
-$(OBJ)/utest.o \
-$(OBJ)/variant.o \
-$(OBJ)/logger.o \
-$(OBJ)/symtab.o
+$(OBJ)/string.o $(OBJ)/fileio.o $(OBJ)/utest.o $(OBJ)/variant.o $(OBJ)/logger.o $(OBJ)/symtab.o
 
 OBJ_TST=\
 $(OBJS) \

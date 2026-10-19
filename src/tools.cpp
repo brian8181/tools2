@@ -59,6 +59,20 @@ void print_help()
          												  <<  endl << endl;
 }
 
+union color
+{
+    /** Red component */
+    unsigned char r;
+    /** Green component */
+    unsigned char g;
+    /** Blue component */
+    unsigned char b;
+    /** Alpha component */
+    unsigned char a;
+    /** 32 bit color value */
+    unsigned int value;
+};
+
 int parse_options(int argc, char* argv[])
 {
 	int opt = 0;
@@ -70,6 +84,7 @@ int parse_options(int argc, char* argv[])
 		{
 			case 'h':
 				print_help();
+				return 0;
 			case 'v':
 				print_version();
 				return 0;
@@ -90,8 +105,13 @@ int parse_options(int argc, char* argv[])
     string r;
     to_lower(s, r);
     cout << "r=" << r << endl; 
-
-	return 0;
+    union color c;
+    c.r = 0xFF;
+    c.g = 0x00;
+    c.b = 0x00; 
+    c.a = 0xFF;
+    cout << "color value: 0x" << std::hex << std::setw(8) << std::setfill('0') << c.value << std::dec << endl; 
+    return 0;
 }
 
 #ifndef _WIN32
