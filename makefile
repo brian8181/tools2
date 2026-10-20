@@ -31,7 +31,6 @@ $(OBJS) \
 $(OBJ)/TEST.o \
 $(OBJ)/TEST_variant.o \
 $(OBJ)/TEST_string.o \
-$(OBJ)/TEST_tools.o \
 $(OBJ)/TEST_logger.o \
 $(OBJ)/TEST_fileio.o \
 $(OBJ)/TEST_singleton.o \
