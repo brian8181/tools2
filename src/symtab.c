@@ -143,8 +143,8 @@ void remove_symbol(symbol_tab* stab, const char* id)
  */
 void clear_symbols(symbol_tab* stab)
 {
-    if(stab->head == 0)
-        return;
+    // if(stab->head == 0)
+    //     return;
     node* cur = stab->head;
     while(cur != 0)
     {
@@ -152,6 +152,7 @@ void clear_symbols(symbol_tab* stab)
         free_node(stab, cur);
         cur = next;
     }
+    stab->head = 0;
 }
 
 /**

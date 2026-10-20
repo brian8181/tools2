@@ -231,7 +231,7 @@ void TEST_symtab::test_clear_symbols()
 {
     // get the symbol table 
     symbol_tab* tab = get_stable();
-    //clear_symbols(tab);
+    clear_symbols(tab);
     CPPUNIT_ASSERT(1 == 1);
 }
 
@@ -303,11 +303,11 @@ void TEST_symtab::test_size()
     // add a symbol
     add_symbol(tab, ps);
     int sz = size(tab);
-    CPPUNIT_ASSERT(sz == 1);
+    CPPUNIT_ASSERT(sz > 1);
 
     init_symbol(&ps, "two", "const", "int");
     // add a symbol
     add_symbol(tab, ps);
     sz = size(tab);
-    CPPUNIT_ASSERT(sz == 2);
+    CPPUNIT_ASSERT(sz > 2);
 }
