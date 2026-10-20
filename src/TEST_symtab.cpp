@@ -22,7 +22,7 @@
 #include "symtab.h"
 
 using namespace CppUnit;
-using namespace std;
+using std::string;
 
 CPPUNIT_TEST_SUITE_REGISTRATION( TEST_symtab );
 //int parse_options(int argc, char* argv[]);
@@ -233,6 +233,18 @@ void TEST_symtab::test_clear_symbols()
     symbol_tab* tab = get_stable();
     clear_symbols(tab);
     CPPUNIT_ASSERT(1 == 1);
+}
+
+/**
+ * @name test_is_empty
+ * @brief test is empty function
+ * @return void
+ */
+void TEST_symtab::test_is_empty()
+{
+    // get the symbol table
+    symbol_tab* tab = get_stable();
+    CPPUNIT_ASSERT(is_empty(tab) == 1);
 }
 
 

@@ -237,7 +237,7 @@ node* find_node(symbol_tab* stab, const char* id)
         cur = cur->next;
     }
     return 0;
-}
+}   
 
 /**
  * @brief: find tail node
@@ -271,4 +271,14 @@ int size(symbol_tab* stab)
             k++;
     }
     return k;
+}
+
+/**
+ * @brief: is table empty
+ * @param: symbol_tab* stab
+ * @return: int
+ */
+int is_empty(symbol_tab* stab)
+{
+    return stab->head == 0;
 }

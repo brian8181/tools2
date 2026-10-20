@@ -144,4 +144,11 @@ node* find_tail(symbol_tab* stab);
  */
 int size(symbol_tab* stab);
 
+/**
+ * @brief: is table empty
+ * @param: symbol_tab* stab
+ * @return: int
+ */
+int is_empty(symbol_tab* stab);
+
 #endif

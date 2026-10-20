@@ -31,6 +31,7 @@ private:
     CPPUNIT_TEST(test_find_node);
     CPPUNIT_TEST(test_find_tail);
     CPPUNIT_TEST(test_size);
+    CPPUNIT_TEST(test_is_empty);
     CPPUNIT_TEST_SUITE_END();
 
 public:
@@ -198,6 +199,14 @@ protected:
      * @return void
      */
     void test_size();
+
+    /**
+     * @name test_is_empty
+     * @brief test is empty function
+     * @return void
+     */
+    void test_is_empty();
+
 
 private:
     int m_argc;
