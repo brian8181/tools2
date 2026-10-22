@@ -132,10 +132,7 @@ void TEST_logger::test_logger_open()
     log.log("This is a test message with source.");
     log.log("This is a test message with line number.");
     log.log("This is a test message with source and line number.");
-    // //*log << "This is a test message using operator<<." << std::endl;
-    // *log << 123 << std::endl;
-    // *log << 45.67 << std::endl;
-    // *log << 890L << std::endl;
+    
     CPPUNIT_ASSERT(1 == 1);
 }
 
