@@ -6,7 +6,10 @@
 #ifndef _file_scope_HPP_
 #define _file_scope_HPP_
 #include <iostream>
+#include <string>
 #include "scope.hpp"
+
+using std::string;
 
 /**
   * @brief class file_scope
@@ -19,17 +22,24 @@ public:
 	*/
 	file_scope() = default;
 
-		/**
+	/**
+	 * @brief : constructor with file path
+	 * @param file_path : path to the file
+	 */
+	file_scope(const string& file_path);
+
+	/**
 	* @brief : copy ctor
 	*/
 	file_scope( const file_scope& src ) = default;
 	
-		/**
+	/**
 	* @brief : destructor
 	*/
 	~file_scope() = default;
 	
-private:
+protected:
+	string file_path_;
 };
 
 #endif

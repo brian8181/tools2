@@ -6,6 +6,9 @@
 #ifndef _symbols_HPP_
 #define _symbols_HPP_
 #include <iostream>
+#include <map>
+
+using std::map;
 
 /**
   * @brief class symbols
@@ -28,7 +31,9 @@ public:
 	*/
 	~symbols() = default;
 	
-private:
+protected:
+	map<std::string, std::string> table_;
+
 };
 
 #endif

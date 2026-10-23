@@ -132,22 +132,28 @@ void TEST_fileio::testOptionVerboseLong()
 
 void TEST_fileio::test_file_size() 
 {
-    string file = "../test/test.config";
-    long sz = file_size("../test/test.config");
+    // Resolves to an absolute path like "../test/test.config"
+    string file = get_test_file_path("../test/test.config").string();
+    
+    long sz = file_size(get_test_file_path("../test/test_size.config"));
     cout << file << " = " << sz << " BYTES" << endl;
     CPPUNIT_ASSERT(sz != 0);
 }
 
 void TEST_fileio::test_file_exist() 
 {
-    string file = "../test/test.config";
-    bool exist = file_exist("../test/test.config");
-    CPPUNIT_ASSERT(exist == true);
+    // Resolves to an absolute path like "../test/test.config"
+    string file = get_test_file_path("../test/test.config").string();
+    bool exist = file_exist(file);
+
+    CPPUNIT_ASSERT_MESSAGE("Failed to detect file at absolute path: " + file, exist);
 }
+
 
 void TEST_fileio::test_get_ofstream() 
 { 
-    string file = "../test/test.config";
+    // Resolves to an absolute path like "../test/test.config"
+    string file = get_test_file_path("../test/test.config").string();
     ofstream* strm = 0;
     get_ofstream(file, strm);
     CPPUNIT_ASSERT(strm != 0);
@@ -155,7 +161,8 @@ void TEST_fileio::test_get_ofstream()
 
 void TEST_fileio::test_get_ifstream() 
 { 
-    string file = "../test/test.config";
+    // Resolves to an absolute path like "../test/test.config"
+    string file = get_test_file_path("../test/test.config").string();
     ifstream* strm = 0;
     get_ifstream(file, strm);
     CPPUNIT_ASSERT(strm != 0);
@@ -168,7 +175,8 @@ void TEST_fileio::test_getc()
 
 void TEST_fileio::test_read_char() 
 { 
-    string file = "../test/test_read_char.txt";
+    // Resolves to an absolute path like "../test/test.config"
+    string file = get_test_file_path("../test/test.config").string();
     ifstream* strm = 0;
     get_ifstream(file, strm);
     
@@ -179,7 +187,8 @@ void TEST_fileio::test_read_char()
 
 void TEST_fileio::test_write_char() 
 { 
-    string file = "../test/test_write_char.txt";
+    // Resolves to an absolute path like "../test/test.config"
+    string file = get_test_file_path("../test/test.config").string();
     ofstream* strm = 0;
     get_ofstream(file, strm);
 
@@ -190,7 +199,8 @@ void TEST_fileio::test_write_char()
 
 void TEST_fileio::test_read_buf() 
 {
-    string file = "../test/test_read_buf.txt";
+    // Resolves to an absolute path like "../test/test.config"
+    string file = get_test_file_path("../test/test.config").string();
     unsigned char buffer[1024];
     read_buf(file, buffer, 1024);
     CPPUNIT_ASSERT(1 == 1);
@@ -198,7 +208,8 @@ void TEST_fileio::test_read_buf()
 
 void TEST_fileio::test_write_buf() 
 { 
-    string file = "../test/test_read_buf.txt";
+    // Resolves to an absolute path like "../test/test.config"
+    string file = get_test_file_path("../test/test.config").string();
     //unsigned char buffer[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     //write_buf(file, &buffer[0], 26);
     CPPUNIT_ASSERT(1 == 1);
@@ -206,21 +217,24 @@ void TEST_fileio::test_write_buf()
 
 void TEST_fileio::test_read_str() 
 { 
-    string file = "../test/test_read_str.txt";
+    // Resolves to an absolute path like "../test/test.config"
+    string file = get_test_file_path("../test/test.config").string();
     string str;
     read_str(file, str);
     CPPUNIT_ASSERT(str.length() > 0);
 }
 void TEST_fileio::test_write_str() 
 { 
-    string file = "../test/test_write_str.txt";
+    // Resolves to an absolute path like "../test/test.config"
+    string file = get_test_file_path("../test/test.config").string();
     string out = "Hello World!";
     int ret = write_str(file, out);
     CPPUNIT_ASSERT(ret != 0);
 }
 void TEST_fileio::test_read_sstream() 
 { 
-    string file = "../test/test.config";
+    // Resolves to an absolute path like "../test/test.config"
+    string file = get_test_file_path("../test/test.config").string();
     stringstream ostrm;
     read_sstream(file, ostrm);
     // todo
@@ -236,7 +250,8 @@ void TEST_fileio::test_read_line()
 }
 void TEST_fileio::test_write_line() 
 { 
-    string file = "../test/test_write.txt";
+    // Resolves to an absolute path like "../test/test.config"
+    string file = get_test_file_path("../test/test.config").string();
     stringstream ss;
     ss << "Test1" << endl;
     write_sstream(file, ss);

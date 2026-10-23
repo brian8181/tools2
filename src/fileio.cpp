@@ -17,6 +17,27 @@ using std::ofstream;
 using std::pair;
 using std::stringstream;
 
+#include <filesystem>
+
+namespace fs = std::filesystem;
+
+/**
+ * @brief get the test file path based on the binary location
+ * @param relative_path : relative path to the test file
+ * @return fs::path : full path to the test file    
+ */
+fs::path get_test_file_path(const std::string& relative_path) 
+{
+    // 1. Get full path to the binary (e.g., /home/user/project/build/bin/test_runner)
+    fs::path bin_path = fs::read_symlink("/proc/self/exe");
+    
+    // 2. Get the directory containing the binary
+    fs::path bin_dir = bin_path.parent_path();
+    
+    // 3. Append your relative path and normalize it (resolves "." and "..")
+    return (bin_dir / relative_path).lexically_normal();
+}
+
 /**
  * @brief  get file size
  * @param  const path& : path to file

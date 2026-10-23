@@ -6,7 +6,12 @@
 #ifndef _scope_HPP_
 #define _scope_HPP_
 #include <iostream>
+#include <vector>
+#include <string>
 #include "symbols.hpp"
+
+using std::string;
+using std::vector;
 
 /**
   * @brief class scope
@@ -19,7 +24,7 @@ public:
 	*/
 	scope() = default;
 
-		/**
+	/**
 	* @brief : copy ctor
 	*/
 	scope( const scope& src ) = default;
@@ -29,8 +34,9 @@ public:
 	*/
 	~scope() = default;
 		
-
-private:
+protected:
+	string name_;
+	vector<scope> scopes_;
 	symbols* symbols_;
 };
 

@@ -24,6 +24,13 @@ using std::stringstream;
 using std::ios;
 
 /**
+ * @brief get the test file path based on the binary location
+ * @param relative_path : relative path to the test file
+ * @return fs::path : full path to the test file    
+ */
+fs::path get_test_file_path(const std::string& relative_path);
+
+/**
  * @brief  get file size
  * @param  const path& : path to file
  * @return long: file size
