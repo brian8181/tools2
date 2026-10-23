@@ -8,7 +8,10 @@
 #include <fstream>
 #include <algorithm>
 #include <sstream>
+#include <filesystem>
 #include <string>
+#include <unistd.h>
+#include <limits.h>
 #include "fileio.hpp"
 
 using std::ifstream;
@@ -17,9 +20,39 @@ using std::ofstream;
 using std::pair;
 using std::stringstream;
 
-#include <filesystem>
-
 namespace fs = std::filesystem;
+
+/**
+ * @brief get the test file path based on the binary location
+ */
+fs::path get_binary_path() 
+{
+    try 
+    {
+        // /proc/self/exe always points to the current running executable
+        return fs::read_symlink("/proc/self/exe");
+    } 
+    catch (const fs::filesystem_error& e) 
+    {
+        std::cerr << "Error resolving binary path: " << e.what() << std::endl;
+        return "";
+    }
+}
+
+/**
+ * @brief get the test file path based on the binary location
+ */
+std::string get_binary_path_posix() 
+{
+    char buffer[PATH_MAX];
+    ssize_t len = readlink("/proc/self/exe", buffer, sizeof(buffer) - 1);
+    if (len != -1) 
+    {
+        buffer[len] = '\0';
+        return std::string(buffer);
+    }
+    return "";
+}
 
 /**
  * @brief get the test file path based on the binary location

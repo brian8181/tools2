@@ -12,6 +12,8 @@
 #include <fstream>
 #include <vector>
 #include <filesystem>
+#include <unistd.h>
+#include <limits.h>
 
 
 namespace fs = std::filesystem;
@@ -24,6 +26,16 @@ using std::stringstream;
 using std::ios;
 
 /**
+ * @brief get the test file path based on the binary location
+ */
+fs::path get_binary_path();
+
+/**
+ * @brief get the test file path based on the binary location
+ */
+std::string get_binary_path_posix();
+
+/**#include <limits.h>
  * @brief get the test file path based on the binary location
  * @param relative_path : relative path to the test file
  * @return fs::path : full path to the test file    
