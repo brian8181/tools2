@@ -353,7 +353,10 @@ string& trim(std::string& s)
 
 /**
  * @name rebase
- * @
+ * @brief convert number to string in given base
+ * @param const unsigned int n, number to convert
+ * @param const unsigned int base, base to convert to
+ * @return std::string
  */
 string rebase(const unsigned int n, const unsigned int base)
 {
@@ -370,7 +373,13 @@ string rebase(const unsigned int n, const unsigned int base)
 }
 
 /**
- * 
+ * @name split
+ * @brief split string by delimiter
+ * @param InputIt first, iterator to first element
+ * @param InputIt last, iterator to last element
+ * @param const T& delim, delimiter
+ * @param FunT output, output function
+ * @return void
  */
 template<class InputIt, class T, class FunT>
 void split(InputIt first, InputIt last, const T& delim, FunT output)
@@ -386,7 +395,11 @@ void split(InputIt first, InputIt last, const T& delim, FunT output)
 }
 
 /**
- * 
+ * @name split
+ * @brief split string by delimiter
+ * @param const std::string& s, string to split
+ * @param char c, delimiter
+ * @return std::vector<std::string>
  */
 std::vector<std::string> split(const std::string& s, char c)
 {
