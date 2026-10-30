@@ -32,7 +32,15 @@ public:
 		/**
 	* @brief : destructor
 	*/
-	~scope() = default;
+	virtual ~scope() = default;
+
+	/**
+	 * @brief : add a scope to the current scope
+	 * @param s : scope to add
+	 * @return void	
+	 */
+	void add_scope(const scope& s);
+	
 		
 protected:
 	string name_;

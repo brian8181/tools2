@@ -297,8 +297,20 @@ void TEST_symtab::test_find_node()
 void TEST_symtab::test_find_tail()
 {
     symbol_tab* stab = get_stable();
+    // clear the symbol table & add a couple of symbols
+    clear_symbols(stab);
+    symbol* ps;
+    init_symbol(&ps, "one", "const", "int");
+    // add a symbol
+    add_symbol(stab, ps);
     node* tail = find_tail(stab);
-    CPPUNIT_ASSERT(tail != 0);
+    CPPUNIT_ASSERT(tail->sym == ps);
+        
+    init_symbol(&ps, "two", "const", "int");
+    // add a symbol
+    add_symbol(stab, ps);
+    tail = find_tail(stab);
+    CPPUNIT_ASSERT(tail->sym == ps);
 }
 
 /**
