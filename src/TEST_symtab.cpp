@@ -23,6 +23,8 @@
 
 using namespace CppUnit;
 using std::string;
+using std::cout;
+using std::endl;
 
 CPPUNIT_TEST_SUITE_REGISTRATION( TEST_symtab );
 //int parse_options(int argc, char* argv[]);
@@ -34,6 +36,16 @@ CPPUNIT_TEST_SUITE_REGISTRATION( TEST_symtab );
  */
 void TEST_symtab::setUp()
 {
+    symbol_tab* stab = get_stable();
+    // clear the symbol table & add a couple of symbols
+    clear_symbols(stab);
+    symbol* ps;
+    init_symbol(&ps, "one", "const", "int");
+    add_symbol(stab, ps);
+    init_symbol(&ps, "two", "const", "int");
+    add_symbol(stab, ps);
+    init_symbol(&ps, "three", "const", "int");
+    add_symbol(stab, ps);
 }
 
 /**
@@ -256,7 +268,16 @@ void TEST_symtab::test_is_empty()
  */
 void TEST_symtab::test_find_symbol_by_addr()
 {
-    CPPUNIT_ASSERT(1 == 1);
+    symbol_tab* stab = get_stable();
+    symbol* ps;
+    init_symbol(&ps, "one", "const", "int");
+    add_symbol(stab, ps);
+    symbol* found = find_symbol_by_addr(stab, ps);
+    cout << endl;
+    cout << "Search symbol: " << ps << endl;
+    cout << "Found symbol: " << found << endl;
+    CPPUNIT_ASSERT(found != 0);
+    CPPUNIT_ASSERT(found == ps);
 }
 
 /**
@@ -266,7 +287,16 @@ void TEST_symtab::test_find_symbol_by_addr()
  */
 void TEST_symtab::test_find_symbol_by_id()
 {
-    CPPUNIT_ASSERT(1 == 1);
+    symbol_tab* stab = get_stable();
+    symbol* ps;
+    init_symbol(&ps, "one", "const", "int");
+    add_symbol(stab, ps);
+    symbol* found = find_symbol_by_id(stab, "one");
+    cout << endl;
+    cout << "Search symbol: " << ps << endl;
+    cout << "Found symbol: " << found << endl;
+    CPPUNIT_ASSERT(found != 0);
+    CPPUNIT_ASSERT(found == ps);
 }
 
 /**
@@ -276,7 +306,29 @@ void TEST_symtab::test_find_symbol_by_id()
  */
 void TEST_symtab::test_find_symbol()
 {
-    CPPUNIT_ASSERT(1 == 1);
+    symbol_tab* stab = get_stable();
+    // clear the symbol table & add a couple of symbols
+    clear_symbols(stab);
+    symbol* ps;
+    init_symbol(&ps, "one", "const", "int");
+    // add a symbol
+    add_symbol(stab, ps);
+    
+    symbol* found = find_symbol_by_val(stab, ps->pval);
+    CPPUNIT_ASSERT(found == ps);
+    //found = find_symbol_by_val(stab, ps->pval);
+    CPPUNIT_ASSERT(found == nullptr);
+    //found = find_symbol_by_val(stab, ps->pval);
+    CPPUNIT_ASSERT(found == nullptr);
+
+    init_symbol(&ps, "two", "const", "int");
+    // add a symbol
+    add_symbol(stab, ps);
+
+    init_symbol(&ps, "three", "const", "int");
+    // add a symbol
+    add_symbol(stab, ps);
+    
 }
 
 /**
@@ -286,7 +338,15 @@ void TEST_symtab::test_find_symbol()
  */
 void TEST_symtab::test_find_node()
 {
-    CPPUNIT_ASSERT(1 == 1);
+    symbol_tab* stab = get_stable();
+    // clear the symbol table & add a couple of symbols
+    clear_symbols(stab);
+    symbol* ps;
+    init_symbol(&ps, "one", "const", "int");
+    // add a symbol
+    add_symbol(stab, ps);
+    // node* found = find_node(stab, "one");
+    // CPPUNIT_ASSERT(found->sym == ps);
 }
 
 /**

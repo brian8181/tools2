@@ -41,7 +41,14 @@ public:
 	 */
 	void add_scope(const scope& s);
 	
-		
+	/**
+	 * @brief : remove a scope from the current scope
+	 * @param s : scope to remove
+	 * @return void
+	 */
+	void remove_scope(const scope& s);
+	
+	
 protected:
 	string name_;
 	vector<scope> scopes_;

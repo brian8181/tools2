@@ -1,5 +1,5 @@
 /**
- * @file    scope.hpp
+ * @file    scope.cpp
  * @version 0.0.1
  * @date    Thu, 22 Oct 2026 15:44:25 +0000
  */
@@ -14,3 +14,13 @@ void scope::add_scope(const scope& s)
 {
     scopes_.push_back(s);
 }	
+
+/**
+ * @brief : remove a scope from the current scope
+ * @param s : scope to remove
+ * @return void
+ */
+void scope::remove_scope(const scope& s)
+{
+    //scopes_.erase(std::remove(scopes_.begin(), scopes_.end(), s), scopes_.end());
+}

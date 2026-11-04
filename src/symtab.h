@@ -91,6 +91,7 @@ void insert_symbol(symbol_tab* stab, const char* dst_id, const char* src_id, con
  * @return: void
  */
 void remove_symbol(symbol_tab* stab, const char* id);
+
 /*
  * @brief: remove all symbols
  * @param: symbol_tab* stab
@@ -115,12 +116,12 @@ symbol* find_symbol_by_addr(symbol_tab* stab, symbol* sym);
 symbol* find_symbol_by_id(symbol_tab* stab, const char* id);
 
 /**
- * @brief: find symbol by id
+ * @brief: find symbol by value
  * @param: symbol_tab* stab
- * @param: const char* id
+ * @param: void* val
  * @return: symbol*
  */
-symbol* find_symbol(symbol_tab* stab, const char* id);
+symbol* find_symbol_by_val(symbol_tab* stab, void* val);
 
 /**
  * @brief: find node by id

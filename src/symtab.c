@@ -190,7 +190,7 @@ symbol* find_symbol_by_id(symbol_tab* stab, const char* id)
     while(cur->next != 0)
     {
         symbol* s = cur->sym;
-        if(strcmp((char*)s->pval, id))
+        if(strcmp((char*)s->id, id))
             return s;
         cur = cur->next;
     }
@@ -198,12 +198,12 @@ symbol* find_symbol_by_id(symbol_tab* stab, const char* id)
 }
 
 /**
- * @brief: find symbol by id
+ * @brief: find symbol by value
  * @param: symbol_tab* stab
- * @param: const char* id
+ * @param: void* val
  * @return: symbol*
  */
-symbol* find_symbol(symbol_tab* stab, const char* id)
+symbol* find_symbol_by_val(symbol_tab* stab, void* val)
 {
     if(stab->head == 0)
         return 0;
@@ -211,7 +211,7 @@ symbol* find_symbol(symbol_tab* stab, const char* id)
     while(cur->next != 0)
     {
         symbol* s = cur->sym;
-        if(strcmp((char*)s->pval, id))
+        if(s->pval == val)
             return s;
         cur = cur->next;
     }
@@ -232,7 +232,7 @@ node* find_node(symbol_tab* stab, const char* id)
     while(cur->next != 0)
     {
         symbol* s = cur->sym;
-        if(strcmp((char*)s->pval, id))
+        if(strcmp((char*)s->id, id))
             return cur;
         cur = cur->next;
     }
