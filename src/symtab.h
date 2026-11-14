@@ -62,9 +62,10 @@ void init_symbol(symbol** s, const char* id, const char* type_modifiers, const c
 /**
  * @brief: intitialize sub-tbale
  * @param: symbol_tab* parent
+ * @param: symbol_tab** sub_table
  * @return: void
  */
-void init_sub_table(symbol_tab* parent);
+void init_sub_table(symbol_tab* parent, symbol_tab** sub_table);
 
 /**
  * @brief: add symbol

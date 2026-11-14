@@ -62,11 +62,12 @@ void init_symbol(symbol** s, const char* id, const char* type_modifiers, const c
  * @param: symbol_tab* parent
  * @return: void
  */
-void init_sub_table(symbol_tab* parent)
+void init_sub_table(symbol_tab* parent, symbol_tab** sub_table)
 {
     symbol_tab* symtab = (symbol_tab*)malloc( sizeof(symbol_tab) );
     symtab->head = 0;
     symtab->parent = parent;
+    *sub_table = symtab;
 }
 
 /**
@@ -143,8 +144,6 @@ void remove_symbol(symbol_tab* stab, const char* id)
  */
 void clear_symbols(symbol_tab* stab)
 {
-    // if(stab->head == 0)
-    //     return;
     node* cur = stab->head;
     while(cur != 0)
     {
@@ -190,7 +189,7 @@ symbol* find_symbol_by_id(symbol_tab* stab, const char* id)
     while(cur->next != 0)
     {
         symbol* s = cur->sym;
-        if(strcmp((char*)s->id, id))
+        if(strcmp((char*)s->id, id) == 0)
             return s;
         cur = cur->next;
     }
@@ -232,7 +231,7 @@ node* find_node(symbol_tab* stab, const char* id)
     while(cur->next != 0)
     {
         symbol* s = cur->sym;
-        if(strcmp((char*)s->id, id))
+        if(strcmp((char*)s->id, id) == 0)
             return cur;
         cur = cur->next;
     }

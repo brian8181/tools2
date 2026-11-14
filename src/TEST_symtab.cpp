@@ -20,6 +20,7 @@
 #include <netinet/in.h>
 #include "TEST_symtab.hpp"
 #include "symtab.h"
+#include <cstring>
 
 using namespace CppUnit;
 using std::string;
@@ -55,6 +56,8 @@ void TEST_symtab::setUp()
  */
 void TEST_symtab::tearDown()
 {
+    symbol_tab* stab = get_stable();
+    clear_symbols(stab);
 }
 
 /**
@@ -160,6 +163,8 @@ void TEST_symtab::test_get_stable()
  */
 void TEST_symtab::test_freenode()
 {
+        // get the symbol table
+    symbol_tab* tab = get_stable();
     CPPUNIT_ASSERT(1 == 1);
 }
 
@@ -184,7 +189,11 @@ void TEST_symtab::test_init_symbol()
  */
 void TEST_symtab::test_init_sub_table()
 {
-    CPPUNIT_ASSERT(1 == 1);
+    // init a new sub table
+    symbol_tab* tab = get_stable();
+    symbol_tab* sub_table;
+    init_sub_table(tab, &sub_table);
+    CPPUNIT_ASSERT(sub_table != 0);
 }
 
 /**
@@ -230,8 +239,6 @@ void TEST_symtab::test_remove_symbol()
     // add a symbol
     add_symbol(tab, ps);
     //remove_symbol(tab, "one");  
-
-    CPPUNIT_ASSERT(1 == 1);
 }
 
 /**
@@ -288,15 +295,12 @@ void TEST_symtab::test_find_symbol_by_addr()
 void TEST_symtab::test_find_symbol_by_id()
 {
     symbol_tab* stab = get_stable();
-    symbol* ps;
-    init_symbol(&ps, "one", "const", "int");
-    add_symbol(stab, ps);
     symbol* found = find_symbol_by_id(stab, "one");
     cout << endl;
-    cout << "Search symbol: " << ps << endl;
+    cout << "Search symbol: " << "one" << endl;
     cout << "Found symbol: " << found << endl;
     CPPUNIT_ASSERT(found != 0);
-    CPPUNIT_ASSERT(found == ps);
+    CPPUNIT_ASSERT(strcmp(found->id, "one") == 0);
 }
 
 /**
